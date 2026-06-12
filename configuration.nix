@@ -195,10 +195,10 @@
     "en_US.UTF-8/UTF-8"
     "ja_JP.UTF-8/UTF-8"
   ];
-  services.displayManager.ly = {
-    enable = true;
-    x11Support = false; # Set to false if you are strictly using Wayland
-  };
+  # services.displayManager.ly = {
+  #   enable = true;
+  #   x11Support = false; # Set to false if you are strictly using Wayland
+  # };
   # Install the fish package
   programs.fish = {
     enable = true;

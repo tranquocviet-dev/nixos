@@ -60,6 +60,7 @@
     mint-x-icons
   ];
   programs.niri.enable = true;
+  programs.noctalia-greeter.enable = true;
   programs.npm.enable = true;
   programs.labwc.enable = true;
   programs.mangowc.enable = true;

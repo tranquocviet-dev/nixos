@@ -221,6 +221,19 @@
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1780749050,
+        "narHash": "sha256-G5B1h4sOH4DN/RZ85xYi6zPm2MHdOrNMeUmMslZ28Qs=",
+        "rev": "a799d3e3886da994fa307f817a6bc705ae538eeb",
+        "type": "tarball",
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1011622.a799d3e3886d/nixexprs.tar.xz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+      }
+    },
     "noctalia": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -239,13 +252,32 @@
         "type": "github"
       }
     },
+    "noctalia-greeter": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1781263499,
+        "narHash": "sha256-LCIs/xZvR3RFItZQc38oOGMCKw3/tYlARmorI7j/+CU=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "rev": "626a54e0f8f912d31085298e9aa63e19925020e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "hjem": "hjem",
         "home-manager": "home-manager",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
-        "noctalia": "noctalia"
+        "noctalia": "noctalia",
+        "noctalia-greeter": "noctalia-greeter"
       }
     }
   },
