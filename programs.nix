@@ -12,7 +12,6 @@
     xwayland
     xwayland-satellite
     adw-gtk3
-    gnome-tweaks
     git
     killall
     # apps
@@ -41,7 +40,6 @@
     mpv
     feh
     alacritty
-    nwg-look
     fastfetch
     vesktop
     ps_mem
