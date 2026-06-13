@@ -7,6 +7,7 @@
     nixd
     lua-language-server
     # services
+    nautilus-open-any-terminal
     tk
     vips
     xwayland
