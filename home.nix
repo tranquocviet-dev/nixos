@@ -1,5 +1,8 @@
 { pkgs, ... }: {
   home.stateVersion = "26.05";
+  home.packages = [
+    pkgs.devenv
+  ];
   # 2. Configure GTK
   gtk = {
     enable = true;

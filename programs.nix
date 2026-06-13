@@ -16,7 +16,6 @@
     killall
     # apps
     tuxedo
-    uv
     gpu-screen-recorder
     obsidian
     qimgv
