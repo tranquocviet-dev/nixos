@@ -11,6 +11,10 @@
           line-number = "relative"
           [editor.file-picker]
           hidden = true
+          [editor.whitespace.render]
+          space = "all"
+          tab = "all"
+          newline = "none"
         '';
         ".config/helix/languages.toml".text = ''
             [language-server.pyright]
