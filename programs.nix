@@ -17,6 +17,7 @@
     git
     killall
     # apps
+    losslesscut-bin
     tuxedo
     gpu-screen-recorder
     obsidian
