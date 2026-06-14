@@ -17,6 +17,12 @@
           newline = "none"
         '';
         ".config/helix/languages.toml".text = ''
+            [language-server.ccls]
+            command = "ccls"
+
+            [[language]]
+            name = "c"
+            language-servers = ["ccls"]
             [language-server.pyright]
             command = "pyright"
 

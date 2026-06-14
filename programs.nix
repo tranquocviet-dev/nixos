@@ -2,12 +2,13 @@
 {
   environment.systemPackages = with pkgs; [
     # lsp
+    ccls
     marksman
     pyright
     nixd
     lua-language-server
     # services
-    nautilus-open-any-terminal
+    nautilus-python
     tk
     vips
     xwayland
@@ -58,6 +59,10 @@
     mint-x-icons
   ];
   programs.niri.enable = true;
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "kitty";
+  };
   programs.noctalia-greeter.enable = true;
   programs.npm.enable = true;
   programs.labwc.enable = true;
