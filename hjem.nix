@@ -6,7 +6,7 @@
       directory = "/home/dice"; # where the user's $HOME resides
       files = {
         ".config/helix/config.toml".text = ''
-          theme = "nord"
+          theme = "noctalia"
           [editor]
           line-number = "relative"
           [editor.file-picker]
