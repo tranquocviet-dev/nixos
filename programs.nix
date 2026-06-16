@@ -17,6 +17,8 @@
     git
     killall
     # apps
+    woeusb-ng
+    steamtinkerlaunch
     bottles
     losslesscut-bin
     tuxedo
