@@ -17,6 +17,7 @@
     git
     killall
     # apps
+    bottles
     losslesscut-bin
     tuxedo
     gpu-screen-recorder
