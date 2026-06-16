@@ -17,6 +17,7 @@
     git
     killall
     # apps
+    proton-ge-bin
     bottles
     losslesscut-bin
     tuxedo
