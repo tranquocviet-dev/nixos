@@ -134,6 +134,9 @@
   system.stateVersion = "25.11"; # Did you read the comment?
   programs.xwayland.enable = true;
   programs.steam.enable = true;
+  programs.steam.extraCompatPackages = with pkgs; [
+    proton-ge-bin
+  ];
   environment.variables.EDITOR = "emacs";
   environment.variables.SUDO_EDITOR = "emacs";
   system.activationScripts.binbash = {
