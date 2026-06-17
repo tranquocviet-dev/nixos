@@ -18,8 +18,16 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
-
-
+  boot.loader.grub.splashImage = ./nixoswall.jpg;
+  boot.loader.grub.extraEntries = ''
+    menuentry "Fedora" --class fedora --class os {
+      insmod part_gpt
+      insmod ext2
+      insmod fat
+      search --no-floppy --fs-uuid --set=root DCAB-9236
+      chainloader /EFI/fedora/grubx64.efi
+    }
+  '';
 
   # Bootloader.
   # boot.loader = {
