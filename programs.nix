@@ -19,7 +19,7 @@
     git
     killall
     # apps
-    libreoffice-bin
+    libreoffice
     bottles
     losslesscut-bin
     tuxedo
