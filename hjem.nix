@@ -23,6 +23,13 @@
             [[language]]
             name = "c"
             language-servers = ["ccls"]
+
+            [language-server.superhtml]
+            command = "superhtml"
+
+            [[language]]
+            name = "html"
+            language-servers = ["superhtml"]
             [language-server.pyright]
             command = "pyright"
 

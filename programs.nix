@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # lsp
+    superhtml
     ccls
     marksman
     pyright
