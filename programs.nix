@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # lsp
+    vscode-css-languageserver
     superhtml
     ccls
     marksman
@@ -18,8 +19,7 @@
     git
     killall
     # apps
-    woeusb-ng
-    steamtinkerlaunch
+    libreoffice-bin
     bottles
     losslesscut-bin
     tuxedo
