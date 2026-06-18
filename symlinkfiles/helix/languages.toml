@@ -2,6 +2,7 @@
 command = "ccls"
 
 [[language]]
+indent = { tab-width = 4, unit = " " }
 name = "c"
 language-servers = ["ccls"]
 
@@ -9,13 +10,16 @@ language-servers = ["ccls"]
 command = "superhtml"
 
 [[language]]
+indent = { tab-width = 4, unit = " " }
 name = "html"
 language-servers = ["superhtml"]
+
 [language-server.pyright]
 command = "pyright"
 
 [[language]]
 name = "python"
+indent = { tab-width = 4, unit = " " }
 language-servers = [ "pyright" ]
 
 
@@ -24,4 +28,5 @@ command = "nixd"
 
 [[language]]
 name = "nix"
+indent = { tab-width = 4, unit = " " }
 language-servers = [ "nixd" ]
