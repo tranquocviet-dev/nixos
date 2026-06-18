@@ -19,7 +19,7 @@
     git
     killall
     # apps
-    tauon
+    strawberry
     upscayl
     upscayl-ncnn
     libreoffice
