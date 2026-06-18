@@ -20,6 +20,7 @@
     killall
     # apps
     thokr
+    vicinae
     rhythmbox
     upscayl
     upscayl-ncnn
