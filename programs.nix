@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    thokr
     rhythmbox
     upscayl
     upscayl-ncnn
