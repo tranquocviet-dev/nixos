@@ -2,6 +2,7 @@
   home.stateVersion = "26.05";
   home.packages = [
     pkgs.devenv
+    adwaita-icon-theme
   ];
   # 2. Configure GTK
   gtk = {
@@ -15,8 +16,8 @@
     
     # Optional: Set your icons and cursors
     iconTheme = {
-      name = "breeze-dark";
-      package = pkgs.kdePackages.breeze-icons;
+      name = "Adwaita-dark";
+      package = pkgs.adwaita-icon-theme;
     };
   };
 }
