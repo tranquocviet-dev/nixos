@@ -1,0 +1,27 @@
+[language-server.ccls]
+command = "ccls"
+
+[[language]]
+name = "c"
+language-servers = ["ccls"]
+
+[language-server.superhtml]
+command = "superhtml"
+
+[[language]]
+name = "html"
+language-servers = ["superhtml"]
+[language-server.pyright]
+command = "pyright"
+
+[[language]]
+name = "python"
+language-servers = [ "pyright" ]
+
+
+[language-server.nixd]
+command = "nixd"
+
+[[language]]
+name = "nix"
+language-servers = [ "nixd" ]
