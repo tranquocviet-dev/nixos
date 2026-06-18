@@ -30,7 +30,3 @@ command = "nixd"
 name = "nix"
 indent = { tab-width = 4, unit = " " }
 language-servers = [ "nixd" ]
-
-[[language]]
-name = "text"
-indent = { tab-width = 4, unit = " " }
