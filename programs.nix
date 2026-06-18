@@ -19,7 +19,7 @@
     git
     killall
     # apps
-    strawberry
+    rhythmbox
     upscayl
     upscayl-ncnn
     libreoffice
