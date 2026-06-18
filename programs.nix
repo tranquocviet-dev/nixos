@@ -6,7 +6,7 @@
     superhtml
     ccls
     marksman
-    pyright
+    ruff
     nixd
     lua-language-server
     # services

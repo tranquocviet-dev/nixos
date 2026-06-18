@@ -14,13 +14,13 @@ indent = { tab-width = 4, unit = " " }
 name = "html"
 language-servers = ["superhtml"]
 
-[language-server.pyright]
-command = "pyright"
+[language-server.ruff]
+command = "ruff"
 
 [[language]]
 name = "python"
 indent = { tab-width = 4, unit = " " }
-language-servers = [ "pyright" ]
+language-servers = [ "ruff" ]
 
 
 [language-server.nixd]
