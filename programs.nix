@@ -6,6 +6,7 @@
     superhtml
     ccls
     marksman
+    ruff
     nixd
     lua-language-server
     # services
@@ -65,7 +66,6 @@
     mint-x-icons
   ];
   programs.niri.enable = true;
-  programs.ruff.enable = true;
   programs.nautilus-open-any-terminal = {
     enable = true;
     terminal = "kitty";
