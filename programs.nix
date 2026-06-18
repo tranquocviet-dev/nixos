@@ -54,7 +54,6 @@
     fastfetch
     vesktop
     ps_mem
-    pcmanfm
     obs-studio
     pandoc
     # fonts and themes and icons
