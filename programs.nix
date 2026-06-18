@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    tauon
     upscayl
     upscayl-ncnn
     libreoffice

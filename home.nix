@@ -3,6 +3,7 @@
   home.packages = [
     pkgs.devenv
     pkgs.adwaita-icon-theme
+    pkgs.papirus-icon-theme
   ];
   # 2. Configure GTK
   gtk = {
@@ -16,8 +17,8 @@
     
     # Optional: Set your icons and cursors
     iconTheme = {
-      name = "Adwaita-dark";
-      package = pkgs.adwaita-icon-theme;
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
     };
   };
 }
