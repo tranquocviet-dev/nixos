@@ -19,6 +19,8 @@
     git
     killall
     # apps
+    upscayl
+    upscayl-ncnn
     libreoffice
     bottles
     losslesscut-bin
