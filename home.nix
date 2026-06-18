@@ -2,7 +2,7 @@
   home.stateVersion = "26.05";
   home.packages = [
     pkgs.devenv
-    adwaita-icon-theme
+    pkgs.adwaita-icon-theme
   ];
   # 2. Configure GTK
   gtk = {
