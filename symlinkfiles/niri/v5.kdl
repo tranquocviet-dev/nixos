@@ -65,5 +65,3 @@ environment {
     "SDL_IM_MODULE" "fcitx"
     "GLFW_IM_MODULE" "fcitx"
 }
-
-spawn-at-startup "vicinae server"
