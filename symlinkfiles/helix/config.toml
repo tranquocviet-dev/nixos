@@ -8,3 +8,5 @@ hidden = true
 space = "all"
 tab = "all"
 newline = "none"
+[keys.normal]
+space.s = [":set autoformat false", ":w"]
