@@ -9,7 +9,7 @@ space = "all"
 tab = "all"
 newline = "none"
 [keys.normal]
-space.s = [":set autoformat false", ":w"]
+space.s = [":indent-style 4", ":w"]
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
