@@ -10,3 +10,7 @@ tab = "all"
 newline = "none"
 [keys.normal]
 space.s = [":set autoformat false", ":w"]
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
