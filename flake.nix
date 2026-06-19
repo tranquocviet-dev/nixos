@@ -26,7 +26,9 @@
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.dice = import ./home.nix;
+          home-manager.users.dice = {
+            imports = [ ./home.nix ];
+          };
         }
         # ... other modules
         ./noctalia-greeter.nix
@@ -37,9 +39,6 @@
         ./nixgaming.nix
         ./hjem.nix
       ];
-    };
-    homeConfigurations.dice = home-manager.lib.homeManagerConfiguration {
-      modules = [ ./home.nix ];
     };
   };
 }
