@@ -18,7 +18,8 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.splashImage = ./nixoswall.jpg;
+  boot.loader.grub.splashImage = ./background.png;
+  boot.loader.grub.splashMode = "normal";
   boot.loader.grub.extraEntries = ''
     menuentry "Fedora" --class fedora --class os {
       insmod part_gpt
