@@ -67,7 +67,6 @@
     mint-x-icons
   ];
   programs.niri.enable = true;
-  programs.vicinae.enable = true;
   programs.nautilus-open-any-terminal = {
     enable = true;
     terminal = "kitty";

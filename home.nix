@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   home.stateVersion = "26.05";
   home.packages = [
+    pkgs.vicinae
     pkgs.devenv
     pkgs.adwaita-icon-theme
     pkgs.papirus-icon-theme
@@ -21,4 +22,5 @@
       package = pkgs.papirus-icon-theme;
     };
   };
+  programs.vicinae.enable = true;
 }
