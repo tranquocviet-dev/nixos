@@ -38,5 +38,8 @@
         ./hjem.nix
       ];
     };
+    homeConfigurations.dice = home-manager.lib.homeManagerConfiguration {
+      modules = [ ./home.nix ];
+    };
   };
 }
