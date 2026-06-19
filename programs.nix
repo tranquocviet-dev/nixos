@@ -91,11 +91,6 @@
   };
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
-    
-    victor-mono
-    nerd-fonts.gohufont
-    nerd-fonts.iosevka
-    iosevka
     sarasa-gothic
     maple-mono.NF-CN
     maple-mono.NF
