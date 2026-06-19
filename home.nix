@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   home.username = "dice";
   home.homeDirectory = "/home/dice";
   home.stateVersion = "26.05";
@@ -30,5 +30,14 @@
       enable = true;
       autoStart = true;
     };
+  };
+  home.file.".config/niri/v5.kdl" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri/v5.kdl";
+  };
+  home.file.".config/helix/config.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/config.toml";
+  };
+  home.file.".config/helix/languages.toml" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/languages.toml";
   };
 }

@@ -6,11 +6,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hjem = {
-      url = "github:feel-co/hjem";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     noctalia = {
       url = "github:noctalia-dev/noctalia";
     };
@@ -37,7 +32,6 @@
         ./hardware-configuration.nix
         ./programs.nix
         ./nixgaming.nix
-        ./hjem.nix
       ];
     };
     homeConfigurations = {
