@@ -22,5 +22,11 @@
       package = pkgs.papirus-icon-theme;
     };
   };
-  programs.vicinae.enable = true;
+  programs.vicinae = {
+    enable = true;
+    systemd = {
+      enable = true;
+      autoStart = true;
+    };
+  };
 }
