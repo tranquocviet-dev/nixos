@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    godot
     thokr
     rhythmbox
     upscayl
