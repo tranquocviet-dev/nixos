@@ -18,7 +18,7 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
-  boot.loader.grub.splashImage = ./background.png;
+  boot.loader.grub.splashImage = ./saber1080p.jpg;
   boot.loader.grub.splashMode = "normal";
   boot.loader.grub.extraEntries = ''
     menuentry "Fedora" --class fedora --class os {
