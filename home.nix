@@ -1,4 +1,5 @@
 { pkgs, ... }: {
+  home.username = "dice";
   home.stateVersion = "26.05";
   home.packages = [
     pkgs.vicinae
