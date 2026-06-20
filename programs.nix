@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    pywalfox-native
     godot
     thokr
     rhythmbox
