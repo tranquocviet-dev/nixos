@@ -19,7 +19,6 @@
     git
     killall
     # apps
-    tukai
     pywalfox-native
     godot
     thokr
@@ -49,7 +48,6 @@
     btop
     lshw
     foot
-    osu-lazer-bin
     mpv
     feh
     alacritty
