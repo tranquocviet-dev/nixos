@@ -58,6 +58,8 @@
     pandoc
     # fonts and themes and icons
     # Essential for rendering Japanese text correctly
+    victor-mono
+    sarasa-gothic
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     # Useful optional Japanese fonts
@@ -92,8 +94,6 @@
   };
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
-    sarasa-gothic
-    victor-mono
     maple-mono.NF-CN
     maple-mono.NF
   ];
