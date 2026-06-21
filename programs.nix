@@ -93,6 +93,7 @@
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     sarasa-gothic
+    victor-mono
     maple-mono.NF-CN
     maple-mono.NF
   ];
