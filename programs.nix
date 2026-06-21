@@ -58,6 +58,7 @@
     pandoc
     # fonts and themes and icons
     # Essential for rendering Japanese text correctly
+    nerd-fonts.monaspace
     victor-mono
     sarasa-gothic
     noto-fonts-cjk-sans
