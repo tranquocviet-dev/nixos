@@ -31,13 +31,15 @@
       autoStart = true;
     };
   };
-  home.file.".config/niri/v5.kdl" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri/v5.kdl";
-  };
-  home.file.".config/helix/config.toml" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/config.toml";
-  };
-  home.file.".config/helix/languages.toml" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/languages.toml";
+  home.file = {
+    ".config/niri/v5.kdl" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri/v5.kdl";
+    };
+    ".config/helix/config.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/config.toml";
+    };
+    ".config/helix/languages.toml" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/languages.toml";
+    };
   };
 }

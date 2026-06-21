@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    tukai
     pywalfox-native
     godot
     thokr
