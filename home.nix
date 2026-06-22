@@ -11,7 +11,7 @@
   # 2. Configure GTK
   gtk = {
     enable = true;
-    
+    font.name = "Iosevka NF";
     # 3. Set the theme name (exact name of the theme folder)
     theme = {
       name = "adw-gtk3-dark";
