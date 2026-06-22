@@ -19,7 +19,6 @@
     git
     killall
     # apps
-    winboat
     pywalfox-native
     godot
     thokr
