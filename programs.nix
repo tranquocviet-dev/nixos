@@ -58,7 +58,9 @@
     pandoc
     # fonts and themes and icons
     # Essential for rendering Japanese text correctly
+    roboto
     nerd-fonts.iosevka
+    nerd-fonts.roboto-mono
     sarasa-gothic
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
