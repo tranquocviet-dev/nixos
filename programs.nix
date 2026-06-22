@@ -91,6 +91,7 @@
     ];
   };
   fonts.enableDefaultPackages = true;
+  fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
     maple-mono.NF-CN
     maple-mono.NF
