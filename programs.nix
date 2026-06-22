@@ -58,14 +58,11 @@
     pandoc
     # fonts and themes and icons
     # Essential for rendering Japanese text correctly
-    nerd-fonts.monaspace
-    victor-mono
+    nerd-fonts.iosevka
     sarasa-gothic
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     # Useful optional Japanese fonts
-    ipafont
-    kochi-substitute
     
     kdePackages.breeze-icons
     mint-x-icons
