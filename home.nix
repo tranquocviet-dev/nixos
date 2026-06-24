@@ -7,7 +7,6 @@
     pkgs.devenv
     pkgs.adwaita-icon-theme
     pkgs.papirus-icon-theme
-    inputs.osu-lazer-flake.packages.${system}.default
   ];
   # 2. Configure GTK
   gtk = {
