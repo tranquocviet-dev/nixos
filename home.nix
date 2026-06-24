@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: {
+{ system, inputs, pkgs, config, ... }: {
   home.username = "dice";
   home.homeDirectory = "/home/dice";
   home.stateVersion = "26.05";
@@ -7,6 +7,7 @@
     pkgs.devenv
     pkgs.adwaita-icon-theme
     pkgs.papirus-icon-theme
+    inputs.osu-lazer-flake.packages.${system}.default
   ];
   # 2. Configure GTK
   gtk = {

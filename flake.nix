@@ -10,6 +10,10 @@
       url = "github:noctalia-dev/noctalia";
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
+    osu-lazer-flake = {
+      url = "github:yaaaarn/osu-lazer-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
