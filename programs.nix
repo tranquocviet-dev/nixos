@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    pomodoro
     pywalfox-native
     godot
     thokr

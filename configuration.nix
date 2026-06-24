@@ -232,6 +232,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
+      lazerapp = "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 ~/appimage/osu.AppImage";
       todo = "tuxedo ~/todo.txt";
     };
   };
@@ -266,7 +267,7 @@
   services.orca.enable = false;
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
-  environment.sessionVariables = rec {
+  environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
   };
 }
