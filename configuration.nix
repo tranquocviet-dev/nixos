@@ -264,4 +264,9 @@
     ];
   };
   services.orca.enable = false;
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+  environment.sessionVariables = rec {
+    DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
+  };
 }
