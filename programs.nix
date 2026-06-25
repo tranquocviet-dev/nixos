@@ -71,6 +71,7 @@
   };
   programs.noctalia-greeter.enable = true;
   programs.npm.enable = true;
+  programs.tmux.enable = true;
   programs.labwc.enable = true;
   programs.mangowc.enable = true;
   # Enable Fcitx5
