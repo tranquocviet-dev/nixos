@@ -53,6 +53,11 @@ layout {
     gaps 2
     background-color "transparent"
     focus-ring {
+        off
+        width 2
+    }
+    border {
+        on
         width 2
     }
 }

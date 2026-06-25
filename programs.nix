@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    fsel
     pomodoro
     pywalfox-native
     godot
@@ -61,17 +62,22 @@
     # Essential for rendering Japanese text correctly
     # Useful optional Japanese fonts
     
-    kdePackages.breeze-icons
-    mint-x-icons
-  ];
-  programs.niri.enable = true;
-  programs.nautilus-open-any-terminal = {
-    enable = true;
-    terminal = "kitty";
+    ];
+    programs.niri.enable = true;
+    programs.nautilus-open-any-terminal = {
+      enable = true;
+      terminal = "kitty";
+    };
+    programs.noctalia-greeter.enable = true;
+    programs.npm.enable = true;
+    programs.tmux = {
+      enable = true;
+      extraConfig = ''
+              set -g prefix C-x
+              set -g base-index 1
+              set -g renumber-windows on
+          '';
   };
-  programs.noctalia-greeter.enable = true;
-  programs.npm.enable = true;
-  programs.tmux.enable = true;
   programs.labwc.enable = true;
   programs.mangowc.enable = true;
   # Enable Fcitx5
