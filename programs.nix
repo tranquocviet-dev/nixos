@@ -42,8 +42,8 @@
     lutris
     lutgen
     helix
-    neovim
     peazip
+    vis
     spotify
     mesa-demos
     typst
