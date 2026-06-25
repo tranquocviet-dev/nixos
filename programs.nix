@@ -73,6 +73,7 @@
     programs.tmux = {
       enable = true;
       extraConfig = ''
+              set-option -g default-terminal "screen-256color"
               set -g prefix C-x
               set -g base-index 1
               set -g renumber-windows on
