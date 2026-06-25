@@ -69,7 +69,7 @@
     enable = true;
     terminal = "kitty";
   };
-  programs.noctalia-greeter.enable = true;
+  # programs.noctalia-greeter.enable = true;
   programs.npm.enable = true;
   programs.labwc.enable = true;
   programs.mangowc.enable = true;
