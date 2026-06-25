@@ -1,5 +1,5 @@
 {inputs, ...}: {
   imports = [
-    # inputs.noctalia-greeter.nixosModules.default
+    inputs.noctalia-greeter.nixosModules.default
   ];
 }
