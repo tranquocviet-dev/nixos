@@ -39,6 +39,9 @@
     ".config/helix/config.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/config.toml";
     };
+    ".config/vis/visrc.lua" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/vis/visrc.lua";
+    };
     ".config/helix/languages.toml" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix/languages.toml";
     };

@@ -30,7 +30,6 @@
     libreoffice
     bottles
     losslesscut-bin
-    tuxedo
     gpu-screen-recorder
     obsidian
     qimgv

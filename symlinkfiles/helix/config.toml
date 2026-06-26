@@ -10,7 +10,7 @@ tab = "all"
 newline = "none"
 [keys.normal]
 space.s = [":indent-style 4", ":w"]
-i = ["collapse_selection", "insert_mode"]
+i = [":indent-style 4", "collapse_selection", "insert_mode"]
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
