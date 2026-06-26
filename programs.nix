@@ -19,6 +19,7 @@
     git
     killall
     # apps
+    mpvpaper
     fsel
     pomodoro
     pywalfox-native
