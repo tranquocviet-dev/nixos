@@ -233,7 +233,7 @@
     enable = true;
     shellAliases = {
       lazerapp = "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1 ~/appimage/osu.AppImage";
-      todo = "tuxedo ~/todo.txt";
+      todo = "~/builds/tuxedo/target/release/tuxedo ~/todo.txt";
     };
   };
   
