@@ -19,6 +19,10 @@
     git
     killall
     # apps
+    luajit
+    wezterm
+    gnumake
+    clang
     mpvpaper
     fsel
     pomodoro
