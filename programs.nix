@@ -101,6 +101,7 @@
     roboto
     nerd-fonts.iosevka
     nerd-fonts.tinos
+    nerd-fonts.monaspace
     nerd-fonts.roboto-mono
     sarasa-gothic
     noto-fonts-cjk-sans
