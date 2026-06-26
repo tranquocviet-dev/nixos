@@ -100,6 +100,7 @@
   fonts.packages = with pkgs; [
     roboto
     nerd-fonts.iosevka
+    nerd-fonts.tinos
     nerd-fonts.roboto-mono
     sarasa-gothic
     noto-fonts-cjk-sans
