@@ -53,14 +53,6 @@
 
 (require 'simpc-mode)
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-;;(ido-mode 1)
-;;(ido-everywhere t)
-;;
-;; (require 'ido)
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-everywhere t)
-;;(ido-mode 1)
-;;(ido-ubiquitous-mode 1)
 (fido-mode 1)
 (setq auto-save-default nil)
 
