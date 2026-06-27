@@ -20,7 +20,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.dice = {
-            imports = [ ./home.nix ];
+            imports = [ ./modules/home.nix ];
           };
         }
         # ... other modules

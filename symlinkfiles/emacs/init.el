@@ -22,21 +22,12 @@
      default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-   '(adwaita-dark-theme almost-mono-themes anti-zenburn-theme
-                        app-monochrome-themes astyle base16-theme
-                        r-theme-sanityinc-solarized
-                        color-theme-sanityinc-tomorrow company
-                        company-c-headers constant-theme doom-themes
-                        eziam-themes flexoki-themes
-                        gruber-darker-theme gruvbox-theme
-                        hc-zenburn-theme html-to-markdown
-                        iceberg-theme ido-completing-read+ ido-hacks
-                        labburn-theme lua-mode magit markdown-mermaid
-                        markdown-mode move-text multiple-cursors
-                        nix-mode nord-theme nordic-night-theme
-                        nordless-theme org-preview-html org-superstar
-                        ox-typst rainbow-mode timu-macos-theme
-                        tok-theme typst-preview typst-ts-mode))
+   '(astyle company company-c-headers gruber-darker-theme
+            html-to-markdown ido-completing-read+ ido-hacks lua-mode
+            magit markdown-mermaid markdown-mode move-text
+            multiple-cursors nix-mode org-preview-html org-superstar
+            ox-typst r-theme-sanityinc-solarized rainbow-mode
+            typst-preview typst-ts-mode))
  '(safe-local-variable-values
    '((typst-preview--master-file . "/home/viet/notes/2026-03-03_MATH.typ"))))
 (custom-set-faces
