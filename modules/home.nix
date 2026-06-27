@@ -33,8 +33,9 @@
     };
   };
   home.file = {
-    ".config/niri/v5.kdl" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri/v5.kdl";
+    ".config/niri" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri";
+      force = true;
     };
     ".config/helix" = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix";
