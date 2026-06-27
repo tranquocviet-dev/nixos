@@ -27,16 +27,22 @@
         ./modules/inputs/noctalia-greeter.nix
         ./modules/inputs/noctalia.nix
         ./modules/inputs/nixgaming.nix
-        ./modules/boot.nix
-        ./configuration.nix
         ./modules/hardware-configuration.nix
-        ./programs.nix
+        ./modules/boot.nix
+        ./modules/nix-ld.nix
+        ./modules/nixsettings.nix
+        ./modules/nh.nix
+        ./modules/nvidia.nix
+        ./modules/fish.nix
+        ./modules/fonts.nix
+        ./modules/configuration.nix
+        ./modules/programs.nix
       ];
     };
     homeConfigurations = {
       dice = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [ ./home.nix ]; # Or wherever your home.nix is
+        modules = [ ./modules/home.nix ]; # Or wherever your home.nix is
       };
     };
   };

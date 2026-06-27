@@ -60,10 +60,18 @@
     ps_mem
     obs-studio
     pandoc
+    wget
+    emacs-gtk
     # fonts and themes and icons
     # Essential for rendering Japanese text correctly
     # Useful optional Japanese fonts
     
+    ];
+    programs.xwayland.enable = true;
+    programs.firefox.enable = true;
+    programs.steam.enable = true;
+    programs.steam.extraCompatPackages = with pkgs; [
+      proton-ge-bin
     ];
     programs.niri.enable = true;
     programs.nautilus-open-any-terminal = {
@@ -81,8 +89,6 @@
               set -g renumber-windows on
           '';
   };
-  programs.labwc.enable = true;
-  programs.mangowc.enable = true;
   # Enable Fcitx5
   i18n.inputMethod = {
     enable = true;
@@ -97,19 +103,4 @@
       # fcitx5-rime            # For Rime
     ];
   };
-  fonts.enableDefaultPackages = true;
-  fonts.fontDir.enable = true;
-  fonts.packages = with pkgs; [
-    roboto
-    nerd-fonts.iosevka
-    nerd-fonts.iosevka-term-slab
-    nerd-fonts.tinos
-    nerd-fonts.monaspace
-    nerd-fonts.roboto-mono
-    sarasa-gothic
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    maple-mono.NF-CN
-    maple-mono.NF
-  ];
 }
