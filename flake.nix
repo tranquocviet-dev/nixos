@@ -2,6 +2,8 @@
   description = "NixOS configuration with Noctalia";
 
   inputs = {
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
@@ -12,7 +14,7 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
@@ -37,6 +39,10 @@
         ./modules/fonts.nix
         ./modules/configuration.nix
         ./modules/programs.nix
+        # comma stuff
+        nix-index-database.nixosModules.default {
+          programs.nix-index-database.comma.enable = true;
+        }
       ];
     };
     homeConfigurations = {
