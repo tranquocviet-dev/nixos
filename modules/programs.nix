@@ -18,6 +18,7 @@
     git
     killall
     # apps
+    wl-clipboard
     luajit
     gnumake
     clang
@@ -74,6 +75,7 @@
       proton-ge-bin
     ];
     programs.niri.enable = true;
+    programs.mangowc.enable = true;
     programs.nautilus-open-any-terminal = {
       enable = true;
       terminal = "kitty";
