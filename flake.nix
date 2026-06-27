@@ -27,6 +27,7 @@
         ./modules/inputs/noctalia-greeter.nix
         ./modules/inputs/noctalia.nix
         ./modules/inputs/nixgaming.nix
+        ./modules/boot.nix
         ./configuration.nix
         ./modules/hardware-configuration.nix
         ./programs.nix
