@@ -13,14 +13,12 @@
     nautilus-python
     tk
     vips
-    xwayland
     xwayland-satellite
     adw-gtk3
     git
     killall
     # apps
     luajit
-    wezterm
     gnumake
     clang
     mpvpaper

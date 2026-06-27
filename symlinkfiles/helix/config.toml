@@ -1,4 +1,4 @@
-theme = "noctalia"
+theme = "gruvbox"
 [editor]
 line-number = "relative"
 auto-format = false

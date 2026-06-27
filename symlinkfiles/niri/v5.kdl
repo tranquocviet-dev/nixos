@@ -27,13 +27,8 @@ prefer-no-csd
 binds {
     // Core Noctalia binds
     Mod+Space { spawn-sh "vicinae open"; }
-    Mod+E { spawn "nautilus"; }
     Mod+S { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
-    Mod+Shift+E { spawn-sh "noctalia msg panel-toggle session"; }
-    Mod+Shift+Z { spawn-sh "wooz --invert-scroll"; }
-    Mod+Shift+S { spawn-sh "noctalia msg screenshot-fullscreen"; }
-    Mod+Shift+R { spawn-sh "noctalia msg screenshot-region"; }
 
     // Audio & Brightness
     XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
@@ -41,6 +36,13 @@ binds {
     XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
     XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
     XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+
+    // Added by user
+    Mod+E { spawn "nautilus"; }
+    Mod+Shift+E { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Shift+W { spawn-sh "noctalia msg panel-toggle noctalia/wallhaven:browser"; }
+    Mod+Ctrl+W { spawn-sh "noctalia msg panel-toggle wallpaper"; }
+    Mod+Shift+Z { spawn-sh "wooz --invert-scroll"; }
 }
 // Place the regular wallpaper on the backdrop.
 layer-rule {

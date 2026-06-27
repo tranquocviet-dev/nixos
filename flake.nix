@@ -24,12 +24,12 @@
           };
         }
         # ... other modules
-        ./noctalia-greeter.nix
-        ./noctalia.nix
+        ./modules/inputs/noctalia-greeter.nix
+        ./modules/inputs/noctalia.nix
+        ./modules/inputs/nixgaming.nix
         ./configuration.nix
-        ./hardware-configuration.nix
+        ./modules/hardware-configuration.nix
         ./programs.nix
-        ./nixgaming.nix
       ];
     };
     homeConfigurations = {
