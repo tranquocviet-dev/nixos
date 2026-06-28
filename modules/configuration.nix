@@ -75,4 +75,5 @@
   environment.sessionVariables = {
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
   };
+  networking.networkmanager.enable = true;
 }
