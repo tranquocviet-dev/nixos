@@ -18,6 +18,7 @@
     git
     killall
     # apps
+    osu-lazer-bin-custom
     wl-clipboard
     luajit
     gnumake

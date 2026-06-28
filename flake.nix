@@ -43,6 +43,15 @@
         nix-index-database.nixosModules.default {
           programs.nix-index-database.comma.enable = true;
         }
+        # custom osu lazer and other packages
+        ({ pkgs, ... }: {
+          nixpkgs.overlays = [
+            (final: prev: {
+              # This replaces the original package with your custom version system-wide
+              osu-lazer-bin-custom = final.callPackage ./pkgs/osu-lazer-bin/package.nix { };
+            })
+          ];
+        })
       ];
     };
     homeConfigurations = {
