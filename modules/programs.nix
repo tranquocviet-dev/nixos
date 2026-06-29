@@ -19,6 +19,7 @@
     killall
     # apps
     nodejs
+    ruby
     osu-lazer-bin-custom
     wl-clipboard
     luajit
