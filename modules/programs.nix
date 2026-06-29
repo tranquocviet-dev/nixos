@@ -18,6 +18,7 @@
     git
     killall
     # apps
+    nodejs
     osu-lazer-bin-custom
     wl-clipboard
     luajit

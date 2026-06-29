@@ -12,9 +12,10 @@
       url = "github:noctalia-dev/noctalia";
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
+    osu-nixos.url = "github:afanetd/linux-osu-stable-installer-nixos";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-nixos, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
@@ -52,6 +53,13 @@
             })
           ];
         })
+        # osu stable
+        {
+          environment.systemPackages = [
+            # Install the package
+            osu-nixos.packages.x86_64-linux.default
+          ];
+        }
       ];
     };
     homeConfigurations = {
