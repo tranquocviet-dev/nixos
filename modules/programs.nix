@@ -18,7 +18,10 @@
     git
     killall
     # apps
+    mindustry-wayland
     nodejs
+    tailwindcss
+    tailwindcss-language-server
     ruby
     osu-lazer-bin-custom
     wl-clipboard
@@ -78,6 +81,7 @@
       proton-ge-bin
     ];
     programs.niri.enable = true;
+    programs.mangowc.enable = true;
     programs.nautilus-open-any-terminal = {
       enable = true;
       terminal = "kitty";
