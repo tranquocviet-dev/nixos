@@ -18,11 +18,14 @@
     git
     killall
     # apps
+    vesktop
+    wlr-randr
     mindustry-wayland
     nodejs
     tailwindcss
     tailwindcss-language-server
     ruby
+    ruby-lsp
     osu-lazer-bin-custom
     wl-clipboard
     luajit
@@ -63,7 +66,6 @@
     feh
     alacritty
     fastfetch
-    vesktop
     ps_mem
     obs-studio
     pandoc
@@ -72,7 +74,6 @@
     # fonts and themes and icons
     # Essential for rendering Japanese text correctly
     # Useful optional Japanese fonts
-    
     ];
     programs.xwayland.enable = true;
     programs.firefox.enable = true;

@@ -196,7 +196,7 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // Core Noctalia binds
-    Mod+Space hotkey-overlay-title="Open Launcher: vicinae" { spawn-sh "vicinae open"; }
+    Mod+Space hotkey-overlay-title="Open Noctalia Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
     Mod+S hotkey-overlay-title="Open Noctalia Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Comma hotkey-overlay-title="Open Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
 

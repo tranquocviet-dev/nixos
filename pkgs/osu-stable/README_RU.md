@@ -1,0 +1,168 @@
+# osu! Installer для NixOS
+
+[![NixOS](https://img.shields.io/badge/NixOS-Unstable-blue.svg)](https://nixos.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+**Это специализированный форк [linux-osu-stable-installer](https://github.com/Kitty-Hivens/linux-osu-stable-installer), полностью переписанный под NixOS.**
+
+Он удаляет всю стандартную Linux-логику (`apt`, `pacman`, ручные установки Wine) и заменяет её на **Nix derivations**.  
+Гарантирует, что `osu!` запускается с правильным системным Wine, корректными настройками аудио-задержки и полностью рабочим импортом карт.
+
+**Язык:** [English](README.md) | [Русский](README_RU.md)
+
+---
+
+## ✨ Возможности
+
+- **Nix-native:** Все зависимости (Wine Staging, Winetricks, Curl, Yad) управляются через Nix. Никакого загрязнения системы.
+- **Умный wrapper:** Запуск автоматически выставляет:
+  - `STAGING_AUDIO_DURATION`
+  - `PULSE_LATENCY_MSEC`
+- **Рабочий импорт:** Двойной клик по `.osz` или `.osk` в файловом менеджере работает из коробки.
+- **Самоустановка:** Если игра не установлена, команда `osu` автоматически запускает GUI-установщик.
+
+---
+
+## 📦 Установка
+
+Выберите способ, который подходит под вашу конфигурацию NixOS.
+
+### Способ 1: Nix Flakes (Рекомендуется)
+
+Добавьте этот репозиторий в `inputs` вашего `flake.nix`:
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # Добавьте этот input
+    osu-nixos.url = "github:afanetd/linux-osu-stable-installer-nixos";
+  };
+
+  outputs = { self, nixpkgs, osu-nixos, ... }: {
+    nixosConfigurations.my-machine = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./configuration.nix
+        {
+          environment.systemPackages = [
+            # Устанавливаем пакет
+            osu-nixos.packages.x86_64-linux.default
+          ];
+        }
+      ];
+    };
+  };
+}
+````
+
+Затем пересоберите систему:
+
+```bash
+sudo nixos-rebuild switch --flake .#my-machine
+```
+
+---
+
+### Способ 2: Вручную / через `configuration.nix`
+
+1. Склонируйте репозиторий в постоянное место, например в `/etc/nixos/pkgs/osu`
+2. Добавьте пакет в `configuration.nix`:
+
+```nix
+{ pkgs, ... }: {
+  environment.systemPackages = [
+    (pkgs.callPackage ./path/to/cloned/repo/default.nix {})
+  ];
+}
+```
+
+3. Пересоберите систему:
+
+```bash
+sudo nixos-rebuild switch
+```
+
+---
+
+## 🎮 Использование
+
+1. Откройте терминал.
+2. Введите `osu` в терминале.
+3. **Первый запуск:** Появится GUI-установщик. Нажмите **OK** и следуйте инструкциям.
+   *Установщик скачает osu! и создаст Wine-префикс и .desktop файл.*
+4. **Последующие запуски:** Игра запускается сразу.
+
+---
+
+## 🗺 Импорт карт и скинов
+
+Просто **дважды кликните** по файлу:
+
+* `.osz` — карты
+* `.osk` — скины
+
+Работает в Dolphin, Nautilus, Thunar и других файловых менеджерах.
+
+---
+
+## 🏳️ Флаги установщика (CLI)
+
+Установщик можно запустить вручную с аргументами:
+
+```bash
+osu-install [options]
+```
+
+### Доступные опции
+
+| Флаг             | Аргумент | Описание                                                           |
+| ---------------- | -------- | ------------------------------------------------------------------ |
+| `-s`, `--silent` | —        | Установка **без GUI** (только через CLI)                           |
+| `-d`, `--dir`    | `<path>` | Пользовательская директория установки osu!                         |
+| `--renderer`     | `<name>` | Принудительно задать рендерер Wine (например `gl`, `vulkan`)       |
+| `--driver`       | `<name>` | Принудительно задать аудио-драйвер Wine                            |
+| `--font`         | `<name>` | Установить и использовать указанный шрифт (например `"Noto Sans"`) |
+| `--no-rpc`       | —        | Не устанавливать Discord Rich Presence                             |
+| `-h`, `--help`   | —        | Показать справку и выйти                                           |
+
+---
+
+### Примеры
+
+Установка с кастомным шрифтом:
+
+```bash
+osu-install --silent --font "Noto Sans"
+```
+
+Установка в свою директорию:
+
+```bash
+osu-install --silent --dir "$HOME/Games/osu"
+```
+
+Отключить Discord Rich Presence:
+
+```bash
+osu-install --silent --no-rpc
+```
+
+---
+
+## 🐞 Решение проблем
+
+Если игра не запускается, проверьте лог wrapper'а:
+
+```bash
+cat /tmp/osu.log
+```
+
+---
+
+## 📜 Благодарности
+
+* **Оригинальный проект:** [Kitty-Hivens](https://github.com/Kitty-Hivens)
+* **Порт под NixOS:** [afanetd](https://github.com/afanetd)
+

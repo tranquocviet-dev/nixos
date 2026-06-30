@@ -57,7 +57,7 @@
         {
           environment.systemPackages = [
             # Install the package
-            osu-nixos.packages.x86_64-linux.default
+            # osu-nixos.packages.x86_64-linux.default
           ];
         }
       ];
