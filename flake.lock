@@ -218,11 +218,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1778443072,
-        "narHash": "sha256-zi7/fsqM/kFdNuED//4WOCUtezGtKKqRNORjMvfwjnA=",
+        "lastModified": 1782723713,
+        "narHash": "sha256-oPXCU/SSUokcGaJREHibG1CBX3+s/W7orDWQOZDsEeQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "da5ad661ba4e5ef59ba743f0d112cbc30e474f32",
+        "rev": "b5aa0fbd538984f6e3d201be0005b4463d8b09f8",
         "type": "github"
       },
       "original": {
@@ -284,23 +284,19 @@
         "type": "github"
       }
     },
-    "osu-nixos": {
+    "osu-lazer-bin": {
       "inputs": {
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1779454688,
-        "narHash": "sha256-gEc12SVUGC0RUddVFLdw1qtncfI9Zaooq6oyiP71wwc=",
-        "owner": "afanetd",
-        "repo": "linux-osu-stable-installer-nixos",
-        "rev": "bf21216733d9ff1d1a89298f2ac12857f1f2cf99",
-        "type": "github"
+        "path": "./pkgs/osu-lazer-bin",
+        "type": "path"
       },
       "original": {
-        "owner": "afanetd",
-        "repo": "linux-osu-stable-installer-nixos",
-        "type": "github"
-      }
+        "path": "./pkgs/osu-lazer-bin",
+        "type": "path"
+      },
+      "parent": []
     },
     "osu-stable": {
       "inputs": {
@@ -324,7 +320,7 @@
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
         "noctalia-greeter": "noctalia-greeter",
-        "osu-nixos": "osu-nixos",
+        "osu-lazer-bin": "osu-lazer-bin",
         "osu-stable": "osu-stable"
       }
     }

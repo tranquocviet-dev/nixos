@@ -26,7 +26,6 @@
     tailwindcss-language-server
     ruby
     ruby-lsp
-    osu-lazer-bin-custom
     wl-clipboard
     luajit
     gnumake
