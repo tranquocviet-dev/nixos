@@ -1,5 +1,5 @@
 # { pkgs ? import <nixpkgs> {} }:
-{ lib, stdenvNoCC, fetchurl, appimageTools, makeWrapper, nativeWayland ? false, ... }:
+{ pkgs, lib, stdenvNoCC, fetchurl, appimageTools, makeWrapper, nativeWayland ? false, ... }:
 let
     pname = "osu-lazer-bin";
     version = "2026.624.0";
@@ -11,15 +11,11 @@ let
     }
     .${stdenvNoCC.system} or (throw "osu-lazer-bin: ${stdenvNoCC.system} is unsupported.");
 
-  meta = {
+  meta = with pkgs.lib; {
     description = "Rhythm is just a *click* away (AppImage version for score submission and multiplayer, and binary distribution for Darwin systems)";
     homepage = "https://osu.ppy.sh";
-    license = with lib.licenses; [
-      mit
-      cc-by-nc-40
-      unfreeRedistributable # osu-framework contains libbass.so in repository
-    ];
     sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    license = licenses.mit;
     maintainers = with lib.maintainers; [
       gepbird
       stepbrobd
