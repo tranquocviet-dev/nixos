@@ -1,29 +1,9 @@
-{
-  lib,
-  stdenvNoCC,
-  fetchurl,
-  fetchzip,
-  appimageTools,
-  makeWrapper,
-  nativeWayland ? false,
-}:
-
+# { pkgs ? import <nixpkgs> {} }:
+{ lib, stdenvNoCC, fetchurl, appimageTools, makeWrapper, nativeWayland ? false, ... }:
 let
-  pname = "osu-lazer-bin";
-  version = "2026.624.0";
-
-  src =
-    {
-      aarch64-darwin = fetchzip {
-        url = "https://github.com/ppy/osu/releases/download/${version}-lazer/osu.app.Apple.Silicon.zip";
-        hash = "sha256-T/uoriXCXfK+HnLqMZ3xQ79qmlT5rVaoeEi5Wgu1Oc4=";
-        stripRoot = false;
-      };
-      x86_64-darwin = fetchzip {
-        url = "https://github.com/ppy/osu/releases/download/${version}-lazer/osu.app.Intel.zip";
-        hash = "sha256-G/l2WSgl7GcIMHmb86K4qzryMirebe5dmnMrsSlYNfY=";
-        stripRoot = false;
-      };
+    pname = "osu-lazer-bin";
+    version = "2026.624.0";
+  src = {
       x86_64-linux = fetchurl {
         url = "https://github.com/ppy/osu/releases/download/${version}-lazer/osu.AppImage";
         hash = "sha256:10a982abae7a7633c62b923526a4837132ada5b4196cef1619670fbfe3d3d2ae";
@@ -52,49 +32,20 @@ let
       "x86_64-linux"
     ];
   };
-
-  passthru.updateScript = ./update.sh;
 in
-if stdenvNoCC.hostPlatform.isDarwin then
-  stdenvNoCC.mkDerivation {
+appimageTools.wrapType2 {
     inherit
-      pname
-      version
-      src
-      meta
-      passthru
+        pname
+        version
+        src
+        meta
       ;
-
-    nativeBuildInputs = [ makeWrapper ];
-
-    installPhase = ''
-      runHook preInstall
-      OSU_WRAPPER="$out/Applications/osu!.app/Contents"
-      OSU_CONTENTS="osu!.app/Contents"
-      mkdir -p "$OSU_WRAPPER/MacOS"
-      cp -r "$OSU_CONTENTS/Info.plist" "$OSU_CONTENTS/Resources" "$OSU_WRAPPER"
-      cp -r "osu!.app" "$OSU_WRAPPER/Resources/osu-wrapped.app"
-      makeWrapper "$OSU_WRAPPER/Resources/osu-wrapped.app/Contents/MacOS/osu!" "$OSU_WRAPPER/MacOS/osu!" --set OSU_EXTERNAL_UPDATE_PROVIDER 1
-      runHook postInstall
-    '';
-  }
-else
-  appimageTools.wrapType2 {
-    inherit
-      pname
-      version
-      src
-      meta
-      passthru
-      ;
-
     extraPkgs = pkgs: with pkgs; [ icu ];
 
     # fix OpenGL renderer on nvidia + wayland
     extraBwrapArgs = [
       "--ro-bind-try /etc/egl/egl_external_platform.d /etc/egl/egl_external_platform.d"
     ];
-
     extraInstallCommands =
       let
         contents = appimageTools.extract { inherit pname version src; };
@@ -112,4 +63,4 @@ else
           install -D ${contents}/osu.png $out/share/icons/hicolor/''${i}x$i/apps/osu.png
         done
       '';
-  }
+}

@@ -12,10 +12,11 @@
       url = "github:noctalia-dev/noctalia";
     };
     nix-gaming.url = "github:fufexan/nix-gaming";
-    osu-nixos.url = "github:afanetd/linux-osu-stable-installer-nixos";
+    osu-stable.url = "path:./pkgs/osu-stable";
+    osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-nixos, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-nixos, osu-stable, osu-lazer-bin, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
@@ -44,20 +45,13 @@
         nix-index-database.nixosModules.default {
           programs.nix-index-database.comma.enable = true;
         }
-        # custom osu lazer and other packages
-        ({ pkgs, ... }: {
-          nixpkgs.overlays = [
-            (final: prev: {
-              # This replaces the original package with your custom version system-wide
-              osu-lazer-bin-custom = final.callPackage ./pkgs/osu-lazer-bin/package.nix { };
-            })
-          ];
-        })
-        # osu stable
+        # osu stable and lazer
         {
           environment.systemPackages = [
             # Install the package
             # osu-nixos.packages.x86_64-linux.default
+            osu-stable.packages.x86_64-linux.default
+            osu-lazer-bin.packages.x86_64-linux.default
           ];
         }
       ];

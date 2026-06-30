@@ -76,7 +76,4 @@
     DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
   };
   networking.networkmanager.enable = true;
-  environment.systemPackages = [
-    (pkgs.callPackage ../pkgs/osu-stable/default.nix {})
-  ];
 }
