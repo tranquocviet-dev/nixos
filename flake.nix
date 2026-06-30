@@ -14,19 +14,12 @@
     nix-gaming.url = "github:fufexan/nix-gaming";
     osu-stable.url = "path:./pkgs/osu-stable";
     osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
-    omnisearch = {
-        url = "git+https://git.bwaaa.monster/omnisearch";
-        inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-stable, osu-lazer-bin, omnisearch, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-stable, osu-lazer-bin, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-        omnisearch.nixosModules.default {
-            services.omnisearch.enable = true;
-        }
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
