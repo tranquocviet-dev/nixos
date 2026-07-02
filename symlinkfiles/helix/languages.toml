@@ -1,32 +1,8 @@
-[language-server.ccls]
-command = "ccls"
-
 [[language]]
-indent = { tab-width = 4, unit = " " }
-name = "c"
-language-servers = ["ccls"]
-
-[language-server.superhtml]
-command = "superhtml"
-
-[[language]]
-indent = { tab-width = 4, unit = " " }
-name = "html"
-language-servers = ["superhtml"]
-
-[language-server.ruff]
-command = "ruff"
-
+name = "*"
+scope = "*"
+file-types = [ { glob = "*" } ]
+indent = { tab-width = 4, unit = "\t" }
 [[language]]
 name = "python"
-indent = { tab-width = 4, unit = " " }
-language-servers = [ "ruff" ]
-
-
-[language-server.nixd]
-command = "nixd"
-
-[[language]]
-name = "nix"
-indent = { tab-width = 4, unit = " " }
-language-servers = [ "nixd" ]
+language-server = { command = "ruff" }

@@ -1,7 +1,7 @@
 theme = "noctalia"
 [editor]
 line-number = "relative"
-auto-format = false
+auto-format = true
 [editor.file-picker]
 hidden = true
 [editor.whitespace.render]
@@ -9,8 +9,8 @@ space = "all"
 tab = "all"
 newline = "none"
 [keys.normal]
-space.s = [":indent-style 4", ":w"]
-i = [":indent-style 4", "collapse_selection", "insert_mode"]
+space.s = [":indent-style t", ":w"]
+i = [":indent-style t", "collapse_selection", "insert_mode"]
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"

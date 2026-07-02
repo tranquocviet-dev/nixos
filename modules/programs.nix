@@ -6,7 +6,7 @@
     superhtml
     ccls
     marksman
-    ruff
+    ty
     nixd
     lua-language-server
     # services

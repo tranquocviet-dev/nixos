@@ -13,6 +13,12 @@ window-rule {
     block-out-from "screen-capture"
 }
 
+// for python's Tkinter Gui applications
+window-rule {
+    match app-id=r#"Tk"#
+    open-floating true
+}
+
 window-rule {
     geometry-corner-radius 0
     clip-to-geometry true
