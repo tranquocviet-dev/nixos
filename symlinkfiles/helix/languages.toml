@@ -1,8 +1,4 @@
 [[language]]
-name = "*"
-scope = "*"
-file-types = [ { glob = "*" } ]
-indent = { tab-width = 4, unit = "\t" }
-[[language]]
-name = "python"
-language-server = { command = "ruff" }
+name = "nix"
+file-types = ["nix"]
+language-servers = [ "nil", "nixd" ]

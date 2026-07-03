@@ -7,6 +7,9 @@
     ccls
     marksman
     ty
+    nil
+    ruff
+    python3Packages.jedi-language-server
     nixd
     lua-language-server
     # services
@@ -18,6 +21,7 @@
     git
     killall
     # apps
+    openssl
     vesktop
     wlr-randr
     mindustry-wayland
@@ -73,29 +77,29 @@
     # fonts and themes and icons
     # Essential for rendering Japanese text correctly
     # Useful optional Japanese fonts
-    ];
-    programs.xwayland.enable = true;
-    programs.firefox.enable = true;
-    programs.steam.enable = true;
-    programs.steam.extraCompatPackages = with pkgs; [
-      proton-ge-bin
-    ];
-    programs.niri.enable = true;
-    programs.mangowc.enable = true;
-    programs.nautilus-open-any-terminal = {
-      enable = true;
-      terminal = "kitty";
-    };
-    programs.noctalia-greeter.enable = true;
-    programs.npm.enable = true;
-    programs.tmux = {
-      enable = true;
-      extraConfig = ''
-              set-option -g default-terminal "screen-256color"
-              set -g prefix C-x
-              set -g base-index 1
-              set -g renumber-windows on
-          '';
+  ];
+  programs.xwayland.enable = true;
+  programs.firefox.enable = true;
+  programs.steam.enable = true;
+  programs.steam.extraCompatPackages = with pkgs; [
+    proton-ge-bin
+  ];
+  programs.niri.enable = true;
+  programs.mangowc.enable = true;
+  programs.nautilus-open-any-terminal = {
+    enable = true;
+    terminal = "kitty";
+  };
+  programs.noctalia-greeter.enable = true;
+  programs.npm.enable = true;
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+      set-option -g default-terminal "screen-256color"
+      set -g prefix C-x
+      set -g base-index 1
+      set -g renumber-windows on
+    '';
   };
   # Enable Fcitx5
   i18n.inputMethod = {
@@ -107,7 +111,7 @@
       # Addons for your specific language:
       # fcitx5-chinese-addons  # For Pinyin/Table input
       # fcitx5-mozc            # For Japanese
-      qt6Packages.fcitx5-unikey          # For Vietnamese
+      qt6Packages.fcitx5-unikey # For Vietnamese
       # fcitx5-rime            # For Rime
     ];
   };

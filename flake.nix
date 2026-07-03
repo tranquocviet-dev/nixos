@@ -41,6 +41,7 @@
         ./modules/fonts.nix
         ./modules/configuration.nix
         ./modules/programs.nix
+        ./modules/searxng.nix
         # comma stuff
         nix-index-database.nixosModules.default {
           programs.nix-index-database.comma.enable = true;

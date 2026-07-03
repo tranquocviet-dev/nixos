@@ -11,7 +11,11 @@ newline = "none"
 [keys.normal]
 space.s = [":indent-style t", ":w"]
 i = [":indent-style t", "collapse_selection", "insert_mode"]
+a = [":indent-style t", "collapse_selection", "insert_mode"]
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
+[editor.whitespace.characters]
+tabpad ="·"
+tab ="·"
