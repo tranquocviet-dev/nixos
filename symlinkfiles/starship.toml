@@ -11,7 +11,7 @@ $git_status
 
 [directory]
 style = "blue"
-truncation_length = 2
+truncation_length = 3
 
 [git_branch]
 format = "[$branch]($style)"
