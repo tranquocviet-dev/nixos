@@ -28,7 +28,7 @@
 
       server = {
         # Base URL must match your reverse proxy domain
-        base_url = "https://search.example.com/";
+        base_url = "http://10.30.130.3/";
         port = 8888;
         bind_address = "127.0.0.1";
         secret_key = "@SEARXNG_SECRET@"; # Interpolated from environmentFile
@@ -64,9 +64,9 @@
     recommendedProxySettings = true;
     recommendedTlsSettings = true;
 
-    virtualHosts."search.example.com" = {
-      enableACME = true; # Handles automatic Let's Encrypt SSL certificates
-      forceSSL = true;
+    virtualHosts."10.30.130.3" = {
+      enableACME = false; # Handles automatic Let's Encrypt SSL certificates
+      forceSSL = false;
 
       # Route traffic natively through the uWSGI UNIX socket
       locations."/" = {
@@ -83,4 +83,5 @@
 
   # 4. Open HTTP/HTTPS Firewall Ports
   networking.firewall.allowedTCPPorts = [ 80 443 ];
+  security.acme.acceptTerms = true;
 }

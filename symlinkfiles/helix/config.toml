@@ -1,4 +1,4 @@
-theme = "noctalia"
+theme = "nord"
 [editor]
 line-number = "relative"
 auto-format = true
