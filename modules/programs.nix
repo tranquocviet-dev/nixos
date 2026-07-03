@@ -13,6 +13,7 @@
     nixd
     lua-language-server
     # services
+    dash
     nautilus-python
     tk
     vips
