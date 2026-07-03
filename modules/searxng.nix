@@ -14,7 +14,7 @@
     redisCreateLocally = true;
 
     # Run inside uWSGI (recommended for performance behind a reverse proxy)
-    runInUwsgi = true;
+    configureUwsgi = true;
     uwsgiConfig = {
       socket = "/run/searx/searx.sock";
       chmod-socket = "660";
