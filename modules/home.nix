@@ -54,4 +54,15 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/themes";
     };
   };
+	programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = true;
+      format = "$git_branch$git_commit$git_state$git_status\n$username $hostname $directory";
+      character = {
+        success_symbol = "[](bold green) ";
+        error_symbol = "[✗](bold red) ";
+      };
+    };
+  };
 }
