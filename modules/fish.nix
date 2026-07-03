@@ -11,4 +11,5 @@
   users.users.dice = {
     shell = pkgs.fish;
   };
+  programs.starship.enable = true;
 }

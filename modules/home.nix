@@ -54,7 +54,4 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/themes";
     };
   };
-	programs.starship = {
-    enable = true;
-  };
 }
