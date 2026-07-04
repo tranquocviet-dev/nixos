@@ -6,7 +6,7 @@
     roboto
     nerd-fonts.iosevka
     nerd-fonts.iosevka-term-slab
-    nerd-fonts.tinos
+    nerd-fonts.jetbrains-mono
     nerd-fonts.monaspace
     nerd-fonts.roboto-mono
     sarasa-gothic

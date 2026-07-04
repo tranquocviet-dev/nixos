@@ -75,9 +75,6 @@
     pandoc
     wget
     emacs-gtk
-    # fonts and themes and icons
-    # Essential for rendering Japanese text correctly
-    # Useful optional Japanese fonts
   ];
   programs.xwayland.enable = true;
   programs.firefox.enable = true;
