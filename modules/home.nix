@@ -11,7 +11,7 @@
   # 2. Configure GTK
   gtk = {
     enable = true;
-    font.name = "IosevkaTermSlab NFP";
+    font.name = "JetBrainsMono NFP";
     font.size = 16;
     # 3. Set the theme name (exact name of the theme folder)
     theme = {
