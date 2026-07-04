@@ -22,6 +22,7 @@
     git
     killall
     # apps
+    localsend
     openssl
     vesktop
     wlr-randr
