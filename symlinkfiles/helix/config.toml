@@ -1,4 +1,4 @@
-theme = "noctalia"
+theme = "catppuccin_mocha"
 [editor]
 line-number = "relative"
 auto-format = true
