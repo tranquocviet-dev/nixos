@@ -11,7 +11,7 @@
   # 2. Configure GTK
   gtk = {
     enable = true;
-    font.name = "Roboto Mono Nerd Font Propo";
+    font.name = "RobotoMono Nerd Font Propo";
     font.size = 16;
     # 3. Set the theme name (exact name of the theme folder)
     theme = {
