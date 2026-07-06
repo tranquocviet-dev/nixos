@@ -69,7 +69,6 @@
     foot
     mpv
     feh
-    alacritty
     fastfetch
     ps_mem
     obs-studio
