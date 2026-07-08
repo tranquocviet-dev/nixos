@@ -16,11 +16,10 @@
     osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
   };
 
-  outputs = inputs@{ self, config, nixpkgs, home-manager, nix-index-database, osu-stable, osu-lazer-bin, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-stable, osu-lazer-bin, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-      	./modules/home.nix
       	./modules/hardware-configuration.nix
       	./modules/configuration.nix
       	./modules/boot.nix
