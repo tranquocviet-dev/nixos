@@ -2,6 +2,7 @@
   home.username = "dice";
   home.homeDirectory = "/home/dice";
   home.stateVersion = "26.05";
+  # 1. Importing my nix files
   home.packages = [
     pkgs.vicinae
     pkgs.devenv
