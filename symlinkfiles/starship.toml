@@ -5,7 +5,6 @@ $username \
 $hostname \
 $directory\
 $git_branch\
-$git_state\
 $git_status 
 """
 
@@ -16,17 +15,21 @@ truncation_length = 3
 [git_branch]
 format = "[$branch]($style)"
 style = "bright-black"
+symbol = ""
+truncation_symbol = ""
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)($ahead_behind$stashed)]($style)"
+format = "[[($conflicted$untracked$modified$staged$renamed$deleted)](218)($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+conflicted = " c"
+untracked = " u"
+modified = " m"
+staged = " s"
+renamed = " r"
+deleted = " d"
+stashed = " S"
+ahead = " a"
+behind = " b"
 
 [git_state]
 format = '\([$state($progress_current/$progress_total)]($style)\) '
