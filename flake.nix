@@ -29,7 +29,11 @@
       dice = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
-        modules = [ ./home_manager/home.nix ]; # Or wherever your home.nix is
+        modules = [
+        	./home_manager/home.nix
+        	nix-index-database.homeModules.default
+        	{ programs.nix-index-database.comma.enable = true; }
+        ]; # Or wherever your home.nix is
       };
     };
   };
