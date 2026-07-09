@@ -17,21 +17,36 @@
     osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, ... }:
-  {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-      	(inputs.import-tree ./modules )
-      	(inputs.import-tree ./host/nixos)
-      ];
-    };
+  outputs = { nixpkgs, home-manager, nix-index-database, ... }@inputs:
+  let
+		mkSystem = system: hostname:
+	    nixpkgs.lib.nixosSystem {
+	        system = system;
+	        modules = [
+	            { networking.hostName = hostname; }
+	            (inputs.import-tree ./host/${hostname})
+	            (inputs.import-tree ./modules)
+	            home-manager.nixosModules.home-manager
+	            {
+	                home-manager = {
+	                    useUserPackages = true;
+	                    useGlobalPkgs = true;
+	                    extraSpecialArgs = { inherit inputs; };
+	                    # Home manager config (configures programs like firefox, zsh, eww, etc)
+	                    users.dice = (./. + "/home_manager/${hostname}.nix");
+	                };
+	            }
+	        ];
+	        specialArgs = { inherit inputs; };
+	    };
+  in {
+  	nixosConfigurations.nixos = mkSystem "x86_64-linux" "nixos";
     homeConfigurations = {
       dice = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-        	./home_manager/home.nix
+        	./home_manager/nixos.nix
         	nix-index-database.homeModules.default
         	{ programs.nix-index-database.comma.enable = true; }
         ]; # Or wherever your home.nix is
