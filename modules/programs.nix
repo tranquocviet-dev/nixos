@@ -9,7 +9,6 @@
     ty
     nil
     ruff
-    python3Packages.jedi-language-server
     nixd
     lua-language-server
     # services
