@@ -41,16 +41,5 @@
 	    };
   in {
   	nixosConfigurations.nixos = mkSystem "x86_64-linux" "nixos";
-    homeConfigurations = {
-      dice = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-        	./home_manager/nixos.nix
-        	nix-index-database.homeModules.default
-        	{ programs.nix-index-database.comma.enable = true; }
-        ]; # Or wherever your home.nix is
-      };
-    };
   };
 }
