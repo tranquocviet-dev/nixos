@@ -23,19 +23,6 @@
       specialArgs = { inherit inputs; };
       modules = [
       	(inputs.import-tree ./modules)
-        # comma stuff
-        nix-index-database.nixosModules.default {
-          programs.nix-index-database.comma.enable = true;
-        }
-        # osu stable and lazer
-        {
-          environment.systemPackages = [
-            # Install the package
-            # osu-nixos.packages.x86_64-linux.default
-            osu-stable.packages.x86_64-linux.default
-            osu-lazer-bin.packages.x86_64-linux.default
-          ];
-        }
       ];
     };
     homeConfigurations = {
