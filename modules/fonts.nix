@@ -7,7 +7,7 @@
     nerd-fonts.iosevka
     nerd-fonts.iosevka-term-slab
     nerd-fonts.jetbrains-mono
-    nerd-fonts.monaspace
+    nerd-fonts.comic-shanns-mono
     nerd-fonts.roboto-mono
     sarasa-gothic
     noto-fonts-cjk-sans
