@@ -46,9 +46,6 @@
     isNormalUser = true;
     description = "dice";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.11"; # Did you read the comment?
@@ -63,6 +60,10 @@
   services.flatpak.enable = true;
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [
+    "root"
+    "@wheel"
+  ];
   fonts.fontconfig.enable = true;
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
