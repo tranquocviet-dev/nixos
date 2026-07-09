@@ -17,24 +17,26 @@
     osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-stable, osu-lazer-bin, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, nix-index-database, osu-stable, osu-lazer-bin, ... }:
+  {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-      	./modules/hardware-configuration.nix
-      	./modules/configuration.nix
-      	./modules/boot.nix
-      	./modules/fish.nix
-      	./modules/fonts.nix
-      	./modules/nh.nix
-      	./modules/nix-ld.nix
-      	./modules/nixsettings.nix
-      	./modules/nvidia.nix
-      	./modules/programs.nix
-      	./modules/searxng.nix
-      	./modules/inputs/noctalia.nix
-      	./modules/inputs/noctalia-greeter.nix
-      	./modules/inputs/nixgaming.nix
+      	(inputs.import-tree ./modules)
+      	# ./modules/hardware-configuration.nix
+      	# ./modules/configuration.nix
+      	# ./modules/boot.nix
+      	# ./modules/fish.nix
+      	# ./modules/fonts.nix
+      	# ./modules/nh.nix
+      	# ./modules/nix-ld.nix
+      	# ./modules/nixsettings.nix
+      	# ./modules/nvidia.nix
+      	# ./modules/programs.nix
+      	# ./modules/searxng.nix
+      	# ./modules/inputs/noctalia.nix
+      	# ./modules/inputs/noctalia-greeter.nix
+      	# ./modules/inputs/nixgaming.nix
         # comma stuff
         nix-index-database.nixosModules.default {
           programs.nix-index-database.comma.enable = true;
@@ -54,7 +56,7 @@
       dice = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
-        modules = [ ./modules/home.nix ]; # Or wherever your home.nix is
+        modules = [ ./home_manager/home.nix ]; # Or wherever your home.nix is
       };
     };
   };
