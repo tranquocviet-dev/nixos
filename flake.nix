@@ -19,7 +19,11 @@
 
   outputs = { nixpkgs, home-manager, nix-index-database, ... }@inputs: {
 	  nixosConfigurations = let
-			mkSystem = system: hostname:
+			mkSystem = hostname:
+			{
+				system ? "x86_64-linux",
+				user ? "dice",
+			}:
 		    nixpkgs.lib.nixosSystem {
 		        system = system;
 		        modules = [
@@ -32,14 +36,14 @@
 		                    useUserPackages = true;
 		                    useGlobalPkgs = true;
 		                    extraSpecialArgs = { inherit inputs; };
-		                    users.dice = (./. + "/home_manager/${hostname}.nix");
+		                    users.${user} = (./. + "/home_manager/${hostname}.nix");
 		                };
 		            }
 		        ];
 		        specialArgs = { inherit inputs; };
 		    };
 	  in {
-	  		nixos = mkSystem "x86_64-linux" "nixos";
+	  		nixos = mkSystem "nixos" { };
 	  };
 	};
 }
