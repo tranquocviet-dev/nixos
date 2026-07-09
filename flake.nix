@@ -17,7 +17,7 @@
     osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
   };
 
-  outputs = { nixpkgs, home-manager, nix-index-database, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs: {
 	  nixosConfigurations = let
 			mkSystem = hostname:
 			{
@@ -40,7 +40,9 @@
 		                };
 		            }
 		        ];
-		        specialArgs = { inherit inputs; };
+		        specialArgs = {
+		        	inherit inputs user;
+		        };
 		    };
 	  in {
 	  		nixos = mkSystem "nixos" { };

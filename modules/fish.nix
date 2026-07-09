@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ self, pkgs, specialArgs, ... }:
 {
   programs.fish = {
     enable = true;
@@ -8,7 +8,7 @@
     };
   };
   # Set fish as the default shell for your user
-  users.users.dice = {
+  users.users.${specialArgs.user} = {
     shell = pkgs.fish;
   };
   programs.starship.enable = true;
