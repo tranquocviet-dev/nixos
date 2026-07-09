@@ -22,7 +22,8 @@
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-      	(inputs.import-tree ./modules ./host/nixos)
+      	(inputs.import-tree ./modules )
+      	(inputs.import-tree ./host/nixos)
       ];
     };
     homeConfigurations = {
