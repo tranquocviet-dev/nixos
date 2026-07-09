@@ -17,30 +17,29 @@
     osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
   };
 
-  outputs = { nixpkgs, home-manager, nix-index-database, ... }@inputs:
-  let
-		mkSystem = system: hostname:
-	    nixpkgs.lib.nixosSystem {
-	        system = system;
-	        modules = [
-	            { networking.hostName = hostname; }
-	            (inputs.import-tree ./host/${hostname})
-	            (inputs.import-tree ./modules)
-	            home-manager.nixosModules.home-manager
-	            {
-	                home-manager = {
-	                    useUserPackages = true;
-	                    useGlobalPkgs = true;
-	                    extraSpecialArgs = { inherit inputs; };
-	                    users.dice = (./. + "/home_manager/${hostname}.nix");
-	                };
-	            }
-	        ];
-	        specialArgs = { inherit inputs; };
-	    };
-  in {
-  	nixosConfigurations = {
-  		nixos = mkSystem "x86_64-linux" "nixos";
-  	};
-  };
+  outputs = { nixpkgs, home-manager, nix-index-database, ... }@inputs: {
+	  nixosConfigurations = let
+			mkSystem = system: hostname:
+		    nixpkgs.lib.nixosSystem {
+		        system = system;
+		        modules = [
+		            { networking.hostName = hostname; }
+		            (inputs.import-tree ./host/${hostname})
+		            (inputs.import-tree ./modules)
+		            home-manager.nixosModules.home-manager
+		            {
+		                home-manager = {
+		                    useUserPackages = true;
+		                    useGlobalPkgs = true;
+		                    extraSpecialArgs = { inherit inputs; };
+		                    users.dice = (./. + "/home_manager/${hostname}.nix");
+		                };
+		            }
+		        ];
+		        specialArgs = { inherit inputs; };
+		    };
+	  in {
+	  		nixos = mkSystem "x86_64-linux" "nixos";
+	  };
+	};
 }
