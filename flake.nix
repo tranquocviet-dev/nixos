@@ -32,7 +32,6 @@
 	                    useUserPackages = true;
 	                    useGlobalPkgs = true;
 	                    extraSpecialArgs = { inherit inputs; };
-	                    # Home manager config (configures programs like firefox, zsh, eww, etc)
 	                    users.dice = (./. + "/home_manager/${hostname}.nix");
 	                };
 	            }
@@ -40,6 +39,8 @@
 	        specialArgs = { inherit inputs; };
 	    };
   in {
-  	nixosConfigurations.nixos = mkSystem "x86_64-linux" "nixos";
+  	nixosConfigurations = {
+  		nixos = mkSystem "x86_64-linux" "nixos";
+  	};
   };
 }
