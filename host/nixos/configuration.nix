@@ -61,7 +61,6 @@
   # enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [
-    "root"
     "@wheel"
   ];
   fonts.fontconfig.enable = true;
