@@ -2,19 +2,33 @@
   description = "NixOS configuration with Noctalia";
 
   inputs = {
-    import-tree.url = "github:denful/import-tree";
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    noctalia = {
-      url = "github:noctalia-dev/noctalia";
+
+    import-tree.url = "github:denful/import-tree";
+
+    nix-index-database = {
+	    url = "github:nix-community/nix-index-database";
+	    inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+
+    home-manager = {
+    	url = "github:nix-community/home-manager";
+    	inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia.url = "github:noctalia-dev/noctalia";
+
     nix-gaming.url = "github:fufexan/nix-gaming";
+
     osu-stable.url = "path:./pkgs/osu-stable";
     osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
+
+    freesmlauncher = {
+    	url = "github:FreesmTeam/FreesmLauncher";
+    	inputs.nixpkgs.follows = "nixpkgs";
+  	};
   };
 
   outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs: {
