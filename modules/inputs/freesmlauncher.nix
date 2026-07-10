@@ -1,6 +1,6 @@
-{ pkgs, system, freesmlauncher, ... }:
+{ pkgs, inputs, system, ... }:
 {
 	environment.systemPackages = [
-		freesmlauncher.packages.${system}.freesmlauncher
+		inputs.freesmlauncher.packages.${system}.freesmlauncher
 	];
 }
