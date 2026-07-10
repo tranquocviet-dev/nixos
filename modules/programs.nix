@@ -21,6 +21,7 @@
     git
     killall
     # apps
+    gnome-secrets
     localsend
     openssl
     vesktop
