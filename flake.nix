@@ -59,7 +59,7 @@
 		        };
 		    };
 	  in {
-	  		nixos = mkSystem "nixos" { };
+	  		nixos = mkSystem "nixos" { user = "viet"; };
 	  };
 	};
 }
