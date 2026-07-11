@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, user, ... }:
+{ config, pkgs, user, lib, ... }:
 
 {
   time.timeZone = "Asia/Ho_Chi_Minh";
@@ -43,14 +43,14 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
-    description = "dice";
+    description = "user";
     extraGroups = [ "networkmanager" "wheel" ];
     hashedPasswordFile = "/etc/nixos/secrets/super_secret_uwu.txt";
   };
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.11"; # Did you read the comment?
-  environment.variables.EDITOR = "emacs";
-  environment.variables.SUDO_EDITOR = "emacs";
+  environment.variables.EDITOR = "helix";
+  environment.variables.SUDO_EDITOR = "helix";
   system.activationScripts.binbash = {
     deps = [ "binsh" ];
     text = ''
