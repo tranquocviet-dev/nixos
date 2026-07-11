@@ -49,7 +49,7 @@
 		                home-manager = {
 		                    useUserPackages = true;
 		                    useGlobalPkgs = true;
-		                    extraSpecialArgs = { inherit inputs; };
+		                    extraSpecialArgs = { inherit inputs user hostname; };
 		                    users.${user} = (./. + "/home_manager/${user}.nix");
 		                };
 		            }

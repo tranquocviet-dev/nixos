@@ -1,6 +1,6 @@
-{ system, inputs, pkgs, config, ... }: {
-  home.username = "dice";
-  home.homeDirectory = "/home/dice";
+{ system, inputs, pkgs, config, user, ... }: {
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
   home.stateVersion = "26.05";
   # 1. Importing my nix files
   home.packages = [

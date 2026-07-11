@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 {
   time.timeZone = "Asia/Ho_Chi_Minh";
@@ -41,7 +41,7 @@
   # users.users.dice.group = "dice";
   # users.groups.dice = { "wheel", "networkmanager" };
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.dice = {
+  users.users.${user} = {
     isNormalUser = true;
     description = "dice";
     extraGroups = [ "networkmanager" "wheel" ];
