@@ -1,7 +1,8 @@
-{ inputs, ...}:
+{ system, inputs, ...}:
 {
   environment.systemPackages = [
     # Install the package
-    inputs.osu-stable.packages.x86_64-linux.default
+    inputs.osu-stable.packages.${system}.default
+    inputs.osu-lazer-bin.packages.${system}.default
   ];
 }
