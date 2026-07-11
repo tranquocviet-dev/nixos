@@ -181,9 +181,8 @@ binds {
     // rather than stacked on top of each other.
     Mod+W { toggle-column-tabbed-display; }
 
-    Print { screenshot; }
+    Print { spawn-sh "flameshot gui"; }
     Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
