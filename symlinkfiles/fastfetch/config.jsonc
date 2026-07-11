@@ -37,7 +37,7 @@
     "colors"
   ],
   "logo": {
-    "source": "./rin.jpg",
+    "source": "~/.config/fastfetch/rin.jpg",
     "type": "kitty",
     "height": 15,
   }

@@ -50,7 +50,7 @@
 		                    useUserPackages = true;
 		                    useGlobalPkgs = true;
 		                    extraSpecialArgs = { inherit inputs; };
-		                    users.${user} = (./. + "/home_manager/${hostname}.nix");
+		                    users.${user} = (./. + "/home_manager/${user}.nix");
 		                };
 		            }
 		        ];
