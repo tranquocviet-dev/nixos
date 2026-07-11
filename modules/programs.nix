@@ -75,6 +75,7 @@
     pandoc
     wget
     emacs-gtk
+    flameshot
   ];
   programs.xwayland.enable = true;
   programs.firefox.enable = true;
