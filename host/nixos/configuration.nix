@@ -45,6 +45,7 @@
     isNormalUser = true;
     description = "dice";
     extraGroups = [ "networkmanager" "wheel" ];
+    hashedPasswordFile = "/etc/nixos/secrets/super_secret_uwu.txt";
   };
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.11"; # Did you read the comment?
