@@ -181,7 +181,7 @@ binds {
     // rather than stacked on top of each other.
     Mod+W { toggle-column-tabbed-display; }
 
-    Print { spawn-sh "flameshot gui"; }
+    Print { spawn-sh "niri msg action screenshot && niri msg --json event-stream | grep -m 1 ScreenshotCaptured && wl-paste | swappy -f -"; }
     Ctrl+Print { screenshot-screen; }
 
     // Applications such as remote-desktop clients and software KVM switches may

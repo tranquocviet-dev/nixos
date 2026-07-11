@@ -21,6 +21,9 @@
     git
     killall
     # apps
+    slurp
+    grim
+    swappy
     gamemode
     gnome-secrets
     localsend
