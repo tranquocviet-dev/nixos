@@ -21,6 +21,7 @@
     git
     killall
     # apps
+    gamemode
     gnome-secrets
     localsend
     openssl
