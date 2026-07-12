@@ -12,7 +12,7 @@
   # 2. Configure GTK
   gtk = {
     enable = true;
-    font.name = "RobotoMono Nerd Font Propo";
+    font.name = "Sarasa UI J";
     font.size = 16;
     # 3. Set the theme name (exact name of the theme folder)
     theme = {
@@ -24,13 +24,6 @@
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
-    };
-  };
-  programs.vicinae = {
-    enable = true;
-    systemd = {
-      enable = true;
-      autoStart = true;
     };
   };
   home.file = {

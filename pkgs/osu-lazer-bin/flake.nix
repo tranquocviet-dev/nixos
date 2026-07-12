@@ -8,7 +8,7 @@
         let
             system = "x86_64-linux";
             pkgs = nixpkgs.legacyPackages.${system};
-            osuLazerBin= pkgs.callPackage ./osu-lazer.nix { };
+            osuLazerBin= pkgs.callPackage ./osu-lazer.nix { nativeWayland = true; };
         in {
             packages.${system}.default = osuLazerBin;
         };

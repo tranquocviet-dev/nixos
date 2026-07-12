@@ -7,6 +7,6 @@
     nerd-fonts.iosevka-term-slab
     nerd-fonts.roboto-mono
     noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
+    sarasa-gothic
   ];
 }

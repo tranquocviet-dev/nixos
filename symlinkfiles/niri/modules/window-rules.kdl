@@ -16,6 +16,7 @@ window-rule {
 // for python's Tkinter Gui applications
 window-rule {
     match app-id=r#"Tk"#
+    match app-id=r#"Toplevel"#
     open-floating true
 }
 
