@@ -21,6 +21,7 @@
     git
     killall
     # apps
+    eza
     slurp
     grim
     swappy
