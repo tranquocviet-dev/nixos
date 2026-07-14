@@ -73,7 +73,7 @@
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
   environment.sessionVariables = {
-    DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "1";
+    DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "0";
   };
   networking.networkmanager.enable = true;
 }
