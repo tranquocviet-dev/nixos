@@ -22,7 +22,7 @@
      default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-   '(astyle company company-c-headers gruber-darker-theme
+   '(astyle company company-c-headers dash gruber-darker-theme
             html-to-markdown ido-completing-read+ ido-hacks lua-mode
             magit markdown-mermaid markdown-mode move-text
             multiple-cursors nix-mode org-preview-html org-superstar
@@ -46,7 +46,7 @@
   :after org)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode +1)
-(set-face-attribute 'default nil :font "Roboto Mono Nerd Font-20")
+(set-face-attribute 'default nil :font "Sarasa Fixed CL-20")
 
 (add-to-list 'load-path "~/.config/emacs/autoload/")
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
