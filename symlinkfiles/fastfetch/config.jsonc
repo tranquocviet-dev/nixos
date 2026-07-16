@@ -25,7 +25,7 @@
     "swap",
     {
       "type": "disk",
-      "format": "{size-total} / {size-used} ({size-percentage})",
+      "format": "{size-used} / {size-total} ({size-percentage})",
       "key": "Disk",
     },
     {

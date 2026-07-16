@@ -5,9 +5,12 @@ auto-format = true
 [editor.file-picker]
 hidden = true
 [editor.whitespace.render]
-space = "all"
-tab = "all"
+space = "none"
+# tab = "all"
+tab = "none"
 newline = "none"
+[editor.indent-guides]
+render = true
 [keys.normal]
 space.s = [":indent-style t", ":w"]
 i = [":indent-style t", "collapse_selection", "insert_mode"]
@@ -17,5 +20,5 @@ insert = "bar"
 normal = "block"
 select = "underline"
 [editor.whitespace.characters]
-tabpad ="·"
-tab ="·"
+# tabpad ="·"
+# tab ="·"
