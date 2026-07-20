@@ -196,6 +196,7 @@ binds {
 
     // Core Noctalia binds
     Mod+Space hotkey-overlay-title="Open Noctalia Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    Mod+Alt+C hotkey-overlay-title="Open Noctalia Clipboard Manager" { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+S hotkey-overlay-title="Open Noctalia Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
     Mod+Comma hotkey-overlay-title="Open Noctalia Settings" { spawn-sh "noctalia msg settings-toggle"; }
 

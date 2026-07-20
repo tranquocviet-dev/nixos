@@ -29,7 +29,7 @@
     gnome-secrets
     localsend
     openssl
-    vesktop
+    equibop
     wlr-randr
     mindustry-wayland
     nodejs
