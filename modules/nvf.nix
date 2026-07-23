@@ -30,9 +30,11 @@
                 pairs.enable = true;
                 icons.enable = true;
                 indentscope.enable = true;
+                statusline.enable = true;
+                completion.enable = true;
             };
-			autocomplete.blink-cmp.enable = true;
             lsp.enable = true;
+            visuals.nvim-web-devicons.enable = true;
 		};
 	};
 }

@@ -49,8 +49,8 @@
   };
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = "25.11"; # Did you read the comment?
-  environment.variables.EDITOR = "helix";
-  environment.variables.SUDO_EDITOR = "helix";
+  environment.variables.EDITOR = "nvim";
+  environment.variables.SUDO_EDITOR = "nvim";
   system.activationScripts.binbash = {
     deps = [ "binsh" ];
     text = ''
