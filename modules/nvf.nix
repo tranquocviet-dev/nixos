@@ -4,7 +4,7 @@
 		enable = true;
 		settings.vim = {
             options = {
-                signcolumn =  "no";
+                signcolumn = "no";
                 shiftwidth = 4;
                 tabstop = 4;
             };
@@ -15,7 +15,14 @@
 			};
 			languages = {
 				enableTreesitter = true;
-				nix.enable = true;
+				nix = {
+                    enable = true;
+                    lsp.servers = [
+                    	"nixd"
+                    	"nil"
+                    ];
+                };
+
 				python = {
                     enable = true;
                     lsp.servers = [
