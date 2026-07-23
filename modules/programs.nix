@@ -1,16 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # lsp
-    vscode-css-languageserver
-    superhtml
-    ccls
-    marksman
-    ty
-    nil
-    ruff
-    nixd
-    lua-language-server
     # services
     dash
     nautilus-python
@@ -37,7 +27,6 @@
     tailwindcss
     tailwindcss-language-server
     ruby
-    ruby-lsp
     wl-clipboard
     luajit
     gnumake
