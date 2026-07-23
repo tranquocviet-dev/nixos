@@ -12,7 +12,7 @@
   # 2. Configure GTK
   gtk = {
     enable = true;
-    font.name = "Sarasa Fixed CL";
+    font.name = "Maple Mono NF";
     font.size = 16;
     # 3. Set the theme name (exact name of the theme folder)
     theme = {
