@@ -21,6 +21,7 @@
     git
     killall
     # apps
+    swayfx
     eza
     slurp
     grim

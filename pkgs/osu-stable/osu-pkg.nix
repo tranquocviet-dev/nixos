@@ -36,7 +36,7 @@ in pkgs.stdenv.mkDerivation {
     wrapProgram $out/bin/osu-install \
       --prefix PATH : ${pkgs.lib.makeBinPath runtimeDeps} \
       --set STAGING_AUDIO_DURATION 10000 \
-      --set PULSE_LATENCY_MSEC 60
+      --set PULSE_LATENCY_MSEC 30
 
     # === 2. Создаем команду запуска 'osu' ===
     # Она проверяет, создан ли уже wrapper. Если да — играет, если нет — ставит.
