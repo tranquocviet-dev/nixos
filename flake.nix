@@ -29,9 +29,11 @@
 			url = "github:FreesmTeam/FreesmLauncher";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		
+		nvf.url = "github:notashelf/nvf";
 	};
 
-	outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs: {
+	outputs = { self, nixpkgs, home-manager, nvf, nix-index-database, ... }@inputs: {
 		nixosConfigurations = let
 			mkSystem = hostname:
 			{
@@ -44,6 +46,7 @@
 								{ networking.hostName = hostname; }
 								(inputs.import-tree ./host/${hostname})
 								(inputs.import-tree ./modules)
+								nvf.nixosModules.default
 								home-manager.nixosModules.home-manager
 								{
 										home-manager = {
