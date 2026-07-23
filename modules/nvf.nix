@@ -15,13 +15,7 @@
 			};
 			languages = {
 				enableTreesitter = true;
-				nix = {
-                    enable = true;
-                    lsp.servers = [
-                    	"nixd"
-                    	"nil"
-                    ];
-                };
+				nix.enable = true;
 
 				python = {
                     enable = true;
@@ -38,10 +32,10 @@
                 icons.enable = true;
                 indentscope.enable = true;
                 statusline.enable = true;
-                completion.enable = true;
             };
             lsp.enable = true;
             visuals.nvim-web-devicons.enable = true;
+            autocomplete.blink-cmp.enable = true;
 		};
 	};
 }
