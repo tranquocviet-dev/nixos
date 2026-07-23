@@ -5,6 +5,7 @@
     shellAliases = {
       ls = "eza";
     };
+    autosuggestions.enable = true;
   };
   # Set fish as the default shell for your user
   users.users.${specialArgs.user} = {
