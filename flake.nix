@@ -1,65 +1,65 @@
 {
-  description = "NixOS configuration with Noctalia";
+	description = "NixOS configuration with Noctalia";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+	inputs = {
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    import-tree.url = "github:denful/import-tree";
+		import-tree.url = "github:denful/import-tree";
 
-    nix-index-database = {
-	    url = "github:nix-community/nix-index-database";
-	    inputs.nixpkgs.follows = "nixpkgs";
-    };
+		nix-index-database = {
+			url = "github:nix-community/nix-index-database";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
-    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
+		noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
 
-    home-manager = {
-    	url = "github:nix-community/home-manager";
-    	inputs.nixpkgs.follows = "nixpkgs";
-    };
+		home-manager = {
+			url = "github:nix-community/home-manager";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
 
-    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+		noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
-    nix-gaming.url = "github:fufexan/nix-gaming";
+		nix-gaming.url = "github:fufexan/nix-gaming";
 
-    osu-stable.url = "path:./pkgs/osu-stable";
-    osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
+		osu-stable.url = "path:./pkgs/osu-stable";
+		osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
 
-    freesmlauncher = {
-    	url = "github:FreesmTeam/FreesmLauncher";
-    	inputs.nixpkgs.follows = "nixpkgs";
-  	};
-  };
+		freesmlauncher = {
+			url = "github:FreesmTeam/FreesmLauncher";
+			inputs.nixpkgs.follows = "nixpkgs";
+		};
+	};
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs: {
-	  nixosConfigurations = let
+	outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs: {
+		nixosConfigurations = let
 			mkSystem = hostname:
 			{
 				system ? "x86_64-linux",
 				user ? "dice",
 			}:
-		    nixpkgs.lib.nixosSystem {
-		        system = system;
-		        modules = [
-		            { networking.hostName = hostname; }
-		            (inputs.import-tree ./host/${hostname})
-		            (inputs.import-tree ./modules)
-		            home-manager.nixosModules.home-manager
-		            {
-		                home-manager = {
-		                    useUserPackages = true;
-		                    useGlobalPkgs = true;
-		                    extraSpecialArgs = { inherit inputs user hostname; };
-		                    users.${user} = (./. + "/home_manager/${user}.nix");
-		                };
-		            }
-		        ];
-		        specialArgs = {
-		        	inherit inputs system user;
-		        };
-		    };
-	  in {
-	  		nixos = mkSystem "nixos" { };
-	  };
+				nixpkgs.lib.nixosSystem {
+						system = system;
+						modules = [
+								{ networking.hostName = hostname; }
+								(inputs.import-tree ./host/${hostname})
+								(inputs.import-tree ./modules)
+								home-manager.nixosModules.home-manager
+								{
+										home-manager = {
+												useUserPackages = true;
+												useGlobalPkgs = true;
+												extraSpecialArgs = { inherit inputs user hostname; };
+												users.${user} = (./. + "/home_manager/${user}.nix");
+										};
+								}
+						];
+						specialArgs = {
+							inherit inputs system user;
+						};
+				};
+		in {
+				nixos = mkSystem "nixos" { };
+		};
 	};
 }

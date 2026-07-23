@@ -23,11 +23,12 @@
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
    '(astyle company company-c-headers dash gruber-darker-theme
-            html-to-markdown ido-completing-read+ ido-hacks lua-mode
-            magit markdown-mermaid markdown-mode move-text
-            multiple-cursors nix-mode org-preview-html org-superstar
-            ox-typst r-theme-sanityinc-solarized rainbow-mode
-            typst-preview typst-ts-mode))
+	    highlight-indent-guides html-to-markdown
+	    ido-completing-read+ ido-hacks lua-mode magit
+	    markdown-mermaid markdown-mode move-text multiple-cursors
+	    nix-mode org-preview-html org-superstar ox-typst
+	    r-theme-sanityinc-solarized rainbow-mode typst-preview
+	    typst-ts-mode))
  '(safe-local-variable-values
    '((typst-preview--master-file . "/home/viet/notes/2026-03-03_MATH.typ"))))
 (custom-set-faces
@@ -58,11 +59,11 @@
 
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->")         'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")         'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
-(global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
-(global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
+(global-set-key (kbd "C->")	    'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")	    'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<")	    'mc/mark-all-like-this)
+(global-set-key (kbd "C-\"")	    'mc/skip-to-next-like-this)
+(global-set-key (kbd "C-:")	    'mc/skip-to-previous-like-this)
 
 (require 'move-text)
 (global-set-key (kbd "M-p") 'move-text-up)
@@ -88,27 +89,27 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'simpc-mode-hook
-          (lambda ()
-            (interactive)
-            (setq-local fill-paragraph-function 'astyle-buffer)))
+	  (lambda ()
+	    (interactive)
+	    (setq-local fill-paragraph-function 'astyle-buffer)))
 
 (setq-default whitespace-style
-              '(face spaces empty tabs trailing space-mark tab-mark space-after-tab))
-(global-whitespace-mode 1)
+	      '(face spaces empty tabs trailing space-mark tab-mark space-after-tab))
+;; (global-whitespace-mode 1)
 
 
 ;;;; Whitespace color corrections.
 ;;(require 'color)
 ;;(let* ((ws-lighten 0) ;; Amount in percentage to lighten up black.
-;;       (ws-color (color-lighten-name "#575653" ws-lighten)))
+;;	 (ws-color (color-lighten-name "#575653" ws-lighten)))
 ;;  (custom-set-faces
-;;   `(whitespace-newline                ((t (:foreground ,ws-color))))
+;;   `(whitespace-newline		 ((t (:foreground ,ws-color))))
 ;;   `(whitespace-missing-newline-at-eof ((t (:foreground ,ws-color))))
-;;   `(whitespace-space                  ((t (:foreground ,ws-color))))
-;;   `(whitespace-space-after-tab        ((t (:foreground ,ws-color))))
-;;   `(whitespace-space-before-tab       ((t (:foreground ,ws-color))))
-;;   `(whitespace-tab                    ((t (:foreground ,ws-color))))
-;;   `(whitespace-trailing               ((t (:foreground ,ws-color))))))
+;;   `(whitespace-space			 ((t (:foreground ,ws-color))))
+;;   `(whitespace-space-after-tab	 ((t (:foreground ,ws-color))))
+;;   `(whitespace-space-before-tab	 ((t (:foreground ,ws-color))))
+;;   `(whitespace-tab			 ((t (:foreground ,ws-color))))
+;;   `(whitespace-trailing		 ((t (:foreground ,ws-color))))))
 
 (add-to-list 'write-file-functions 'delete-trailing-whitespace)
 
@@ -117,7 +118,13 @@
   (unless (derived-mode-p 'makefile-mode)
     (untabify (point-min) (point-max))))
 
-(add-hook 'before-save-hook 'untabify-except-makefiles)
+(defun tabify-except-makefiles ()
+  "Replace tabs with spaces except in makefiles."
+  (unless (derived-mode-p 'makefile-mode)
+    (tabify (point-min) (point-max))))
+
+;; (add-hook 'before-save-hook 'untabify-except-makefiles)
+(add-hook 'before-save-hook 'tabify-except-makefiles)
 (defun on-after-init ()
   (unless (display-graphic-p (selected-frame))
     ;; Set the background of the 'default' face to "unspecified-bg"
@@ -149,3 +156,5 @@
 
 (setq org-startup-indented nil)
 (add-hook 'markdown-mode-hook (lambda () (whitespace-mode -1)))
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(setq highlight-indent-guides-method 'character)
