@@ -8,6 +8,7 @@
                 nvim-web-devicons.enable = true;
             };
             options = {
+				winborder = "single";
                 completeopt = ["menu" "menuone" "noselect" "noinsert"];
                 signcolumn = "no";
                 expandtab = false;
