@@ -47,7 +47,7 @@ layout {
 
         off
 
-        width 2
+        width 1
 
         active-color "#7fc8ff"
 
@@ -63,7 +63,7 @@ layout {
         // off
         on
 
-        width 2
+        width 1
         active-color "#ffc87f"
         inactive-color "#505050"
 
