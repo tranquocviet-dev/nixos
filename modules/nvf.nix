@@ -38,8 +38,15 @@
                 pairs.enable = true;
                 icons.enable = true;
                 statusline.enable = true;
-                pick.enable = true;
             };
+			telescope = {
+				enable = true;
+				mappings = {
+					findFiles = "<leader>e";
+					buffers = "<leader>b";
+					liveGrep = "<leader>/";
+				};
+			};
             lsp.enable = true;
             autocomplete.blink-cmp = {
                 enable = true;
@@ -66,24 +73,6 @@
                         "v"
                     ];
                     action = ":w<CR>";
-                    silent = true;
-                }
-                {
-                    key = "<leader>/";
-                    mode = [
-                        "n"
-                        "v"
-                    ];
-                    action = ":Pick grep_live<CR>";
-                    silent = true;
-                }
-                {
-                    key = "<leader>e";
-                    mode = [
-                        "n"
-                        "v"
-                    ];
-                    action = ":Pick files<CR>";
                     silent = true;
                 }
             ];
