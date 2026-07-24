@@ -1,6 +1,7 @@
-{ pkgs, lib, ... }:
+{ ... }:
 {
 	programs.nvf = {
+		enableManpages = true;
 		enable = true;
 		settings.vim = {
             visuals = {
@@ -28,17 +29,21 @@
 				python = {
                     enable = true;
                     lsp.servers = [
-                        "ty"
-                        "ruff"
+                        "pyrefly"
                     ];
                 };
 				html.enable = true;
                 css.enable = true;
 			};
+			statusline.lualine = {
+				enable = true;
+			};
+			utility = {
+				oil-nvim.enable = true;
+			};
             mini = {
                 pairs.enable = true;
                 icons.enable = true;
-                statusline.enable = true;
             };
 			telescope = {
 				enable = true;
