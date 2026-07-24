@@ -3,8 +3,15 @@
 	programs.nvf = {
 		enable = true;
 		settings.vim = {
+            visuals = {
+                indent-blankline.enable = true;
+                nvim-web-devicons.enable = true;
+            };
             options = {
+                completeopt = ["menu" "menuone" "noselect" "noinsert"];
                 signcolumn = "no";
+                expandtab = false;
+                softtabstop = 4;
                 shiftwidth = 4;
                 tabstop = 4;
             };
@@ -34,9 +41,21 @@
                 pick.enable = true;
             };
             lsp.enable = true;
-            autocomplete.nvim-cmp = {
+            autocomplete.blink-cmp = {
                 enable = true;
-                setupOpts.completion.completeopt = "menu,menuone,noinsert,noselect";
+                setupOpts = {
+                    completion = {
+                        list = {
+                            selection = {
+                                preselect = false;
+                                auto_insert = true;
+                            };
+                        };
+                        menu = {
+                            auto_show = true;
+                        };
+                    };
+                };
             };
             globals.mapleader = " ";
             keymaps = [
