@@ -21,7 +21,6 @@
 		openssl
 		equibop
 		wlr-randr
-		mindustry-wayland
 		nodejs
 		ruby
 		wl-clipboard

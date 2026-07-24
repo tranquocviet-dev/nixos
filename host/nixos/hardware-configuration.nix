@@ -13,6 +13,15 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+	fileSystems."/mnt/mirror" = {
+		device = "/dev/disk/by-uuid/a7e8b3e3-71bc-4dbb-9b71-7fa4ec572e8e";
+		fsType = "ext4";
+		options = [
+			"nofail"
+			"x-systemd.automount"
+		];
+	};
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/7584a5dc-94dd-4cf8-ae21-f936ba16b8b6";
       fsType = "ext4";
