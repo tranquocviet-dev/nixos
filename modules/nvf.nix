@@ -17,8 +17,8 @@
             };
 			theme = {
 				enable = true;
-				name = "gruvbox";
-				style = "dark";
+				name = "catppuccin";
+				style = "mocha";
 			};
 			languages = {
 				enableTreesitter = true;
@@ -86,7 +86,6 @@
                     action = ":Pick files<CR>";
                     silent = true;
                 }
-
             ];
 		};
 	};
