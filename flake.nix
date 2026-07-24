@@ -27,7 +27,6 @@
 
 		freesmlauncher = {
 			url = "github:FreesmTeam/FreesmLauncher";
-			inputs.nixpkgs.follows = "nixpkgs";
 		};
 		
 		nvf.url = "github:notashelf/nvf";

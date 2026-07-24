@@ -11,29 +11,26 @@
 		git
 		killall
 		# apps
+		proton-vpn
 		eza
 		slurp
 		grim
 		swappy
 		gamemode
-		gnome-secrets
 		localsend
 		openssl
 		equibop
 		wlr-randr
 		nodejs
-		ruby
 		wl-clipboard
 		luajit
 		gnumake
 		clang
 		mpvpaper
-		pomodoro
 		pywalfox-native
 		thokr
 		rhythmbox
 		upscayl
-		upscayl-ncnn
 		libreoffice
 		losslesscut-bin
 		gpu-screen-recorder

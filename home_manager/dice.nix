@@ -4,7 +4,6 @@
   home.stateVersion = "26.05";
   # 1. Importing my nix files
   home.packages = [
-    pkgs.vicinae
     pkgs.devenv
     pkgs.adwaita-icon-theme
     pkgs.papirus-icon-theme
