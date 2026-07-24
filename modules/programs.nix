@@ -24,8 +24,6 @@
     wlr-randr
     mindustry-wayland
     nodejs
-    tailwindcss
-    tailwindcss-language-server
     ruby
     wl-clipboard
     luajit

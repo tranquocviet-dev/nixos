@@ -30,13 +30,14 @@
             mini = {
                 pairs.enable = true;
                 icons.enable = true;
-                indentscope.enable = true;
                 statusline.enable = true;
                 pick.enable = true;
-                completion.enable = true;
             };
             lsp.enable = true;
-            visuals.nvim-web-devicons.enable = true;
+            autocomplete.nvim-cmp = {
+                enable = true;
+                setupOpts.completion.completeopt = "menu,menuone,noinsert,noselect";
+            };
             globals.mapleader = " ";
             keymaps = [
                 {
