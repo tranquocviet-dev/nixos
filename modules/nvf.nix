@@ -16,7 +16,7 @@
 			languages = {
 				enableTreesitter = true;
 				nix.enable = true;
-
+                clang.enable = true;
 				python = {
                     enable = true;
                     lsp.servers = [
@@ -32,10 +32,42 @@
                 icons.enable = true;
                 indentscope.enable = true;
                 statusline.enable = true;
+                pick.enable = true;
+                completion.enable = true;
             };
             lsp.enable = true;
             visuals.nvim-web-devicons.enable = true;
-            autocomplete.blink-cmp.enable = true;
+            globals.mapleader = " ";
+            keymaps = [
+                {
+                    key = "<leader>s";
+                    mode = [
+                        "n"
+                        "v"
+                    ];
+                    action = ":w<CR>";
+                    silent = true;
+                }
+                {
+                    key = "<leader>/";
+                    mode = [
+                        "n"
+                        "v"
+                    ];
+                    action = ":Pick grep_live<CR>";
+                    silent = true;
+                }
+                {
+                    key = "<leader>e";
+                    mode = [
+                        "n"
+                        "v"
+                    ];
+                    action = ":Pick files<CR>";
+                    silent = true;
+                }
+
+            ];
 		};
 	};
 }
