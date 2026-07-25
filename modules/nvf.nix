@@ -39,7 +39,19 @@
 				enable = true;
 			};
 			utility = {
-				oil-nvim.enable = true;
+				oil-nvim ={
+					enable = true;
+					setupOpts = {
+						columns = [
+							"permissions"
+							"mtime"
+							"icon"
+						];
+						view_options = {
+							show_hidden = true;
+						};
+					};
+				};
 			};
             mini = {
                 pairs.enable = true;
@@ -48,7 +60,7 @@
 			telescope = {
 				enable = true;
 				mappings = {
-					findFiles = "<leader>e";
+					findFiles = "<leader>f";
 					buffers = "<leader>b";
 					liveGrep = "<leader>/";
 				};
@@ -72,6 +84,15 @@
             };
             globals.mapleader = " ";
             keymaps = [
+                {
+                    key = "<leader>e";
+                    mode = [
+                        "n"
+                        "v"
+                    ];
+                    action = ":Oil<CR>";
+                    silent = true;
+                }
                 {
                     key = "<leader>s";
                     mode = [

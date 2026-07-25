@@ -10,6 +10,8 @@
 		adw-gtk3
 		git
 		killall
+		librsvg
+		gdk-pixbuf
 		# apps
 		proton-vpn
 		eza
