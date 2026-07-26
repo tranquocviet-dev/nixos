@@ -58,6 +58,7 @@
 		pandoc
 		wget
 		emacs-gtk
+		swayfx
 	];
 	programs.xwayland.enable = true;
 	programs.firefox.enable = true;

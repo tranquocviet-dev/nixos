@@ -9,6 +9,10 @@
                 nvim-web-devicons.enable = true;
             };
             options = {
+				clipboard = {
+					enable = true;
+					register = "unnamed";
+				};
 				winborder = "rounded";
                 completeopt = ["menu" "menuone" "noselect" "noinsert"];
                 signcolumn = "no";
@@ -60,9 +64,9 @@
 			telescope = {
 				enable = true;
 				mappings = {
-					findFiles = "<leader>f";
-					buffers = "<leader>b";
-					liveGrep = "<leader>/";
+					findFiles = "<C-x><C-f>";
+					buffers = "<C-x><C-b>";
+					liveGrep = "<C-x><C-_>";
 				};
 			};
             lsp.enable = true;
@@ -85,7 +89,7 @@
             globals.mapleader = " ";
             keymaps = [
                 {
-                    key = "<leader>e";
+                    key = "<C-x><C-e>";
                     mode = [
                         "n"
                         "v"
@@ -93,8 +97,8 @@
                     action = ":Oil<CR>";
                     silent = true;
                 }
-                {
-                    key = "<leader>s";
+				{
+                    key = "<C-x><C-s>";
                     mode = [
                         "n"
                         "v"
