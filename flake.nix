@@ -25,10 +25,6 @@
 		osu-stable.url = "path:./pkgs/osu-stable";
 		osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
 
-		freesmlauncher = {
-			url = "github:FreesmTeam/FreesmLauncher";
-		};
-		
 		nvf.url = "github:notashelf/nvf";
 	};
 
@@ -40,25 +36,25 @@
 				user ? "dice",
 			}:
 				nixpkgs.lib.nixosSystem {
-						system = system;
-						modules = [
-								{ networking.hostName = hostname; }
-								(inputs.import-tree ./host/${hostname})
-								(inputs.import-tree ./modules)
-								nvf.nixosModules.default
-								home-manager.nixosModules.home-manager
-								{
-										home-manager = {
-												useUserPackages = true;
-												useGlobalPkgs = true;
-												extraSpecialArgs = { inherit inputs user hostname; };
-												users.${user} = (./. + "/home_manager/${user}.nix");
-										};
-								}
-						];
-						specialArgs = {
-							inherit inputs system user;
-						};
+					system = system;
+					modules = [
+						{ networking.hostName = hostname; }
+						(inputs.import-tree ./host/${hostname})
+						(inputs.import-tree ./modules)
+						nvf.nixosModules.default
+						home-manager.nixosModules.home-manager
+						{
+							home-manager = {
+								useUserPackages = true;
+								useGlobalPkgs = true;
+								extraSpecialArgs = { inherit inputs user hostname; };
+								users.${user} = (./. + "/home_manager/${user}.nix");
+							};
+						}
+					];
+					specialArgs = {
+						inherit inputs system user;
+					};
 				};
 		in {
 				nixos = mkSystem "nixos" { };
