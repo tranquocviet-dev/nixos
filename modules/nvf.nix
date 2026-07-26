@@ -4,23 +4,20 @@
 		enableManpages = true;
 		enable = true;
 		settings.vim = {
-            visuals = {
-                indent-blankline.enable = true;
-                nvim-web-devicons.enable = true;
-            };
-            options = {
-				clipboard = {
-					enable = true;
-					register = "unnamed";
-				};
+			luaConfigPre = builtins.readFile ./_clip.lua;
+			visuals = {
+				indent-blankline.enable = true;
+				nvim-web-devicons.enable = true;
+			};
+			options = {
 				winborder = "rounded";
-                completeopt = ["menu" "menuone" "noselect" "noinsert"];
-                signcolumn = "no";
-                expandtab = false;
-                softtabstop = 4;
-                shiftwidth = 4;
-                tabstop = 4;
-            };
+				completeopt = ["menu" "menuone" "noselect" "noinsert"];
+				signcolumn = "no";
+				expandtab = false;
+				softtabstop = 4;
+				shiftwidth = 4;
+				tabstop = 4;
+			};
 			theme = {
 				enable = true;
 				name = "catppuccin";
@@ -29,15 +26,15 @@
 			languages = {
 				enableTreesitter = true;
 				nix.enable = true;
-                clang.enable = true;
+				clang.enable = true;
 				python = {
-                    enable = true;
-                    lsp.servers = [
-                        "pyrefly"
-                    ];
-                };
+					enable = true;
+					lsp.servers = [
+					"pyrefly"
+					];
+				};
 				html.enable = true;
-                css.enable = true;
+				css.enable = true;
 			};
 			statusline.lualine = {
 				enable = true;
@@ -57,56 +54,64 @@
 					};
 				};
 			};
-            mini = {
-                pairs.enable = true;
-                icons.enable = true;
-            };
+			mini = {
+				pairs.enable = true;
+				icons.enable = true;
+			};
 			telescope = {
 				enable = true;
 				mappings = {
 					findFiles = "<C-x><C-f>";
 					buffers = "<C-x><C-b>";
-					liveGrep = "<C-x><C-_>";
+					liveGrep = "<C-x><C-/>";
 				};
 			};
-            lsp.enable = true;
-            autocomplete.blink-cmp = {
-                enable = true;
-                setupOpts = {
-                    completion = {
-                        list = {
-                            selection = {
-                                preselect = false;
-                                auto_insert = true;
-                            };
-                        };
-                        menu = {
-                            auto_show = true;
-                        };
-                    };
-                };
-            };
-            globals.mapleader = " ";
-            keymaps = [
-                {
-                    key = "<C-x><C-e>";
-                    mode = [
-                        "n"
-                        "v"
-                    ];
-                    action = ":Oil<CR>";
-                    silent = true;
-                }
+			lsp.enable = true;
+			autocomplete.blink-cmp = {
+				enable = true;
+				setupOpts = {
+					completion = {
+						list = {
+							selection = {
+								preselect = false;
+								auto_insert = true;
+							};
+						};
+						menu = {
+							auto_show = true;
+						};
+					};
+				};
+			};
+			keymaps = [
 				{
-                    key = "<C-x><C-s>";
-                    mode = [
-                        "n"
-                        "v"
-                    ];
-                    action = ":w<CR>";
-                    silent = true;
-                }
-            ];
+					key = "<C-x><C-q>";
+					mode = [
+						"n"
+						"v"
+					];
+					action = ":q<CR>";
+					silent = true;
+				}
+				{
+					key = "<C-x><C-e>";
+					mode = [
+						"n"
+						"v"
+					];
+					action = ":Oil<CR>";
+					silent = true;
+				}
+				{
+					key = "<C-x><C-s>";
+						mode = [
+						"n"
+						"v"
+					];
+					action = ":w<CR>";
+					silent = true;
+				}
+			];
 		};
 	};
 }
