@@ -4,7 +4,8 @@
 		enableManpages = true;
 		enable = true;
 		settings.vim = {
-			luaConfigPre = builtins.readFile ./_clip.lua;
+			luaConfigPre = builtins.readFile ./nvf/_clip.lua;
+			luaConfigPost = builtins.readFile ./nvf/_emacs.lua;
 			visuals = {
 				indent-blankline.enable = true;
 				nvim-web-devicons.enable = true;
