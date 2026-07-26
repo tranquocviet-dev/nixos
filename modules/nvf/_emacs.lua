@@ -1,2 +1,6 @@
 vim.keymap.set('i', '<C-Left>', '<C-o>b', { noremap = true, silent = true })
 vim.keymap.set('i', '<C-Right>', '<C-o>w', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Space>', 'v', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-w>', 'y', { noremap = true, silent = true })
+vim.keymap.set('v', '<C-w>', 'd', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-y>', 'p', { noremap = true, silent = true })

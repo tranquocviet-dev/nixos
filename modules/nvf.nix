@@ -4,8 +4,6 @@
 		enableManpages = true;
 		enable = true;
 		settings.vim = {
-			luaConfigPre = builtins.readFile ./nvf/_clip.lua;
-			luaConfigPost = builtins.readFile ./nvf/_emacs.lua;
 			visuals = {
 				indent-blankline.enable = true;
 				nvim-web-devicons.enable = true;
@@ -85,6 +83,42 @@
 				};
 			};
 			keymaps = [
+				{
+					key = "<C-S-Space>";
+					mode = [ "n" ];
+					action = "V";
+					silent = true;
+				}
+				{
+					key = "<C-Space>";
+					mode = [ "n" ];
+					action = "v";
+					silent = true;
+				}
+				{
+					key = "<A-w>";
+					mode = [ "v" ];
+					action = "\"+y";
+					silent = true;
+				}
+				{
+					key = "<C-w>";
+					mode = [ "v" ];
+					action = "\"+d";
+					silent = true;
+				}
+				{
+					key = "<C-y>";
+					mode = [ "i" ];
+					action = "<C-o>\"+p";
+					silent = true;
+				}
+				{
+					key = "<C-y>";
+					mode = [ "n" ];
+					action = "\"+p";
+					silent = true;
+				}
 				{
 					key = "<C-x><C-q>";
 					mode = [
