@@ -2,11 +2,11 @@
 { pkgs, lib, stdenvNoCC, fetchurl, appimageTools, makeWrapper, nativeWayland ? false, ... }:
 let
     pname = "osu-lazer-bin";
-    version = "2026.711.0";
+    version = "2026.726.0";
   src = {
       x86_64-linux = fetchurl {
         url = "https://github.com/ppy/osu/releases/download/${version}-lazer/osu.AppImage";
-        hash = "sha256:2b2039502bdbf5ea64ee346d746e709742f329cebf0f6ae4c3910943121a8a1c";
+        hash = "sha256:3d3028609543dffd037b00652603f75928515100b6245bc929a9dc46fd3b29a0";
       };
     }
     .${stdenvNoCC.system} or (throw "osu-lazer-bin: ${stdenvNoCC.system} is unsupported.");
