@@ -28,7 +28,7 @@
 		multiple-cursors nix-mode org-preview-html org-superstar
 		ox-typst r-theme-sanityinc-solarized rainbow-mode
 		typst-preview typst-ts-mode))
- '(safe-local-variable-values
+ '(safe-local-variable-values))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -45,7 +45,7 @@
   :after org)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode +1)
-(add-hook 'after-make-frame-functions (lambda (f) (set-face-attribute 'default f :font "Maple Mono NF-12.5")))
+(add-hook 'after-make-frame-functions (lambda (f) (set-face-attribute 'default f :font "Maple Mono NF-16")))
 
 (add-to-list 'load-path "~/.config/emacs/autoload/")
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
