@@ -47,7 +47,7 @@
   :after org)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode +1)
-(set-face-attribute 'default nil :font "Maple Mono NF-20")
+(set-face-attribute 'default nil :font "Maple Mono NF-16")
 
 (add-to-list 'load-path "~/.config/emacs/autoload/")
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
