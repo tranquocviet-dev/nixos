@@ -1,4 +1,4 @@
-{}:
+{ ... }:
 {
 	hardware.opentabletdriver = {
 		enable = true;
