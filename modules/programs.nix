@@ -59,9 +59,15 @@
 		pandoc
 		wget
 		emacs-gtk
-		swayfx
 	];
-	programs.sway.enable = true;
+	programs.sway = {
+		enable = true;
+		extraOptions = [ "--unsupported-gpu" ];
+		package = pkgs.swayfx;
+		extraPackages = with pkgs; [
+			scenefx
+		];
+	};
 	programs.xwayland.enable = true;
 	programs.firefox.enable = true;
 	programs.steam.enable = true;
