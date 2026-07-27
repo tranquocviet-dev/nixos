@@ -1,4 +1,5 @@
 spawn-at-startup "noctalia"
+spawn-at-startup "emacs --daemon"
 window-rule {
   // Rounded corners for a modern look.
   geometry-corner-radius 20

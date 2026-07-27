@@ -1,4 +1,5 @@
 spawn-at-startup "noctalia"
+spawn-at-startup "emacs --daemon"
 binds {
     // Core Noctalia binds
     Mod+Space { spawn-sh "vicinae open"; }

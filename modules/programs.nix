@@ -13,6 +13,7 @@
 		librsvg
 		gdk-pixbuf
 		# apps
+		xdg-desktop-portal-wlr
 		proton-vpn
 		eza
 		slurp
@@ -60,13 +61,13 @@
 		emacs-gtk
 		swayfx
 	];
+	programs.sway.enable = true;
 	programs.xwayland.enable = true;
 	programs.firefox.enable = true;
 	programs.steam.enable = true;
 	programs.steam.extraCompatPackages = with pkgs; [
 		proton-ge-bin
 	];
-	programs.niri.enable = true;
 	programs.nautilus-open-any-terminal = {
 		enable = true;
 		terminal = "kitty";

@@ -138,6 +138,14 @@
 					silent = true;
 				}
 				{
+					key = "<C-Backspace>";
+						mode = [
+						"i"
+					];
+					action = "<C-o>db";
+					silent = true;
+				}
+				{
 					key = "<C-x><C-s>";
 						mode = [
 						"n"
