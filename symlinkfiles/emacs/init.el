@@ -20,15 +20,16 @@
 	 "a68ec832444ed19b83703c829e60222c9cfad7186b7aea5fd794b79be54146e6"
 	 "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
 	 default))
+ '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
    '(astyle company company-c-headers company-nixos-options company-web
-		dash gruber-darker-theme highlight-indent-guides
-		html-to-markdown ido-completing-read+ ido-hacks lua-mode
-		magit markdown-mermaid markdown-mode move-text
-		multiple-cursors nix-mode org-preview-html org-superstar
-		ox-typst r-theme-sanityinc-solarized rainbow-mode
-		typst-preview typst-ts-mode))
- '(safe-local-variable-values))
+			dash gruber-darker-theme html-to-markdown
+			ido-completing-read+ ido-hacks lua-mode magit
+			markdown-mermaid markdown-mode move-text multiple-cursors
+			nix-mode org-preview-html org-superstar ox-typst
+			r-theme-sanityinc-solarized rainbow-mode typst-preview
+			typst-ts-mode))
+ '(safe-local-variable-values nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -67,3 +68,5 @@
 		(interactive)
 		(setq-local fill-paragraph-function 'astyle-buffer)))
 (load-theme 'noctalia t)
+(require 'multiple-cursors)
+(add-hook 'after-init-hook 'rainbow-mode 1)
