@@ -53,5 +53,4 @@
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/fastfetch";
     };
   };
-	wayland.windowManager.sway.systemd.variables = ["--unsupported-gpu"];
 }
