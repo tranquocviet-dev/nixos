@@ -13,6 +13,7 @@
 		librsvg
 		gdk-pixbuf
 		# apps
+		woomer
 		xdg-desktop-portal-wlr
 		proton-vpn
 		eza
@@ -68,6 +69,7 @@
 			scenefx
 		];
 	};
+	programs.mango.enable = true;
 	programs.xwayland.enable = true;
 	programs.firefox.enable = true;
 	programs.steam.enable = true;

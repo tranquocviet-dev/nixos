@@ -9,41 +9,32 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(noctalia))
- '(custom-safe-themes
-   '("54a07e4250791390837b3b30289c49b4972cdf350fb12e6430715fc97087caf4"
-	 "ab280e79ea968cee506e265bb4c08856ea33d594309bf1d65f0f508a7e3c1b9d"
-	 "a68ec832444ed19b83703c829e60222c9cfad7186b7aea5fd794b79be54146e6"
-	 "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
-	 default))
- '(org-agenda-files '("~/reminder.org"))
- '(package-selected-packages
-   '(astyle company company-c-headers company-nixos-options company-web
-			dash gruber-darker-theme html-to-markdown
-			ido-completing-read+ ido-hacks lua-mode magit
-			markdown-mermaid markdown-mode move-text multiple-cursors
-			nix-mode org-preview-html org-superstar ox-typst
-			r-theme-sanityinc-solarized rainbow-mode typst-preview
-			typst-ts-mode))
- '(safe-local-variable-values nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(whitespace-missing-newline-at-eof ((t (:foreground "#575756565353"))))
- '(whitespace-newline ((t (:foreground "#575756565353"))))
- '(whitespace-space ((t (:foreground "#575756565353"))))
- '(whitespace-space-after-tab ((t (:foreground "#575756565353"))))
- '(whitespace-space-before-tab ((t (:foreground "#575756565353"))))
- '(whitespace-tab ((t (:foreground "#575756565353"))))
- '(whitespace-trailing ((t (:foreground "#575756565353")))))
+	;; custom-set-variables was added by Custom.
+	;; If you edit it by hand, you could mess it up, so be careful.
+	;; Your init file should contain only one such instance.
+	;; If there is more than one, they won't work right.
+	'(custom-enabled-themes '(noctalia))
+	'(custom-safe-themes
+	'(
+		"990b06ea68ce91fb48f038b48f6948682b4ce31379857cfc8a5861fcfcff7297"
+		"c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
+		"54a07e4250791390837b3b30289c49b4972cdf350fb12e6430715fc97087caf4"
+		"ab280e79ea968cee506e265bb4c08856ea33d594309bf1d65f0f508a7e3c1b9d"
+		"a68ec832444ed19b83703c829e60222c9cfad7186b7aea5fd794b79be54146e6"
+		"01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
+		default))
+	'(org-agenda-files '("~/reminder.org"))
+	'(package-selected-packages
+	'(astyle catppuccin-theme company company-c-headers
+		company-nixos-options company-web dash gruber-darker-theme
+		html-to-markdown ido-completing-read+ ido-hacks lua-mode
+		magit markdown-mermaid markdown-mode move-text
+		multiple-cursors nix-mode org-preview-html org-superstar
+		ox-typst r-theme-sanityinc-solarized rainbow-mode
+		typst-preview typst-ts-mode))
+	'(safe-local-variable-values nil))
 (use-package ox-typst
-  :after org)
+	:after org)
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode +1)
 (add-hook 'after-make-frame-functions (lambda (f) (set-face-attribute 'default f :font "Maple Mono NF-16")))
@@ -64,9 +55,49 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'simpc-mode-hook
-	  (lambda ()
-		(interactive)
-		(setq-local fill-paragraph-function 'astyle-buffer)))
-(load-theme 'noctalia t)
+	(lambda ()
+	(interactive)
+	(setq-local fill-paragraph-function 'astyle-buffer)))
 (require 'multiple-cursors)
 (add-hook 'after-init-hook 'rainbow-mode 1)
+(add-hook 'prog-mode-hook
+	(lambda ()
+	(setq indent-tabs-mode t)
+	(setq tab-width 4)))
+;; Whitespace color corrections.
+(require 'color)
+(let* ((ws-lighten 0) ;; Amount in percentage to lighten up black.
+	(ws-color (color-lighten-name "#585b70" ws-lighten)))
+	(custom-set-faces
+		`(whitespace-newline ((t (:foreground ,ws-color))))
+		`(whitespace-missing-newline-at-eof ((t (:foreground ,ws-color))))
+		`(whitespace-space ((t (:foreground ,ws-color))))
+		`(whitespace-space-after-tab ((t (:foreground ,ws-color))))
+		`(whitespace-space-before-tab ((t (:foreground ,ws-color))))
+		`(whitespace-tab ((t (:foreground ,ws-color))))
+		`(whitespace-trailing ((t (:foreground ,ws-color))))))
+;; Define the whitespace style.
+(setq-default whitespace-style
+	'(face empty tabs trailing tab-mark))
+(add-hook 'prog-mode-hook 'whitespace-mode 1)
+(setq-default whitespace-display-mappings
+	'(
+	(tab-mark ?\t [124 ?\t] [187 ?\t])))
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+(defun format-tab (x)
+	"Replace all occurrences of X consecutive spaces with a tab character across the entire buffer."
+	(interactive "nNumber of spaces to replace with indent: ")
+	(save-excursion
+		(save-restriction
+			(widen)
+			(goto-char (point-min))
+			(let ((search-pattern (make-string x ?\s)))
+				(while (search-forward search-pattern nil t)
+					(replace-match "\t" nil t))))))
+(put 'upcase-region 'disabled nil)
+(load-theme 'noctalia t)
