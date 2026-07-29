@@ -24,7 +24,13 @@
 			};
 			languages = {
 				enableTreesitter = true;
-				nix.enable = true;
+				nix = {
+					enable = true;
+					lsp = {
+						enable = true;
+						servers = ["nixd"];
+					};
+				};
 				clang.enable = true;
 				python = {
 					enable = true;
