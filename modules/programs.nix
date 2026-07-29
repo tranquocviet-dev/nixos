@@ -3,7 +3,6 @@
 	environment.systemPackages = with pkgs; [
 		# services
 		dash
-		nautilus-python
 		tk
 		vips
 		xwayland-satellite
@@ -15,7 +14,6 @@
 		# apps
 		woomer
 		xdg-desktop-portal-wlr
-		xdg-desktop-portal-gnome
 		proton-vpn
 		eza
 		slurp
@@ -46,7 +44,6 @@
 		protontricks
 		lutgen
 		helix
-		peazip
 		spotify
 		mesa-demos
 		typst
@@ -61,7 +58,8 @@
 		pandoc
 		wget
 		emacs-gtk
-		nautilus
+		pcmanfm
+		engrampa
 	];
 	programs.mango.enable = true;
 	programs.xwayland.enable = true;
@@ -70,10 +68,6 @@
 	programs.steam.extraCompatPackages = with pkgs; [
 		proton-ge-bin
 	];
-	programs.nautilus-open-any-terminal = {
-		enable = true;
-		terminal = "kitty";
-	};
 	programs.noctalia-greeter.enable = true;
 	programs.npm.enable = true;
 	# Enable Fcitx5
