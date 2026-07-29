@@ -1,11 +1,9 @@
-{ pkgs }:
+{ pkgs, ... }:
 {
+	programs.dconf.enable = true;
+	services.gvfs.enable = true;
+	services.udisks2.enable = true;
 	environment.systemPackages = with pkgs; [
-		file-roller
-		p7zip-rar
-		nemo
-		nemo-fileroller
-		nemo-with-extensions
-		webp-pixbuf-loader
+		nautilus
 	];
 }
