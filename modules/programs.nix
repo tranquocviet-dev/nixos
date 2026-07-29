@@ -15,6 +15,7 @@
 		# apps
 		woomer
 		xdg-desktop-portal-wlr
+		xdg-desktop-portal-gnome
 		proton-vpn
 		eza
 		slurp
@@ -60,15 +61,8 @@
 		pandoc
 		wget
 		emacs-gtk
+		nautilus
 	];
-	programs.sway = {
-		enable = true;
-		extraOptions = [ "--unsupported-gpu" ];
-		package = pkgs.swayfx;
-		extraPackages = with pkgs; [
-			scenefx
-		];
-	};
 	programs.mango.enable = true;
 	programs.xwayland.enable = true;
 	programs.firefox.enable = true;

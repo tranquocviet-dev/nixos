@@ -65,17 +65,14 @@
 	(setq indent-tabs-mode t)
 	(setq tab-width 4)))
 ;; Whitespace color corrections.
-(require 'color)
-(let* ((ws-lighten 0) ;; Amount in percentage to lighten up black.
-	(ws-color (color-lighten-name "#585b70" ws-lighten)))
-	(custom-set-faces
-		`(whitespace-newline ((t (:foreground ,ws-color))))
-		`(whitespace-missing-newline-at-eof ((t (:foreground ,ws-color))))
-		`(whitespace-space ((t (:foreground ,ws-color))))
-		`(whitespace-space-after-tab ((t (:foreground ,ws-color))))
-		`(whitespace-space-before-tab ((t (:foreground ,ws-color))))
-		`(whitespace-tab ((t (:foreground ,ws-color))))
-		`(whitespace-trailing ((t (:foreground ,ws-color))))))
+(custom-set-faces
+	`(whitespace-newline ((t (:foreground "#585b70"))))
+	`(whitespace-missing-newline-at-eof ((t (:foreground "#585b70"))))
+	`(whitespace-space ((t (:foreground "#585b70"))))
+	`(whitespace-space-after-tab ((t (:foreground "#585b70"))))
+	`(whitespace-space-before-tab ((t (:foreground "#585b70"))))
+	`(whitespace-tab ((t (:foreground "#585b70"))))
+	`(whitespace-trailing ((t (:foreground "#585b70")))))
 ;; Define the whitespace style.
 (setq-default whitespace-style
 	'(face empty tabs trailing tab-mark))
