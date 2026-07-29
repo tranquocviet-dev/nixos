@@ -60,6 +60,7 @@
 		emacs-gtk
 		pcmanfm
 		engrampa
+		unzip
 	];
 	programs.mango.enable = true;
 	programs.xwayland.enable = true;
