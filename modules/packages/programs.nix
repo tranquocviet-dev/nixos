@@ -7,7 +7,6 @@
 		libreoffice
 		losslesscut-bin
 		gpu-screen-recorder
-		obsidian
 		qimgv
 		kitty
 		krita

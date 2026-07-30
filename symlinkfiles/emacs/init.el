@@ -9,30 +9,30 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (custom-set-variables
-	;; custom-set-variables was added by Custom.
-	;; If you edit it by hand, you could mess it up, so be careful.
-	;; Your init file should contain only one such instance.
-	;; If there is more than one, they won't work right.
-	'(custom-enabled-themes '(noctalia))
-	'(custom-safe-themes
-	'(
-		"990b06ea68ce91fb48f038b48f6948682b4ce31379857cfc8a5861fcfcff7297"
-		"c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
-		"54a07e4250791390837b3b30289c49b4972cdf350fb12e6430715fc97087caf4"
-		"ab280e79ea968cee506e265bb4c08856ea33d594309bf1d65f0f508a7e3c1b9d"
-		"a68ec832444ed19b83703c829e60222c9cfad7186b7aea5fd794b79be54146e6"
-		"01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
-		default))
-	'(org-agenda-files '("~/reminder.org"))
-	'(package-selected-packages
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(noctalia))
+ '(custom-safe-themes
+   '("990b06ea68ce91fb48f038b48f6948682b4ce31379857cfc8a5861fcfcff7297"
+	 "c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
+	 "54a07e4250791390837b3b30289c49b4972cdf350fb12e6430715fc97087caf4"
+	 "ab280e79ea968cee506e265bb4c08856ea33d594309bf1d65f0f508a7e3c1b9d"
+	 "a68ec832444ed19b83703c829e60222c9cfad7186b7aea5fd794b79be54146e6"
+	 "01a9797244146bbae39b18ef37e6f2ca5bebded90d9fe3a2f342a9e863aaa4fd"
+	 default))
+ '(org-agenda-files '("~/reminder.org"))
+ '(package-selected-packages
 	'(astyle catppuccin-theme company company-c-headers
-		company-nixos-options company-web dash gruber-darker-theme
-		html-to-markdown ido-completing-read+ ido-hacks lua-mode
-		magit markdown-mermaid markdown-mode move-text
-		multiple-cursors nix-mode org-preview-html org-superstar
-		ox-typst r-theme-sanityinc-solarized rainbow-mode
-		typst-preview typst-ts-mode))
-	'(safe-local-variable-values nil))
+			company-nixos-options company-web dash gruber-darker-theme
+			helm helm-fuzzy helm-fuzzy-find helm-nixos-options
+			html-to-markdown ido-completing-read+ ido-hacks lua-mode
+			magit markdown-mermaid markdown-mode move-text
+			multiple-cursors nix-mode org-preview-html org-superstar
+			ox-typst r-theme-sanityinc-solarized rainbow-mode
+			typst-preview typst-ts-mode))
+ '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)
 (setq display-line-numbers-type 'relative)
@@ -44,7 +44,8 @@
 
 (require 'simpc-mode)
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(fido-mode 1)
+(require 'helm)
+(helm-mode 1)
 (setq auto-save-default nil)
 
 (require 'move-text)
@@ -66,13 +67,17 @@
 	(setq tab-width 4)))
 ;; Whitespace color corrections.
 (custom-set-faces
-	`(whitespace-newline ((t (:foreground "#585b70"))))
-	`(whitespace-missing-newline-at-eof ((t (:foreground "#585b70"))))
-	`(whitespace-space ((t (:foreground "#585b70"))))
-	`(whitespace-space-after-tab ((t (:foreground "#585b70"))))
-	`(whitespace-space-before-tab ((t (:foreground "#585b70"))))
-	`(whitespace-tab ((t (:foreground "#585b70"))))
-	`(whitespace-trailing ((t (:foreground "#585b70")))))
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(whitespace-missing-newline-at-eof ((t (:foreground "#585b70"))))
+ '(whitespace-newline ((t (:foreground "#585b70"))))
+ '(whitespace-space ((t (:foreground "#585b70"))))
+ '(whitespace-space-after-tab ((t (:foreground "#585b70"))))
+ '(whitespace-space-before-tab ((t (:foreground "#585b70"))))
+ '(whitespace-tab ((t (:foreground "#585b70"))))
+ '(whitespace-trailing ((t (:foreground "#585b70")))))
 ;; Define the whitespace style.
 (setq-default whitespace-style
 	'(face empty tabs trailing tab-mark))

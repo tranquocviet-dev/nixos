@@ -144,6 +144,24 @@
 					silent = true;
 				}
 				{
+					key = "<C-x><Right>";
+						mode = [
+						"i"
+						"n"
+					];
+					action = ":bn<CR>";
+					silent = true;
+				}
+				{
+					key = "<C-x><Left>";
+						mode = [
+						"i"
+						"n"
+					];
+					action = ":b #<CR>";
+					silent = true;
+				}
+				{
 					key = "<C-Backspace>";
 						mode = [
 						"i"
