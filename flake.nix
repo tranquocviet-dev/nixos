@@ -6,11 +6,6 @@
 
 		import-tree.url = "github:denful/import-tree";
 
-		nix-index-database = {
-			url = "github:nix-community/nix-index-database";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
-
 		noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
 
 		home-manager = {
@@ -28,7 +23,7 @@
 		nvf.url = "github:notashelf/nvf";
 	};
 
-	outputs = { self, nixpkgs, home-manager, nvf, nix-index-database, ... }@inputs: {
+	outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: {
 		nixosConfigurations = let
 			mkSystem = hostname:
 			{

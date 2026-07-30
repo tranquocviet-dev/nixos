@@ -6,5 +6,9 @@
 	environment.systemPackages = with pkgs; [
 		nautilus
 		file-roller
+		gdk-pixbuf
+		viewnior
+		kdePackages.gwenview
+		kdePackages.kimageformats
 	];
 }
