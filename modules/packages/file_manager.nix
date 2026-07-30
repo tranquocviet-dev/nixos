@@ -5,10 +5,13 @@
 	services.udisks2.enable = true;
 	environment.systemPackages = with pkgs; [
 		nautilus
+		nautilus-open-any-terminal
+		nautilus-python
+
 		file-roller
-		gdk-pixbuf
-		viewnior
-		kdePackages.gwenview
-		kdePackages.kimageformats
+		p7zip
+		unrar
+		unzip
+		zip
 	];
 }

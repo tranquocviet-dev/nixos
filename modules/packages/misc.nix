@@ -30,6 +30,9 @@
 		gimp
 		unrar
 		unzip
+		#lsp for lsp-mode
+		nixd
+		ruff
 	];
 	programs.noctalia-greeter.enable = true;
 }

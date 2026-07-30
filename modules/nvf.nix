@@ -19,8 +19,8 @@
 			};
 			theme = {
 				enable = true;
-				name = "catppuccin";
-				style = "mocha";
+				name = "oxocarbon";
+				style = "dark";
 			};
 			languages = {
 				enableTreesitter = true;
@@ -28,22 +28,30 @@
 					enable = true;
 					lsp = {
 						enable = true;
-						servers = ["nixd"];
+						servers = [ "nixd" ];
 					};
 				};
 				clang.enable = true;
 				python = {
 					enable = true;
-					lsp.servers = [
-					"pyrefly"
-					];
+					lsp.servers = [ "ruff" ];
 				};
-				html.enable = true;
-				css.enable = true;
+				html = {
+					enable = true;
+					lsp.servers = [ "emmet-ls" ];
+				};
+				css = {
+					enable = true;
+					lsp.servers = [ "emmet-ls" ];
+				};
+				typescript = {
+					enable = true;
+					lsp.servers = [ "emmet-ls" ];
+				};
 			};
-			statusline.lualine = {
-				enable = true;
-			};
+			# statusline.lualine = {
+			#	enable = true;
+			# };
 			utility = {
 				oil-nvim ={
 					enable = true;
@@ -60,6 +68,7 @@
 				};
 			};
 			mini = {
+				statusline.enable = true;
 				pairs.enable = true;
 				icons.enable = true;
 			};

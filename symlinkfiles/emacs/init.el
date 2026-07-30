@@ -15,7 +15,8 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(noctalia))
  '(custom-safe-themes
-   '("990b06ea68ce91fb48f038b48f6948682b4ce31379857cfc8a5861fcfcff7297"
+   '("9fd51ac6d0704b3a7148d9cb3ce8be07f174bbf432a8e175a4b8eb2ab9d79675"
+	 "990b06ea68ce91fb48f038b48f6948682b4ce31379857cfc8a5861fcfcff7297"
 	 "c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
 	 "54a07e4250791390837b3b30289c49b4972cdf350fb12e6430715fc97087caf4"
 	 "ab280e79ea968cee506e265bb4c08856ea33d594309bf1d65f0f508a7e3c1b9d"
@@ -24,14 +25,13 @@
 	 default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-	'(astyle catppuccin-theme company company-c-headers
-			company-nixos-options company-web dash gruber-darker-theme
-			helm helm-fuzzy helm-fuzzy-find helm-nixos-options
-			html-to-markdown ido-completing-read+ ido-hacks lua-mode
-			magit markdown-mermaid markdown-mode move-text
+   '(astyle catppuccin-theme corfu dash gruber-darker-theme helm
+			helm-fuzzy helm-fuzzy-find helm-nixos-options
+			html-to-markdown ido-completing-read+ ido-hacks lsp-mode
+			lua-mode magit markdown-mermaid markdown-mode move-text
 			multiple-cursors nix-mode org-preview-html org-superstar
 			ox-typst r-theme-sanityinc-solarized rainbow-mode
-			typst-preview typst-ts-mode))
+			typst-preview typst-ts-mode web-mode))
  '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)
@@ -44,8 +44,7 @@
 
 (require 'simpc-mode)
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(require 'helm)
-(helm-mode 1)
+(fido-mode 1)
 (setq auto-save-default nil)
 
 (require 'move-text)
@@ -54,7 +53,6 @@
 
 (setq make-backup-files nil)
 
-(add-hook 'after-init-hook 'global-company-mode)
 (add-hook 'simpc-mode-hook
 	(lambda ()
 	(interactive)
@@ -103,3 +101,25 @@
 					(replace-match "\t" nil t))))))
 (put 'upcase-region 'disabled nil)
 (load-theme 'noctalia t)
+;; Use Corfu instead of Company
+(use-package corfu
+	:ensure t
+	:init
+	(global-corfu-mode))
+
+(use-package lsp-mode
+	:ensure t
+	:init
+	(setq lsp-completion-provider :none) ;; Tell lsp-mode not to force company
+	:hook
+	(
+		(python-mode . lsp)
+		(c-mode . lsp)
+		(nix-mode . lsp)
+		(html-mode . lsp-deferred)
+		(css-mode . lsp-deferred)
+		(js-mode . lsp-deferred)
+		(typescript-mode . lsp-deferred)
+		;; If you use web-mode for HTML/JS templates, include it too:
+		(web-mode . lsp-deferred)
+	))

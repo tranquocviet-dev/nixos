@@ -7,11 +7,11 @@
 		libreoffice
 		losslesscut-bin
 		gpu-screen-recorder
-		qimgv
+		imv
 		kitty
 		krita
 		protontricks
-		emacs-gtk
+		emacs-pgtk
 		obs-studio
 		gimp
 		localsend

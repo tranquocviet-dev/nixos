@@ -52,7 +52,7 @@
 					};
 				};
 		in {
-				nixos = mkSystem "nixos" { };
+			nixos = mkSystem "nixos" { };
 		};
 	};
 }

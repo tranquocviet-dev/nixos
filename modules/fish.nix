@@ -4,7 +4,7 @@
 		enable = true;
 		shellAliases = {
 			ls = "eza";
-			am = "emacsclient -c";
+			am = "emacsclient -c -e \"(load-file user-init-file)\"";
 		};
 	};
 	# Set fish as the default shell for your user
