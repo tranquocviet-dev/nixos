@@ -25,13 +25,13 @@
 	 default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-   '(astyle catppuccin-theme corfu dash gruber-darker-theme helm
+   '(astyle catppuccin-theme company dash gruber-darker-theme helm
 			helm-fuzzy helm-fuzzy-find helm-nixos-options
 			html-to-markdown ido-completing-read+ ido-hacks lsp-mode
-			lua-mode magit markdown-mermaid markdown-mode move-text
-			multiple-cursors nix-mode org-preview-html org-superstar
-			ox-typst r-theme-sanityinc-solarized rainbow-mode
-			typst-preview typst-ts-mode web-mode))
+			lsp-ui lua-mode magit markdown-mermaid markdown-mode
+			move-text multiple-cursors nix-mode org-preview-html
+			org-superstar ox-typst r-theme-sanityinc-solarized
+			rainbow-mode typst-preview typst-ts-mode web-mode))
  '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)
@@ -102,24 +102,35 @@
 (put 'upcase-region 'disabled nil)
 (load-theme 'noctalia t)
 ;; Use Corfu instead of Company
-(use-package corfu
+
+;; 1. Configure Company (Completion UI)
+(use-package company
 	:ensure t
 	:init
-	(global-corfu-mode))
+	(global-company-mode)
+	:config
+	(setq company-minimum-prefix-length 1
+		company-idle-delay 0.0))
 
 (use-package lsp-mode
 	:ensure t
 	:init
-	(setq lsp-completion-provider :none) ;; Tell lsp-mode not to force company
+	(setq lsp-completion-provider :company-mode) ;; Tell lsp-mode not to force company
 	:hook
 	(
 		(python-mode . lsp)
 		(c-mode . lsp)
 		(nix-mode . lsp)
-		(html-mode . lsp-deferred)
-		(css-mode . lsp-deferred)
-		(js-mode . lsp-deferred)
-		(typescript-mode . lsp-deferred)
+		(elisp . lsp)
+		(html-mode . lsp)
+		(css-mode . lsp)
+		(js-mode . lsp)
+		(typescript-mode . lsp)
 		;; If you use web-mode for HTML/JS templates, include it too:
-		(web-mode . lsp-deferred)
-	))
+		(web-mode . lsp)
+		)
+	:commands lsp)
+;; 3. Optional UI Enhancements for LSP
+(use-package lsp-ui
+	:ensure t
+	:commands lsp-ui-mode)
