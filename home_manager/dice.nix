@@ -52,7 +52,9 @@
 			videoViewer = "mpv.desktop";
 			fileViewer = "org.gnome.Nautilus.desktop";
 			browser = "firefox.desktop";
+			editor = "emacsclient.desktop";
 		in {
+			"image/gif" = imageViewer;
 			"image/png" = imageViewer;
 			"image/jpg" = imageViewer;
 			"image/jpeg" = imageViewer;
@@ -61,6 +63,11 @@
 			"inode/directory" = fileViewer;
 			"application/x-gnome-saved-search" = fileViewer;
 			"application/pdf" = browser;
+			"text/plain"=editor;
+			"text/x-python"=editor;
+			"text/x-shellscript"=editor;
+			"text/markdown"=editor;
+			"application/x-zerosize"=editor;
 		};
 	};
 	home.file = {

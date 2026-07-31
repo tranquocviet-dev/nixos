@@ -13,5 +13,7 @@
 		unrar
 		unzip
 		zip
+
+		imagemagick
 	];
 }

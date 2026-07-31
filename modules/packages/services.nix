@@ -11,6 +11,8 @@
 		librsvg
 		gdk-pixbuf
 		xdg-desktop-portal-wlr
+		glib
+		gsettings-desktop-schemas
 	];
 	programs.xwayland.enable = true;
 	programs.npm.enable = true;
