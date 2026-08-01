@@ -1,9 +1,10 @@
 { pkgs, ... }:
 {
-    fonts.enableDefaultPackages = true;
-    fonts.fontDir.enable = true;
-    fonts.packages = with pkgs; [
-        sarasa-gothic
-        maple-mono.NF
-    ];
+	fonts.enableDefaultPackages = true;
+	fonts.fontDir.enable = true;
+	fonts.packages = with pkgs; [
+		sarasa-gothic
+		maple-mono.NF
+		noto-fonts-cjk-sans
+	];
 }
