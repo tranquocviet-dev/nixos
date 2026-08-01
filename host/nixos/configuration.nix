@@ -45,8 +45,9 @@
 	};
 	nixpkgs.config.allowUnfree = true;
 	system.stateVersion = "25.11"; # Did you read the comment?
-	environment.variables.EDITOR = "emacsclient -e -a ''";
-	environment.variables.SUDO_EDITOR = "emacsclient -e -a ''";
+	environment.variables.EDITOR = "emacsclient -c";
+	environment.variables.VISUAL = "emacsclient -c";
+	environment.variables.SUDO_EDITOR = "emacsclient -c";
 	system.activationScripts.binbash = {
 		deps = [ "binsh" ];
 		text = ''

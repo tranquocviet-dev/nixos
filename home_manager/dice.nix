@@ -11,7 +11,7 @@
 	# 2. Configure GTK
 	gtk = {
 		enable = true;
-		font.name = "Maple Mono NF";
+		font.name = "NotoMono NF";
 		font.size = 16;
 		# 3. Set the theme name (exact name of the theme folder)
 		theme = {
@@ -34,14 +34,14 @@
 		};
 		qt5ctSettings = {
 			Fonts = {
-				fixed = "Maple Mono NF, 16";
-				general = "Maple Mono NF, 16";
+				fixed = "NotoMono NF, 16";
+				general = "NotoMono NF, 16";
 			};
 		};
 		qt6ctSettings = {
 			Fonts = {
-				fixed = "Maple Mono NF,16";
-				general = "Maple Mono NF, 16";
+				fixed = "NotoMono NF, 16";
+				general = "NotoMono NF, 16";
 			};
 		};
 	};
