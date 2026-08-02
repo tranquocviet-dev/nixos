@@ -19,8 +19,8 @@
 			};
 			theme = {
 				enable = true;
-				name = "oxocarbon";
-				style = "dark";
+				name = "catppuccin";
+				style = "auto";
 			};
 			languages = {
 				enableTreesitter = true;
@@ -49,9 +49,9 @@
 					lsp.servers = [ "emmet-ls" ];
 				};
 			};
-			# statusline.lualine = {
-			#	enable = true;
-			# };
+			statusline.lualine = {
+				enable = true;
+			};
 			utility = {
 				oil-nvim ={
 					enable = true;
@@ -68,7 +68,6 @@
 				};
 			};
 			mini = {
-				statusline.enable = true;
 				pairs.enable = true;
 				icons.enable = true;
 			};
