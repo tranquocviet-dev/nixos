@@ -13,8 +13,6 @@
 
 		noctalia.url = "github:noctalia-dev/noctalia/cachix";
 
-		nix-gaming.url = "github:fufexan/nix-gaming";
-
 		osu-stable.url = "path:./pkgs/osu-stable";
 		osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
 
