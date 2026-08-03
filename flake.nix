@@ -4,8 +4,6 @@
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-		import-tree.url = "github:denful/import-tree";
-
 		noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
 
 		home-manager = {
