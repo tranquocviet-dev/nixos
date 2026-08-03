@@ -19,6 +19,7 @@
 		proton-vpn
 		mpv
 		feh
+		protonplus
 	];
 	programs.mango.enable = true;
 	programs.firefox.enable = true;

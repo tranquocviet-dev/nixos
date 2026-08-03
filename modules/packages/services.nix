@@ -13,7 +13,12 @@
 		xdg-desktop-portal-wlr
 		glib
 		gsettings-desktop-schemas
+		yad
+		xdotool
+		xxd
+		xwininfo
 	];
+	services.tailscale.enable = true;
 	programs.xwayland.enable = true;
 	programs.npm.enable = true;
 }
