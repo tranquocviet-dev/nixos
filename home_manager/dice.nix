@@ -29,7 +29,6 @@
 			};
 		};
 	};
-	programs.dconf.enable = true;
 	xdg.mimeApps = {
 		enable = true;
 		defaultApplications = let
