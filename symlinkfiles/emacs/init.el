@@ -134,3 +134,5 @@
 (use-package lsp-ui
 	:ensure t
 	:commands lsp-ui-mode)
+
+(global-set-key (kbd "C-,") 'duplicate-line)

@@ -32,10 +32,12 @@
 			}:
 				nixpkgs.lib.nixosSystem {
 					system = system;
-					modules = [
+					modules = let
+						recursive_import = import ./lib/recursively_import.nix { lib = inputs.nixpkgs.lib; }; 
+					in [
 						{ networking.hostName = hostname; }
-						(inputs.import-tree ./host/${hostname})
-						(inputs.import-tree ./modules)
+						recursive_import ./host/${hostname}
+						recursive_import ./modules
 						nvf.nixosModules.default
 						home-manager.nixosModules.home-manager
 						{
