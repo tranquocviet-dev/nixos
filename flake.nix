@@ -32,10 +32,10 @@
 			}:
 				nixpkgs.lib.nixosSystem {
 					system = system;
-					modules =  [
+					modules = let
+						recursive_import = import ./lib/recursive_import.nix { lib = inputs.nixpkgs.lib; };
+					in [
 						{ networking.hostName = hostname; }
-						self.inputs.nixpkgs.lib.filesystem.listFilesRecursive ./host/${hostname}
-						self.inputs.nixpkgs.lib.filesystem.listFilesRecursive ./modules
 						nvf.nixosModules.default
 						home-manager.nixosModules.home-manager
 						{
@@ -46,6 +46,9 @@
 								users.${user} = (./. + "/home_manager/${user}.nix");
 							};
 						}
+					] ++ recursive_import [
+						./host/${hostname}
+						./modules
 					];
 					specialArgs = {
 						inherit inputs system user;
