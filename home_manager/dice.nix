@@ -3,28 +3,12 @@
 	home.homeDirectory = "/home/${user}";
 	home.stateVersion = "26.05";
 	# 1. Importing my nix files
-	home.packages = [
-		pkgs.devenv
-		pkgs.adwaita-icon-theme
-		pkgs.papirus-icon-theme
+	home.packages = with pkgs; [
+		devenv
+		adwaita-icon-theme
+		papirus-icon-theme
+		nwg-look
 	];
-	# 2. Configure GTK
-	gtk = {
-		enable = true;
-		font.name = "NotoMono NF";
-		font.size = 16;
-		# 3. Set the theme name (exact name of the theme folder)
-		theme = {
-			name = "adw-gtk3-dark";
-			package = pkgs.adw-gtk3;
-		};
-		
-		# Optional: Set your icons and cursors
-		iconTheme = {
-			name = "Papirus-Dark";
-			package = pkgs.papirus-icon-theme;
-		};
-	};
 	qt = {
 		enable = true;
 		platformTheme.name = "gtk3";
@@ -45,6 +29,7 @@
 			};
 		};
 	};
+	programs.dconf.enable = true;
 	xdg.mimeApps = {
 		enable = true;
 		defaultApplications = let
