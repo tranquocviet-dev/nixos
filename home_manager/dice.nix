@@ -7,8 +7,29 @@
 		devenv
 		adwaita-icon-theme
 		papirus-icon-theme
-		nwg-look
 	];
+	gtk = {
+		enable = true;
+		theme = {
+			name = "adw-gtk3-dark";
+			package = pkgs.adw-gtk3;
+		};
+		iconTheme = {
+			name = "Papirus-Dark";
+			package = pkgs.papirus-icon-theme;
+		};
+		font = {
+			name = "NotoMono NF";
+			size = 16;
+		};
+		gtk3.extraConfig = {
+			gtk-application-prefer-dark-theme = 1;
+		};
+		gtk4.extraConfig = {
+			gtk-application-prefer-dark-theme = 1;
+		};
+		colorScheme = "dark";
+	};
 	qt = {
 		enable = true;
 		platformTheme.name = "gtk3";

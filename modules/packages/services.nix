@@ -17,6 +17,7 @@
 		xdotool
 		xxd
 		xwininfo
+		jq
 	];
 	services.tailscale.enable = true;
 	programs.xwayland.enable = true;
