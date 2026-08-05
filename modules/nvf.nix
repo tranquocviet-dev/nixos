@@ -19,7 +19,7 @@
 			};
 			theme = {
 				enable = true;
-				name = "catppuccin";
+				name = "dracula";
 				style = "auto";
 			};
 			languages = {
