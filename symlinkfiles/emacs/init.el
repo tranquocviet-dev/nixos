@@ -25,13 +25,12 @@
 	 default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-   '(astyle catppuccin-theme company dash gruber-darker-theme helm
-			helm-fuzzy helm-fuzzy-find helm-nixos-options
-			html-to-markdown ido-completing-read+ ido-hacks lsp-mode
-			lsp-ui lua-mode magit markdown-mermaid markdown-mode
-			move-text multiple-cursors nix-mode org-preview-html
-			org-superstar ox-typst r-theme-sanityinc-solarized
-			rainbow-mode typst-preview typst-ts-mode web-mode))
+   '(astyle catppuccin-theme company gruber-darker-theme helm-fuzzy
+			helm-fuzzy-find helm-nixos-options html-to-markdown
+			ido-completing-read+ ido-hacks lsp-ui lua-mode magit
+			markdown-mermaid move-text multiple-cursors nix-mode
+			org-preview-html org-superstar ox-typst rainbow-mode
+			typst-preview typst-ts-mode web-mode))
  '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)

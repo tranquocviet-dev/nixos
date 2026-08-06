@@ -24,6 +24,7 @@
 		wl-screenrec
 	];
 	programs.mango.enable = true;
+	programs.niri.enable = true;
 	programs.firefox.enable = true;
 	programs.steam.enable = true;
 	programs.steam.extraCompatPackages = with pkgs; [
