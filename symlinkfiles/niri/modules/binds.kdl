@@ -136,15 +136,15 @@ binds {
 	Mod+7 { focus-workspace 7; }
 	Mod+8 { focus-workspace 8; }
 	Mod+9 { focus-workspace 9; }
-	Mod+Ctrl+1 { move-column-to-workspace 1; }
-	Mod+Ctrl+2 { move-column-to-workspace 2; }
-	Mod+Ctrl+3 { move-column-to-workspace 3; }
-	Mod+Ctrl+4 { move-column-to-workspace 4; }
-	Mod+Ctrl+5 { move-column-to-workspace 5; }
-	Mod+Ctrl+6 { move-column-to-workspace 6; }
-	Mod+Ctrl+7 { move-column-to-workspace 7; }
-	Mod+Ctrl+8 { move-column-to-workspace 8; }
-	Mod+Ctrl+9 { move-column-to-workspace 9; }
+	Mod+Alt+1 { move-column-to-workspace 1; }
+	Mod+Alt+2 { move-column-to-workspace 2; }
+	Mod+Alt+3 { move-column-to-workspace 3; }
+	Mod+Alt+4 { move-column-to-workspace 4; }
+	Mod+Alt+5 { move-column-to-workspace 5; }
+	Mod+Alt+6 { move-column-to-workspace 6; }
+	Mod+Alt+7 { move-column-to-workspace 7; }
+	Mod+Alt+8 { move-column-to-workspace 8; }
+	Mod+Alt+9 { move-column-to-workspace 9; }
 
 	Mod+BracketLeft  { consume-or-expel-window-left; }
 	Mod+BracketRight { consume-or-expel-window-right; }
@@ -181,8 +181,9 @@ binds {
 	// rather than stacked on top of each other.
 	Mod+W { toggle-column-tabbed-display; }
 
-	Print { spawn-sh "niri msg action screenshot && niri msg --json event-stream | grep -m 1 ScreenshotCaptured && wl-paste | swappy -f -"; }
-	Ctrl+Print { screenshot-screen; }
+	Mod+Alt+Print { spawn-sh "niri msg action screenshot && niri msg --json event-stream | grep -m 1 ScreenshotCaptured && wl-paste | swappy -f -"; }
+	Mod+Ctrl+Print { screenshot-screen; }
+	Mod+Print { screenshot; }
 
 	// Applications such as remote-desktop clients and software KVM switches may
 	// request that niri stops processing the keyboard shortcuts defined here
