@@ -22,6 +22,9 @@
 		gromit-mpx
 		gpu-screen-recorder-gtk
 		wl-screenrec
+		mangohud
+		r2modman
+		direnv
 	];
 	programs.mango.enable = true;
 	programs.niri.enable = true;
@@ -32,6 +35,7 @@
 	];
 	programs.obs-studio = {
 		enable = true;
+		enableVirtualCamera = true;
 
 		# optional Nvidia hardware acceleration
 		package = (
@@ -41,6 +45,7 @@
 		);
 
 		plugins = with pkgs.obs-studio-plugins; [
+			droidcam-obs
 			wlrobs
 			obs-backgroundremoval
 			obs-pipewire-audio-capture

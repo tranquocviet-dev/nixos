@@ -5,6 +5,7 @@
 		shellAliases = {
 			ls = "eza";
 			am = "emacsclient -c";
+			larp = "cd ~/SillyTavern && ./start.sh";
 		};
 	};
 	# Set fish as the default shell for your user

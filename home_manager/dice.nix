@@ -1,13 +1,46 @@
-{ system, inputs, pkgs, config, user, ... }: {
+{ system, inputs, pkgs, config, user, ... }:
+let
+	mizuki-cursor = pkgs.stdenv.mkDerivation {
+		pname = "mizuki-icons";
+		version = "1.0.0";
+
+		# Point directly to your local file (placed next to home.nix)
+		src = ./mizuki-psekai-cursor.tar.xz;
+
+		dontBuild = true;
+
+		installPhase = ''
+			runHook preInstall
+
+			# Create the target icons directory
+			mkdir -p $out/share/icons/
+
+			# Unpack/copy contents directly into the store path
+			cp -r . $out/share/icons/
+
+			runHook postInstall
+		'';
+	};
+in
+{
 	home.username = "${user}";
 	home.homeDirectory = "/home/${user}";
 	home.stateVersion = "26.05";
 	# 1. Importing my nix files
 	home.packages = with pkgs; [
+		mizuki-cursor
 		devenv
 		adwaita-icon-theme
 		papirus-icon-theme
 	];
+	home.pointerCursor = {
+		enable = true;
+		gtk.enable = true;
+		x11.enable = true;
+		name = "mizuki-psekai-cursor"; # Name of the folder containing index.theme & cursors/
+		package = mizuki-cursor;
+		size = 24;
+	};
 	gtk = {
 		enable = true;
 		theme = {
