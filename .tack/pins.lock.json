@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "1c98affa8b93acaebfa03108c0f01779c806a2e3",
-    "narHash": "sha256-jAgd3hsEJK3gXJXM+nM+uZ7+ZNN+K9lQBniAq1SHhLM=",
-    "lastModified": 1786449826
+    "rev": "b62efdd0dc163bf593358ada70b4efa76fec3d27",
+    "narHash": "sha256-ESBm32DJg1yLiPnXw88n5h8RcrdL2adc7TuLhtPzeow=",
+    "lastModified": 1786462142
   },
   "noctalia-greeter": {
     "type": "github",

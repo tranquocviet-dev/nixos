@@ -1,65 +1,49 @@
 {
 	description = "NixOS configuration with Noctalia";
-	inputs = {
-		tack.url = "github:manic-systems/tack";
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		
-		noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
-		
-		home-manager = {
-			url = "github:nix-community/home-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
+	outputs = args @ { self, ... }: let
+		inputs = import ./.tack {
+			overrides = args.tackOverrides or {};
 		};
-		
-		noctalia.url = "github:noctalia-dev/noctalia/cachix";
-		
-		osu-stable.url = "path:./pkgs/osu-stable";
-		osu-lazer-bin.url = "path:./pkgs/osu-lazer-bin";
-		
-		nvf.url = "github:notashelf/nvf";
-	};
-
-
-	outputs = { self, nixpkgs, nvf, home-manager, ... }@inputs:
-	# outputs = { self, ... }@args:
-	# let
-	# 	inputs = (import ./.tack) { overrides = args.tackOverrides or { }; };
-	# 	
-	# 	inherit (inputs) nixpkgs home-manager nvf;
-	# in
-		{
-		nixosConfigurations = let
-			mkSystem = hostname:
-				{
-					system ? "x86_64-linux",
-					user ? "dice",
-				}:
-				nixpkgs.lib.nixosSystem {
-					system = system;
-					modules = let
-						recursive_import = import ./lib/recursive_import.nix { lib = inputs.nixpkgs.lib; };
-					in [
-						{ networking.hostName = hostname; }
-						nvf.nixosModules.default
-						home-manager.nixosModules.home-manager
+		inherit (inputs.nixpkgs) lib;
+		recursiveImport = import ./lib/recursive_import.nix { inherit lib; };
+		specialArgs = {
+			inherit inputs self recursiveImport;
+			user = "dice";
+		};
+		commonModules = [
+			{
+				home-manager.extraSpecialArgs = {inherit recursiveImport;};
+				home-manager.sharedModules = [inputs.nvf.homeManagerModules.default];
+			}
+		];
+		mkSystem = hostname: system:
+			lib.nixosSystem {
+				specialArgs = specialArgs // {
+					inherit hostname system;
+				};
+				modules =
+					commonModules
+					++ [
+						{nixpkgs.hostPlatform = system;}
+						inputs.home-manager.nixosModules.home-manager
+						inputs.nvf.nixosModules.default
 						{
 							home-manager = {
 								useUserPackages = true;
 								useGlobalPkgs = true;
-								extraSpecialArgs = { inherit inputs user hostname; };
-								users.${user} = (./. + "/home_manager/${user}.nix");
+								extraSpecialArgs = { inherit inputs hostname; user = "dice"; };
+								users.dice = (./. + "/home_manager/dice.nix");
 							};
+							
 						}
-					] ++ recursive_import [
+					] ++ recursiveImport [
 						./host/${hostname}
 						./modules
 					];
-					specialArgs = {
-						inherit inputs system user;
-					};
-				};
-		in {
-			nixos = mkSystem "nixos" { };
+			};
+	in {
+		nixosConfigurations = {
+			nixos = mkSystem "nixos" "x86_64-linux";
 		};
 	};
 }

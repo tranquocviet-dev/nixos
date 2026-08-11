@@ -3,9 +3,6 @@
 # nix reads pins.lock.json
 # this file drives tack update
 
-[tack]
-recomposable = true
-
 # shorturl schemes
 # scheme rest expands rest into {path}
 [shorturls]
@@ -26,28 +23,27 @@ nixpkgs = "nixpkgs"
 #   dir             subdir holding flake.nix
 #   submodules      fetch git submodules
 #   unpack          fixed-only tarball or file
-[inputs]
-
-[inputs.nixpkgs]
-url = "github:NixOS/nixpkgs/nixpkgs-unstable"
-
-[inputs.nvf]
-url = "github:notashelf/nvf"
-
-[inputs.noctalia-greeter]
-url = "github:noctalia-dev/noctalia-greeter"
+[tack]
+recomposable = true
 
 [inputs.home-manager]
 url = "github:nix-community/home-manager"
 
+[inputs.nvf]
+url = "github:notashelf/nvf"
+
 [inputs.noctalia]
 url = "github:noctalia-dev/noctalia/cachix"
-exclude_follow = ["nixpkgs"]
-
-[inputs.osu-lazer-bin]
-url = "path:./pkgs/osu-lazer-bin"
-exclude_follow = ["nixpkgs"]
+exclude_follow = [ "nixpkgs" ]
 
 [inputs.osu-stable]
 url = "path:./pkgs/osu-stable"
-exclude_follow = ["nixpkgs"]
+
+[inputs.osu-lazer-bin]
+url = "path:./pkgs/osu-lazer-bin"
+
+[inputs.noctalia-greeter]
+url = "github:noctalia-dev/noctalia-greeter"
+
+[inputs.nixpkgs]
+url = "github:NixOS/nixpkgs/nixpkgs-unstable"
