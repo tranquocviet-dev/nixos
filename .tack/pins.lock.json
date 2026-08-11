@@ -1,0 +1,50 @@
+{
+  "home-manager": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "home-manager",
+    "rev": "c30c7955cec30d664a9baced6bc0112e263d4647",
+    "narHash": "sha256-ou8fYz5w9yhXC8YbvvExybFIa19MyW5G/8dEPqa90hM=",
+    "lastModified": 1786356609
+  },
+  "nixpkgs": {
+    "type": "github",
+    "owner": "NixOS",
+    "repo": "nixpkgs",
+    "rev": "d482ef84049d9b7276b83a06e4e4d76983830097",
+    "narHash": "sha256-we5zDEFfn8TgzeWKjKDMIjeQZ59omEPl23NIF+13/ys=",
+    "lastModified": 1786348146
+  },
+  "noctalia": {
+    "type": "github",
+    "owner": "noctalia-dev",
+    "repo": "noctalia",
+    "rev": "9f32d166f81f52800eda16a5997c1b373a3a6075",
+    "narHash": "sha256-TYxHDEtn60BdSdNHMtdNlbm7NVl97PZ5y9JWAKxJVQQ=",
+    "lastModified": 1786443521
+  },
+  "noctalia-greeter": {
+    "type": "github",
+    "owner": "noctalia-dev",
+    "repo": "noctalia-greeter",
+    "rev": "763411f5ebd864adba27db9354a1d5724c15704c",
+    "narHash": "sha256-K1AkQg+pZyI/vuIrz7s8sGxqTsCrVJwOOK/ttOwh+q0=",
+    "lastModified": 1786236850
+  },
+  "nvf": {
+    "type": "github",
+    "owner": "notashelf",
+    "repo": "nvf",
+    "rev": "a213644cadd5f90bf18b0c409f08f282b30e55e3",
+    "narHash": "sha256-rbOp2g0UCYt+evTnCGCKBQGqSMfwX4RTXneNbeHqOAk=",
+    "lastModified": 1786433999
+  },
+  "osu-lazer-bin": {
+    "type": "path",
+    "path": "../pkgs/osu-lazer-bin"
+  },
+  "osu-stable": {
+    "type": "path",
+    "path": "../pkgs/osu-stable"
+  }
+}
