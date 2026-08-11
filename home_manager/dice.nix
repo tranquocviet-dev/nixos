@@ -12,11 +12,15 @@ let
 		installPhase = ''
 			runHook preInstall
 
-			# Create the target icons directory
-			mkdir -p $out/share/icons/
+			# Create the exact directory expected by Home Manager
+			mkdir -p $out/share/icons/mizuki-psekai-cursor
 
-			# Unpack/copy contents directly into the store path
-			cp -r . $out/share/icons/
+			# If the archive extracts into a subfolder, copy its contents:
+			if [ -d "mizuki-psekai-cursor" ]; then
+				cp -r mizuki-psekai-cursor/* $out/share/icons/mizuki-psekai-cursor/
+			else
+				cp -r * $out/share/icons/mizuki-psekai-cursor/
+			fi
 
 			runHook postInstall
 		'';
@@ -33,6 +37,10 @@ in
 		adwaita-icon-theme
 		papirus-icon-theme
 	];
+	programs.ghostty = {
+		enable = true;
+	};
+	xdg.configFile."systemd/user/graphical-session.target.wants/app-com.mitchellh.ghostty.service".source = "${pkgs.ghostty}/share/systemd/user/app-com.mitchellh.ghostty.service";
 	home.pointerCursor = {
 		enable = true;
 		gtk.enable = true;

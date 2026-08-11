@@ -25,6 +25,7 @@
 		mangohud
 		r2modman
 		direnv
+		ghostty
 	];
 	programs.mango.enable = true;
 	programs.niri.enable = true;
