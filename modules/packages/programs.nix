@@ -26,6 +26,7 @@
 		r2modman
 		direnv
 		ghostty
+		tack
 	];
 	programs.mango.enable = true;
 	programs.niri.enable = true;
