@@ -8,7 +8,6 @@
 		recursiveImport = import ./lib/recursive_import.nix { inherit lib; };
 		specialArgs = {
 			inherit inputs self recursiveImport;
-			user = "dice";
 		};
 		commonModules = [
 			{
@@ -16,10 +15,10 @@
 				home-manager.sharedModules = [inputs.nvf.homeManagerModules.default];
 			}
 		];
-		mkSystem = hostname: system:
+		mkSystem = hostname: system: user:
 			lib.nixosSystem {
 				specialArgs = specialArgs // {
-					inherit hostname system;
+					inherit hostname system user;
 				};
 				modules =
 					commonModules
@@ -31,7 +30,7 @@
 							home-manager = {
 								useUserPackages = true;
 								useGlobalPkgs = true;
-								extraSpecialArgs = { inherit inputs hostname; user = "dice"; };
+								extraSpecialArgs = { inherit inputs hostname user; };
 								users.dice = (./. + "/home_manager/dice.nix");
 							};
 							
@@ -43,7 +42,7 @@
 			};
 	in {
 		nixosConfigurations = {
-			nixos = mkSystem "nixos" "x86_64-linux";
+			nixos = mkSystem "nixos" "x86_64-linux" "dice";
 		};
 	};
 }
