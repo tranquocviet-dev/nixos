@@ -47,3 +47,6 @@ url = "github:noctalia-dev/noctalia-greeter"
 
 [inputs.nixpkgs]
 url = "github:NixOS/nixpkgs/nixpkgs-unstable"
+
+[inputs.ollama]
+url = "github:NixOS/nixpkgs/25.11"

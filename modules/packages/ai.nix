@@ -1,8 +1,14 @@
-{ pkgs, user, ... }:
-{
+{ system, pkgs, user, inputs, ... }: let
+	pkgsOllama = import inputs.ollama {
+		inherit system;
+		config = {
+			allowUnfree = true;
+		};
+	};
+in {
 	services.ollama = {
 		enable = true;
-		package = pkgs.ollama-cuda;
+		package = pkgsOllama.ollama-cuda;
 	};
 	environment.systemPackages = [ pkgs.koboldcpp ];
 	systemd.user.services.sillytavern = {
