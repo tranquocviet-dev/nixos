@@ -8,8 +8,8 @@ I use:
 - nvf
 
 ## Influenced by:
-- stellanova's import system
-- eljanfus' tack and flake.nixos
+- stellanova's import system: https://github.com/iStellanova/Stellyrland
+- eljanfus' tack and flake.nixos: https://github.com/eljangus/nixos
 
 ## Goals:
 - make an install script
