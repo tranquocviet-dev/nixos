@@ -33,6 +33,10 @@ in {
 			self.nixosModules.inputs-noctalia
 			self.nixosModules.inputs-noctalia-greeter
 			self.nixosModules.inputs-osu
+			self.nixosModules.packages-general
+			self.nixosModules.packages-fcitx
+			self.nixosModules.packages-nautilus
+			self.nixosModules.packages-misc
 				
 			# Host settings
 			({ ... }: {
