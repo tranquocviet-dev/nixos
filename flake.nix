@@ -45,9 +45,17 @@
 						./modules
 					];
 			};
-	in {
-		nixosConfigurations = {
-			nixos = mkSystem "nixos" "x86_64-linux" "dice";
+	in inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+		systems = [ "x86_64-linux" ];
+		
+		flake = {
+			nixosConfigurations = {
+				nixos = mkSystem "nixos" "x86_64-linux" "dice";
+			};
+		};
+		
+		perSystem = {
+			
 		};
 	};
 }
