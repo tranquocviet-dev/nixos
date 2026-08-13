@@ -53,8 +53,6 @@ in {
 					users.${user} = import ../../home_manager/${user}.nix;
 				};
 			})
-		] ++ recursiveImport [
-			../../modules
 		];
 	};
 }
