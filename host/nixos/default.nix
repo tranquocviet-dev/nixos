@@ -22,7 +22,9 @@ in {
 			self.nixosModules.nvidia
 			self.nixosModules.fish
 			self.nixosModules.fonts
-			# self.nixosModules.nh
+			self.nixosModules.nix-ld
+			self.nixosModules.nixsettings
+			self.nixosModules.otd
 				
 			# Host settings
 			({ ... }: {
