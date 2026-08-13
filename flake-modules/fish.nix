@@ -1,5 +1,5 @@
 { ... }: {
-	flake.nixosModules.nh = { specialArgs, pkgs, ... }: {
+	flake.nixosModules.fish = { specialArgs, pkgs, ... }: {
 		programs.fish = {
 			enable = true;
 			shellAliases = {

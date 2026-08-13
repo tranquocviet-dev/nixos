@@ -20,6 +20,8 @@ in {
 			self.nixosModules.nh
 			self.nixosModules.nvf
 			self.nixosModules.nvidia
+			self.nixosModules.fish
+			self.nixosModules.fonts
 			# self.nixosModules.nh
 				
 			# Host settings
