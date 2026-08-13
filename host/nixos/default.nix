@@ -1,7 +1,6 @@
-{ inputs, self, lib, ... }: let
+{ inputs, self, ... }: let
 	system = "x86_64-linux";
 	user = "dice";
-	recursiveImport = import ../../lib/recursive_import.nix { inherit lib; };
 in {
 	flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
 		specialArgs = {
