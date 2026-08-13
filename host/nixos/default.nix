@@ -14,11 +14,12 @@ in {
 			./hardware-configuration.nix
 			
 			# 2. External modules from flake inputs
-				inputs.home-manager.nixosModules.home-manager
+			inputs.home-manager.nixosModules.home-manager
 			inputs.nvf.nixosModules.default
 			
 			self.nixosModules.nh
 			self.nixosModules.nvf
+			self.nixosModules.nvidia
 			# self.nixosModules.nh
 				
 			# Host settings
