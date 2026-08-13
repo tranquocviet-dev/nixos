@@ -38,7 +38,7 @@ in {
 					sharedModules = [ inputs.nvf.homeManagerModules.default ];
 					users.${user} = import ../../home_manager/${user}.nix;
 				};
-				})
+			})
 		] ++ recursiveImport [
 			../../modules
 		];
