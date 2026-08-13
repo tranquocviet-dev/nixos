@@ -1,7 +1,5 @@
 { ... }: {
-	flake.nixosModules.nh = { ... }: let
-		user = "dice";
-	in {
+	flake.nixosModules.nh = { user, ... }: {
 		# Enable nh command
 		programs.nh = {
 			enable = true;

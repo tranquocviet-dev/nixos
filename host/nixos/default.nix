@@ -28,6 +28,8 @@ in {
 			self.nixosModules.portal
 			self.nixosModules.services-otd
 			self.nixosModules.services-sudo
+			self.nixosModules.services-general
+			self.nixosModules.services-ai
 			self.nixosModules.inputs-noctalia
 			self.nixosModules.inputs-noctalia-greeter
 			self.nixosModules.inputs-osu
