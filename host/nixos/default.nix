@@ -16,27 +16,6 @@ in {
 			# 2. External modules from flake inputs
 			inputs.home-manager.nixosModules.home-manager
 			inputs.nvf.nixosModules.default
-			
-			self.nixosModules.nh
-			self.nixosModules.nvf
-			self.nixosModules.nvidia
-			self.nixosModules.fish
-			self.nixosModules.fonts
-			self.nixosModules.nix-ld
-			self.nixosModules.nixsettings
-			self.nixosModules.polkit
-			self.nixosModules.portal
-			self.nixosModules.services-otd
-			self.nixosModules.services-sudo
-			self.nixosModules.services-general
-			self.nixosModules.services-ai
-			self.nixosModules.inputs-noctalia
-			self.nixosModules.inputs-noctalia-greeter
-			self.nixosModules.inputs-osu
-			self.nixosModules.packages-general
-			self.nixosModules.packages-fcitx
-			self.nixosModules.packages-nautilus
-			self.nixosModules.packages-misc
 				
 			# Host settings
 			({ ... }: {
@@ -53,6 +32,27 @@ in {
 					users.${user} = import ../../home_manager/${user}.nix;
 				};
 			})
-		];
+		] ++ (with self.nixosModules; [ 
+			nh
+			nvf
+			nvidia
+			fish
+			fonts
+			nix-ld
+			nixsettings
+			polkit
+			portal
+			services-otd
+			services-sudo
+			services-general
+			services-ai
+			inputs-noctalia
+			inputs-noctalia-greeter
+			inputs-osu
+			packages-general
+			packages-fcitx
+			packages-nautilus
+			packages-misc
+		]);
 	};
 }
