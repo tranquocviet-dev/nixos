@@ -24,7 +24,13 @@ in {
 			self.nixosModules.fonts
 			self.nixosModules.nix-ld
 			self.nixosModules.nixsettings
-			self.nixosModules.otd
+			self.nixosModules.polkit
+			self.nixosModules.portal
+			self.nixosModules.services-otd
+			self.nixosModules.services-sudo
+			self.nixosModules.inputs-noctalia
+			self.nixosModules.inputs-noctalia-greeter
+			self.nixosModules.inputs-osu
 				
 			# Host settings
 			({ ... }: {
