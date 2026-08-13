@@ -2,7 +2,7 @@
 	system = "x86_64-linux";
 	user = "dice";
 	recursiveImport = import ../../lib/recursive_import.nix { inherit lib; };
-	in {
+in {
 	flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
 		specialArgs = {
 			inherit inputs self system user;
@@ -12,18 +12,20 @@
 			./boot.nix
 			./configuration.nix
 			./hardware-configuration.nix
-
-			# 2. External modules from flake inputs
-			inputs.home-manager.nixosModules.home-manager
-			inputs.nvf.nixosModules.default
-
-			(import ../../flake-modules/nh.nix { inherit inputs; }).flake.nixosModules.nh
 			
+			# 2. External modules from flake inputs
+				inputs.home-manager.nixosModules.home-manager
+			inputs.nvf.nixosModules.default
+			
+			self.nixosModules.nh
+			self.nixosModules.nvf
+			# self.nixosModules.nh
+				
 			# Host settings
 			({ ... }: {
 				nixpkgs.hostPlatform = "x86_64-linux";
 				networking.hostName = "nixos";
-				
+					
 				home-manager = {
 					useUserPackages = true;
 					useGlobalPkgs = true;
@@ -33,7 +35,7 @@
 					sharedModules = [ inputs.nvf.homeManagerModules.default ];
 					users.${user} = import ../../home_manager/${user}.nix;
 				};
-			})
+				})
 		] ++ recursiveImport [
 			../../modules
 		];
