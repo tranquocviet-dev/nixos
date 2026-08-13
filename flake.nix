@@ -36,7 +36,7 @@
 								useUserPackages = true;
 								useGlobalPkgs = true;
 								extraSpecialArgs = { inherit inputs hostname user; };
-								users.dice = (./. + "/home_manager/dice.nix");
+								users.${user} = (./. + "/home_manager/${user}.nix");
 							};
 							
 						}
