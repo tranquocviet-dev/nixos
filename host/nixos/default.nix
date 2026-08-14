@@ -31,27 +31,15 @@ in {
 					users.${user} = import ../../home_manager/${user}.nix;
 				};
 			})
-		] ++ (with self.nixosModules; [ 
-			nh
-			nvf
+		] ++ (with self.nixosModules; [
+			# groups
+			group-base
+			group-inputs
+			group-packages
+			group-services
+			# individual, hardware or use case specific
 			nvidia
-			fish
-			fonts
-			nix-ld
-			nixsettings
-			polkit
-			portal
-			services-otd
-			services-sudo
-			services-general
 			services-ai
-			inputs-noctalia
-			inputs-noctalia-greeter
-			inputs-osu
-			packages-general
-			packages-fcitx
-			packages-nautilus
-			packages-misc
 		]);
 	};
 }

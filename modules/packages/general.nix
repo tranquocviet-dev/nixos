@@ -27,6 +27,7 @@
 			direnv
 			ghostty
 			tack
+			audacity
 		];
 		programs.mango.enable = true;
 		programs.niri.enable = true;

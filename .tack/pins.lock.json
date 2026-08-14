@@ -19,9 +19,9 @@
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "044bfe75bfe4c7bbe043dc17b5e42ea823b84a09",
-    "narHash": "sha256-fBJMdnKUTUDtfi/BYLr71HLaC9dG382arxLF2Egg2uo=",
-    "lastModified": 1786534138
+    "rev": "0e251e24a4f24e036a084b6b4b2d2491af4167f4",
+    "narHash": "sha256-yNJd40f11EzXBjSByCB7IPpeFFAdeoSKKM67dGkfFoU=",
+    "lastModified": 1786599213
   },
   "noctalia": {
     "type": "github",
