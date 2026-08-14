@@ -8,8 +8,9 @@ I use:
 - nvf
 
 ## Influenced by:
-- stellanova's import system: https://github.com/iStellanova/Stellyrland
+- stellanova's import system and flake-parts integration: https://github.com/iStellanova/Stellyrland
 - eljanfus' tack and flake.nixos: https://github.com/eljangus/nixos
+- hand7s' flake-parts integration: https://github.com/s0me1newithhand7s/reNixos
 
 ## Goals:
 - make an install script
