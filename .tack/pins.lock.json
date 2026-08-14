@@ -11,9 +11,9 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "2d1bac51b2513914ace47797765c3265164de78e",
-    "narHash": "sha256-a952+jEQ1I6sMd6yzi2GIsO/EFNtEFvzwbJ+oOG9Cg0=",
-    "lastModified": 1786630952
+    "rev": "c554d3441f725537854e877519f01cbd60680174",
+    "narHash": "sha256-ybGtuwGKTUCefKYsplzvw4xcCqznto0c7BaiQhgILtA=",
+    "lastModified": 1786656209
   },
   "nixpkgs": {
     "type": "github",
@@ -27,9 +27,9 @@
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "4dd6f29dbaafde7b11d61ce12685d01441d4a483",
-    "narHash": "sha256-Kc3xbv2+z0+aV+t4IL1BfoTtB9MS0zHyI38oiv7zHxc=",
-    "lastModified": 1786633340
+    "rev": "f6ae73a0cef3da0288ee512462afc71b36d47bf9",
+    "narHash": "sha256-j2a1tMMumc9XN6K7HQPwR5i2tJsUGAZ+xIMQKocsO90=",
+    "lastModified": 1786662831
   },
   "noctalia-greeter": {
     "type": "github",
