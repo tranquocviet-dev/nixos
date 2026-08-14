@@ -15,7 +15,7 @@
 		imports = [
 			./host/nixos
 		] ++ recursiveImport [
-			./flake-modules
+			./modules
 		];
 		
 		flake = {
