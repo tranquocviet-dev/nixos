@@ -33,7 +33,6 @@ in
 	# 1. Importing my nix files
 	home.packages = with pkgs; [
 		mizuki-cursor
-		devenv
 		adwaita-icon-theme
 		papirus-icon-theme
 	];
