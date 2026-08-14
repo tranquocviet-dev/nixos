@@ -35,6 +35,5 @@
 			emmet-ls
 			ruff
 		];
-		programs.noctalia-greeter.enable = true;
 	};
 }
