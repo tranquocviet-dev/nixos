@@ -26,13 +26,14 @@
 	 default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-   '(astyle cape catppuccin-theme company corfu direnv envrc gptel
-			gruber-darker-theme helm-fuzzy helm-fuzzy-find
-			helm-nixos-options html-to-markdown ido-completing-read+
-			ido-hacks lsp-ui lua-mode magit markdown-mermaid minuet
-			move-text multiple-cursors nix-mode orderless
-			org-preview-html org-superstar ox-typst rainbow-mode
-			typst-preview typst-ts-mode undo-fu vundo web-mode))
+   '(astyle cape catppuccin-theme company corfu direnv envrc
+			exec-path-from-shell gptel gruber-darker-theme helm-fuzzy
+			helm-fuzzy-find helm-nixos-options html-to-markdown
+			ido-completing-read+ ido-hacks lsp-jedi lsp-ui lua-mode
+			magit markdown-mermaid minuet move-text multiple-cursors
+			nix-mode orderless org-preview-html org-superstar ox-typst
+			rainbow-mode typst-preview typst-ts-mode undo-fu vundo
+			web-mode))
  '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)
@@ -105,37 +106,37 @@
 ;; Use Corfu instead of Company
 
 ;; 1. Configure Company (Completion UI)
-;;(use-package company
-;;	:ensure t
-;;	:init
-;;	(global-company-mode)
-;;	:config
-;;	(setq company-minimum-prefix-length 1
-;;		company-idle-delay 0.0))
-;;
-;;(use-package lsp-mode
-;;	:ensure t
-;;	:init
-;;	(setq lsp-completion-provider :company-mode) ;; Tell lsp-mode not to force company
-;;	:hook
-;;	(
-;;		(python-mode . lsp)
-;;		(c-mode . lsp)
-;;		(nix-mode . lsp)
-;;		(elisp . lsp)
-;;		(html-mode . lsp)
-;;		(css-mode . lsp)
-;;		(js-mode . lsp)
-;;		(typescript-mode . lsp)
-;;		;; If you use web-mode for HTML/JS templates, include it too:
-;;		(web-mode . lsp)
-;;		)
-;;	:commands lsp)
-;;;; 3. Optional UI Enhancements for LSP
-;;(use-package lsp-ui
-;;	:ensure t
-;;	:commands lsp-ui-mode)
-;;
+(use-package company
+	:ensure t
+	:init
+	(global-company-mode)
+	:config
+	(setq company-minimum-prefix-length 1
+		company-idle-delay 0.0))
+
+(use-package lsp-mode
+	:ensure t
+	:init
+	(setq lsp-completion-provider :company-mode) ;; Tell lsp-mode not to force company
+	:hook
+	(
+		(python-mode . lsp)
+		(c-mode . lsp)
+		(nix-mode . lsp)
+		(elisp . lsp)
+		(html-mode . lsp)
+		(css-mode . lsp)
+		(js-mode . lsp)
+		(typescript-mode . lsp)
+		;; If you use web-mode for HTML/JS templates, include it too:
+		(web-mode . lsp)
+		)
+	:commands lsp)
+;; 3. Optional UI Enhancements for LSP
+(use-package lsp-ui
+	:ensure t
+	:commands lsp-ui-mode)
+
 (global-set-key (kbd "C-,") 'duplicate-line)
 (use-package envrc
 	:hook (after-init . envrc-global-mode))
@@ -168,57 +169,20 @@
   :ensure t
   :bind ("C-x u" . vundo)) ; Visual tree navigator when you get lost
 
-;; 1. Configure Corfu (Modern Completion UI)
-(use-package corfu
+(use-package exec-path-from-shell
 	:ensure t
-	:init
-	(global-corfu-mode)
-	:custom
-	(corfu-auto t)
-	(corfu-auto-prefix 1)
-	(corfu-auto-delay 0.1)           ;; 0.1s gives Emacs event loop time to recalculate candidates on keystroke
-	(corfu-quit-no-match 'separator) ;; Keeps popup active while filtering orderless spaces
-	(corfu-preview-current nil)      ;; Prevents preview string insertion from breaking the input token
-	:bind
-	(:map corfu-map
-	      ("<tab>" . corfu-complete)
-	      ("TAB"   . corfu-complete)
-	      ("RET"   . corfu-insert)))
-;; 2. Configure LSP Mode with Corfu (CapF)
+	:config
+	(exec-path-from-shell-initialize))
+
+(use-package lsp-jedi
+	:ensure t
+	:after lsp-mode
+	:demand t)
+
 (use-package lsp-mode
 	:ensure t
+	:hook (python-mode . (lambda ()
+		(require 'lsp-jedi)
+		(lsp-deferred)))
 	:init
-	(setq lsp-completion-provider :none)
-	:custom
-	;; Allow client-side fuzzy / dynamic filtering across keystrokes
-	(lsp-completion-filter-on-device t)
-	
-	;; Prevent LSP from caching a stale completion table
-	(lsp-completion-enable-additional-text-edit t)
-	
-	;; Disable blocking snippet expansions while typing dynamically
-	(lsp-enable-snippet nil)
-	:hook
-	((python-mode     . lsp)
-	 (c-mode          . lsp)
-	 (nix-mode        . lsp)
-	 (elisp-mode      . lsp)
-	 (html-mode       . lsp)
-	 (css-mode        . lsp)
-	 (js-mode         . lsp)
-	 (typescript-mode . lsp)
-	 (web-mode        . lsp))
-	:commands lsp)
-
-(use-package cape
-	:ensure t
-	:init
-	(defun my/setup-lsp-capf ()
-		;; Wrap LSP's CapF so Corfu invalidates its cache and refreshes on every letter typed
-		(setq-local completion-at-point-functions
-		            (list (cape-capf-buster #'lsp-completion-at-point)
-		                  #'cape-dabbrev
-		                  #'cape-file)))
-	
-	(add-hook 'lsp-managed-mode-hook #'my/setup-lsp-capf))
-
+	(setq lsp-disabled-clients '(pyright pylsp pyls mspyls)))
