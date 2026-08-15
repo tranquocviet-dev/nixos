@@ -186,3 +186,10 @@
 		(lsp-deferred)))
 	:init
 	(setq lsp-disabled-clients '(pyright pylsp pyls mspyls)))
+
+(setq treesit-language-source-alist
+	'((css "https://github.com/tree-sitter/tree-sitter-css")
+		(html "https://github.com/tree-sitter/tree-sitter-html")
+		(javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+		(nix "https://github.com/nix-community/tree-sitter-nix")
+		(python "https://github.com/tree-sitter/tree-sitter-python")))
