@@ -34,6 +34,7 @@
 			nixd
 			emmet-ls
 			ruff
+			python3Packages.jedi-language-server
 		];
 	};
 }

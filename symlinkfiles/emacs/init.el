@@ -15,7 +15,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(noctalia))
  '(custom-safe-themes
-	 '("0e8399cd84d1dc3e0e5f5fc6cdd21374bf035bc33d94173d96fbcfa2eefa0642"
+   '("0e8399cd84d1dc3e0e5f5fc6cdd21374bf035bc33d94173d96fbcfa2eefa0642"
 	 "9fd51ac6d0704b3a7148d9cb3ce8be07f174bbf432a8e175a4b8eb2ab9d79675"
 	 "990b06ea68ce91fb48f038b48f6948682b4ce31379857cfc8a5861fcfcff7297"
 	 "c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
@@ -26,12 +26,13 @@
 	 default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-	 '(astyle catppuccin-theme company direnv envrc gptel
+   '(astyle catppuccin-theme company direnv envrc gptel
 			gruber-darker-theme helm-fuzzy helm-fuzzy-find
 			helm-nixos-options html-to-markdown ido-completing-read+
 			ido-hacks lsp-ui lua-mode magit markdown-mermaid move-text
 			multiple-cursors nix-mode org-preview-html org-superstar
-			ox-typst rainbow-mode typst-preview typst-ts-mode web-mode))
+			ox-typst rainbow-mode typst-preview typst-ts-mode undo-fu
+			vundo web-mode))
  '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)
@@ -155,3 +156,14 @@
 ;; Prefer splitting horizontally (side-by-side)
 (setq split-height-threshold nil)
 (setq split-width-threshold 80)
+
+(use-package undo-fu
+  :ensure t
+  :bind
+  ("C-z"     . undo-fu-only-undo)
+  ("C-S-z"   . undo-fu-only-redo)
+  ("M-_"     . undo-fu-only-redo))
+
+(use-package vundo
+  :ensure t
+  :bind ("C-x u" . vundo)) ; Visual tree navigator when you get lost
