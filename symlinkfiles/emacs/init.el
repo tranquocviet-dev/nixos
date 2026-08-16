@@ -13,9 +13,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(noctalia))
+ '(custom-enabled-themes '(dracula))
  '(custom-safe-themes
-   '("0e8399cd84d1dc3e0e5f5fc6cdd21374bf035bc33d94173d96fbcfa2eefa0642"
+   '("e1a0b19f04e6606d118976f58351227cbb29742cf3c0672c685206ad449c4bd3"
+	 "9c6aa7eb1bde73ba1142041e628827492bd05678df4d9097cda21b1ebcb8f8b9"
+	 "0e8399cd84d1dc3e0e5f5fc6cdd21374bf035bc33d94173d96fbcfa2eefa0642"
 	 "9fd51ac6d0704b3a7148d9cb3ce8be07f174bbf432a8e175a4b8eb2ab9d79675"
 	 "990b06ea68ce91fb48f038b48f6948682b4ce31379857cfc8a5861fcfcff7297"
 	 "c4df9006b9eb32599d758800a32f3487c2cdf13826084511783b47d419024af2"
@@ -26,14 +28,14 @@
 	 default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-   '(astyle cape catppuccin-theme company corfu direnv envrc
-			exec-path-from-shell gptel gruber-darker-theme helm-fuzzy
-			helm-fuzzy-find helm-nixos-options html-to-markdown
-			ido-completing-read+ ido-hacks lsp-jedi lsp-ui lua-mode
-			magit markdown-mermaid minuet move-text multiple-cursors
-			nix-mode orderless org-preview-html org-superstar ox-typst
-			rainbow-mode typst-preview typst-ts-mode undo-fu vundo
-			web-mode))
+   '(astyle cape catppuccin-theme company corfu direnv dracula-theme
+			envrc exec-path-from-shell gptel gruber-darker-theme
+			helm-fuzzy helm-fuzzy-find helm-nixos-options
+			html-to-markdown ido-completing-read+ ido-hacks lsp-jedi
+			lsp-ui lua-mode magit markdown-mermaid minuet move-text
+			multiple-cursors nix-mode orderless org-preview-html
+			org-superstar ox-typst rainbow-mode typst-preview
+			typst-ts-mode undo-fu vundo web-mode))
  '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)
@@ -102,7 +104,7 @@
 				(while (search-forward search-pattern nil t)
 					(replace-match "\t" nil t))))))
 (put 'upcase-region 'disabled nil)
-(load-theme 'noctalia t)
+;; (load-theme 'noctalia t)
 ;; Use Corfu instead of Company
 
 ;; 1. Configure Company (Completion UI)
@@ -193,3 +195,21 @@
 		(javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
 		(nix "https://github.com/nix-community/tree-sitter-nix")
 		(python "https://github.com/tree-sitter/tree-sitter-python")))
+
+(org-babel-do-load-languages
+	'org-babel-load-languages
+	'((emacs-lisp . t)
+		(python . t)
+		(shell . t)))
+
+;; Disable execution confirmation prompt (use with caution on untrusted files)
+(setq org-confirm-babel-evaluate nil)
+
+;; Keep code indentation aligned inside source blocks
+(setq org-src-preserve-indentation t)
+
+;; Use native syntax highlighting inside src blocks
+(setq org-src-fontify-natively t)
+
+;; Make TAB behave as it would in the language's native major mode
+(setq org-src-tab-acts-natively t)
