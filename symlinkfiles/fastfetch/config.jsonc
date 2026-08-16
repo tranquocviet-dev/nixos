@@ -39,6 +39,6 @@
   "logo": {
     "source": "~/.config/fastfetch/rin.jpg",
     "type": "kitty",
-    "height": 15,
+    "height": 17,
   }
 }
