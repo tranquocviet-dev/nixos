@@ -13,7 +13,6 @@
 	};
 	flake.nixosModules.group-inputs = { ... }: {
 		imports = (with self.nixosModules; [
-			inputs-noctalia-greeter
 			inputs-noctalia
 			inputs-osu
 		]);
