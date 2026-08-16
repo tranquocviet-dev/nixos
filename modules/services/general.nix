@@ -22,5 +22,6 @@
 		services.tailscale.enable = true;
 		programs.xwayland.enable = true;
 		programs.npm.enable = true;
+		services.displayManager.noctalia-greeter.enable = true;
 	};
 }
