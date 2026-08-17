@@ -32,19 +32,11 @@
 			unzip
 			ripgrep
 			fd
-			texliveMedium
 			# emacs lsp
 			nixd
 			emmet-ls
 			ruff
 			python3Packages.jedi-language-server
-
-			# treesitter
-			tree-sitter-grammars.tree-sitter-python
-			tree-sitter-grammars.tree-sitter-nix
-			tree-sitter-grammars.tree-sitter-html
-			tree-sitter-grammars.tree-sitter-css
-			tree-sitter-grammars.tree-sitter-javascript
 		];
 	};
 }

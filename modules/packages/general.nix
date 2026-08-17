@@ -6,9 +6,7 @@
 			upscayl
 			libreoffice
 			losslesscut-bin
-			gpu-screen-recorder
 			imv
-			kitty
 			krita
 			protontricks
 			emacs-pgtk
@@ -20,15 +18,12 @@
 			feh
 			protonplus
 			gromit-mpx
-			gpu-screen-recorder-gtk
-			wl-screenrec
 			mangohud
 			r2modman
 			direnv
 			ghostty
 			tack
 			audacity
-			zed-editor
 		];
 		programs.mango.enable = true;
 		programs.niri.enable = true;
@@ -49,7 +44,6 @@
 			);
 			
 			plugins = with pkgs.obs-studio-plugins; [
-				droidcam-obs
 				wlrobs
 				obs-backgroundremoval
 				obs-pipewire-audio-capture
