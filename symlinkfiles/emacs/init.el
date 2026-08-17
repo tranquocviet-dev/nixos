@@ -313,3 +313,6 @@
 	 ("q" . dirvish-quit)
 	 ("h" . dired-up-directory)
 	 ("l" . dired-find-file)))
+
+(with-eval-after-load 'ox
+	(require 'ox-latex))

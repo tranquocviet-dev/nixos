@@ -32,6 +32,7 @@
 			unzip
 			ripgrep
 			fd
+			texliveMedium
 			# emacs lsp
 			nixd
 			emmet-ls
