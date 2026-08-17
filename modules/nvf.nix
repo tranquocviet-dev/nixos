@@ -19,7 +19,7 @@
 				};
 				theme = {
 					enable = true;
-					name = "dracula";
+					name = "mellow";
 					style = "auto";
 				};
 				languages = {

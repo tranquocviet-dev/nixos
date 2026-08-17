@@ -30,6 +30,8 @@
 			gimp
 			unrar
 			unzip
+			ripgrep
+			fd
 			# emacs lsp
 			nixd
 			emmet-ls

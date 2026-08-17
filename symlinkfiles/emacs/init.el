@@ -13,7 +13,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(dracula))
+ '(custom-enabled-themes '(noctalia))
  '(custom-safe-themes
    '("e1a0b19f04e6606d118976f58351227cbb29742cf3c0672c685206ad449c4bd3"
 	 "9c6aa7eb1bde73ba1142041e628827492bd05678df4d9097cda21b1ebcb8f8b9"
@@ -28,14 +28,15 @@
 	 default))
  '(org-agenda-files '("~/reminder.org"))
  '(package-selected-packages
-   '(astyle cape catppuccin-theme company corfu direnv dracula-theme
-			envrc exec-path-from-shell gptel gruber-darker-theme
-			helm-fuzzy helm-fuzzy-find helm-nixos-options
-			html-to-markdown ido-completing-read+ ido-hacks lsp-jedi
-			lsp-ui lua-mode magit markdown-mermaid minuet move-text
-			multiple-cursors nix-mode orderless org-preview-html
-			org-superstar ox-typst rainbow-mode typst-preview
-			typst-ts-mode undo-fu vundo web-mode))
+   '(astyle cape catppuccin-theme company corfu direnv dirvish
+			dracula-theme envrc exec-path-from-shell gptel
+			gruber-darker-theme helm-fuzzy helm-fuzzy-find
+			helm-nixos-options html-to-markdown ido-completing-read+
+			ido-hacks lsp-jedi lsp-ui lua-mode magit markdown-mermaid
+			minuet move-text multiple-cursors nix-mode orderless
+			org-preview-html org-superstar ox-typst rainbow-mode
+			tabspaces treemacs-perspective typst-preview typst-ts-mode
+			undo-fu vundo web-mode))
  '(safe-local-variable-values nil))
 (use-package ox-typst
 	:after org)
@@ -104,7 +105,7 @@
 				(while (search-forward search-pattern nil t)
 					(replace-match "\t" nil t))))))
 (put 'upcase-region 'disabled nil)
-;; (load-theme 'noctalia t)
+(load-theme 'noctalia t)
 ;; Use Corfu instead of Company
 
 ;; 1. Configure Company (Completion UI)
@@ -213,3 +214,102 @@
 
 ;; Make TAB behave as it would in the language's native major mode
 (setq org-src-tab-acts-natively t)
+
+;; Jump instantly with C-x r j <key>
+(set-register ?n (cons 'file "~/.config/nixos/"))
+(set-register ?s (cons 'file "~/sstudy/"))
+
+;; Enable built-in tab-bar and project.el
+(use-package tab-bar
+	:init
+	(tab-bar-mode 1)
+	:custom
+	(tab-bar-show 1)
+	(tab-bar-close-button-show nil)
+	(tab-bar-new-button-show nil))
+
+(use-package tabspaces
+	:ensure t
+	:hook (after-init . tabspaces-mode)
+	:custom
+	(tabspaces-use-filtered-buffers-as-default t)
+	(tabspaces-default-tab "Default")
+	(tabspaces-remove-to-default t)
+	(tabspaces-include-buffers '("*scratch*"))
+	(tabspaces-session nil)
+	(tabspaces-session-auto-restore nil)
+	:config
+	;; Function to close any tab that isn't a registered Tabspaces workspace
+	(defun my/tabspaces-kill-non-workspace-tabs ()
+		"Close all open tabs that are not recognized as Tabspaces workspaces."
+		(interactive)
+		(let ((valid-workspaces (tabspaces--workspace-list)))
+			(dolist (tab (tab-bar-tabs))
+				(let ((name (alist-get 'name tab)))
+					(unless (member name valid-workspaces)
+						(tab-bar-close-tab-by-name name))))))
+
+	;; Wrapper to open project workspace and prune non-workspace tabs
+	(defun my/tabspaces-open-project-clean ()
+		"Open project workspace and close any non-workspace tabs."
+		(interactive)
+		(call-interactively #'tabspaces-open-or-create-project-and-workspace)
+		(my/tabspaces-kill-non-workspace-tabs))
+
+	;; Wrapper to switch workspace and prune non-workspace tabs
+	(defun my/tabspaces-switch-workspace-clean ()
+		"Switch/create workspace and close any non-workspace tabs."
+		(interactive)
+		(call-interactively #'tabspaces-switch-or-create-workspace)
+		(my/tabspaces-kill-non-workspace-tabs))
+
+	;; Workspace recursive search
+	(defun my/workspace-search ()
+		"Recursively search file contents inside the active project/workspace."
+		(interactive)
+		(let ((root (or (when-let ((proj (project-current nil)))
+				  (project-root proj))
+				default-directory)))
+			(if (fboundp 'consult-ripgrep)
+				(consult-ripgrep root)
+				(project-find-regexp (read-string "Search workspace for: ")))))
+	:bind
+	(("C-c TAB s" . my/tabspaces-switch-workspace-clean)
+	 ("C-c TAB d" . tabspaces-close-workspace)
+	 ("C-c TAB p" . my/tabspaces-open-project-clean)
+	 ("C-c TAB k" . my/tabspaces-kill-non-workspace-tabs)
+	 ("C-c TAB TAB" . tabspaces-switch-buffer-and-tab)
+	 ("C-c TAB /" . my/workspace-search)))
+
+(use-package dirvish
+	:ensure t
+	:init
+	(dirvish-override-dired-mode)
+	:custom
+	;; Global Dired full-view settings
+	(dired-listing-switches "-lha --group-directories-first")
+	(dirvish-header-line-format nil)
+	(dirvish-mode-line-format nil)
+	(dirvish-layout-recipes '((0 nil) (1 0.3 0.7)))
+	(dirvish-layout-type 0)
+
+	;; Force the sidebar to dock strictly to the LEFT with fixed width
+	(dirvish-side-display-alist
+		'((side . left)
+		  (slot . -1)
+		  (window-width . 30)))
+
+	:config
+	;; Strip all detail attributes whenever dirvish-side opens
+	(add-hook 'dirvish-side-mode-hook
+		(lambda ()
+			(setq-local dirvish-attributes '(subtree-state))
+			(display-line-numbers-mode -1)))
+
+	:bind
+	(("C-c f" . dirvish-side)
+	 :map dirvish-mode-map
+	 ("TAB" . dirvish-subtree-toggle)
+	 ("q" . dirvish-quit)
+	 ("h" . dired-up-directory)
+	 ("l" . dired-find-file)))
