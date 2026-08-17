@@ -15,6 +15,14 @@ in {
 			# 2. External modules from flake inputs
 			inputs.home-manager.nixosModules.home-manager
 			inputs.nvf.nixosModules.default
+			inputs.self.nixosModules.obs
+
+			{
+				myModules.programs.obs = {
+					enable = true;
+					nvidia = true; # or true
+				};
+			}
 				
 			# Host settings
 			({ ... }: {
