@@ -1,10 +1,5 @@
 { ... }: {
-	flake.nixosModules.obs = {
-		config,
-		lib,
-		pkgs,
-		...
-	}: {
+	flake.nixosModules.obs = { config, lib, pkgs, ... }: {
 		options.myModules.programs.obs = {
 			enable = lib.mkEnableOption "OBS Studio";
 			nvidia = lib.mkEnableOption "OBS nvidia/CUDA support";
