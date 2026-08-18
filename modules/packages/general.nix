@@ -24,6 +24,7 @@
 			ghostty
 			tack
 			audacity
+			lollypop
 		];
 		programs.mango.enable = true;
 		programs.niri.enable = true;

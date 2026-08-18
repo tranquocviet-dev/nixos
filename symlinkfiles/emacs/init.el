@@ -49,7 +49,7 @@
 
 (require 'simpc-mode)
 (add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
-(fido-mode 1)
+(fido-vertical-mode 1)
 (setq auto-save-default nil)
 
 (require 'move-text)
