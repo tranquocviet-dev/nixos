@@ -1,6 +1,6 @@
 { system, inputs, pkgs, config, user, ... }:
 let
-	useDoom = true; # Set to true for Doom Emacs, false for Vanilla
+	useDoom = false; # Set to true for Doom Emacs, false for Vanilla
 	
 	symlink = path: {
 		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/${path}";
