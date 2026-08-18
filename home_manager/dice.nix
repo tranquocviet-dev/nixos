@@ -144,32 +144,4 @@ in
 		".config/starship.toml" = symlink "starship.toml";
 		".config/fastfetch" = symlink "fastfetch";
 	} // (if useDoom then doomEmacsFiles else vanillaEmacsFiles);
-		  #home.file = {
-	#	".config/niri" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri";
-	#		force = true;
-	#	};
-	#	".config/mango" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/mango";
-	#		force = true;
-	#	};
-	#	".config/helix" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix";
-	#	};
-	#	".config/emacs/init.el" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/init.el";
-	#	};
-	#	".config/starship.toml" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/starship.toml";
-	#	};
-	#	".config/emacs/autoload" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/autoload";
-	#	};
-	#	".config/emacs/themes" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/themes";
-	#	};
-	#	".config/fastfetch" = {
-	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/fastfetch";
-	#	};
-	#};
 }
