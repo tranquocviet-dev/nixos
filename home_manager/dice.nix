@@ -139,9 +139,6 @@ in
 		".config/emacs/themes" = {
 			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/themes";
 		};
-		".local/share/doomemacs" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/doom";
-		};
 		".config/fastfetch" = {
 			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/fastfetch";
 		};
