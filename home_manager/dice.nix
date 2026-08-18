@@ -1,9 +1,31 @@
 { system, inputs, pkgs, config, user, ... }:
 let
+	useDoom = false; # Set to true for Doom Emacs, false for Vanilla
+	
+	symlink = path: {
+		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/${path}";
+		force = true;
+	};
+	
+	vanillaEmacsFiles = {
+		".config/emacs/init.el" = symlink "emacs/init.el";
+		".config/emacs/autoload" = symlink "emacs/autoload";
+		".config/emacs/themes" = symlink "emacs/themes";
+	};
+	
+	doomEmacsFiles = {
+		# Doom's core framework runs as the main Emacs directory
+		".config/emacs" = {
+			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/share/doomemacs";
+			force = true;
+		};
+		# Doom private user config
+		".config/doom" = symlink "doom";
+	};
 	mizuki-cursor = pkgs.stdenv.mkDerivation {
 		pname = "mizuki-icons";
 		version = "1.0.0";
-
+		
 		# Point directly to your local file (placed next to home.nix)
 		src = ./mizuki-psekai-cursor.tar.xz;
 
@@ -116,31 +138,38 @@ in
 		};
 	};
 	home.file = {
-		".config/niri" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri";
-			force = true;
-		};
-		".config/mango" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/mango";
-			force = true;
-		};
-		".config/helix" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix";
-		};
-		".config/emacs/init.el" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/init.el";
-		};
-		".config/starship.toml" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/starship.toml";
-		};
-		".config/emacs/autoload" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/autoload";
-		};
-		".config/emacs/themes" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/themes";
-		};
-		".config/fastfetch" = {
-			source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/fastfetch";
-		};
-	};
+		".config/niri" = symlink "niri";
+		".config/mango" = symlink "mango";
+		".config/helix" = symlink "helix";
+		".config/starship.toml" = symlink "starship.toml";
+		".config/fastfetch" = symlink "fastfetch";
+	} // (if useDoom then doomEmacsFiles else vanillaEmacsFiles);
+		  #home.file = {
+	#	".config/niri" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/niri";
+	#		force = true;
+	#	};
+	#	".config/mango" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/mango";
+	#		force = true;
+	#	};
+	#	".config/helix" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/helix";
+	#	};
+	#	".config/emacs/init.el" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/init.el";
+	#	};
+	#	".config/starship.toml" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/starship.toml";
+	#	};
+	#	".config/emacs/autoload" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/autoload";
+	#	};
+	#	".config/emacs/themes" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/emacs/themes";
+	#	};
+	#	".config/fastfetch" = {
+	#		source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/nixos/symlinkfiles/fastfetch";
+	#	};
+	#};
 }
