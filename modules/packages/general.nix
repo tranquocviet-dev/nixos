@@ -25,6 +25,7 @@
 			tack
 			audacity
 			lollypop
+			opencode
 		];
 		programs.mango.enable = true;
 		programs.niri.enable = true;
