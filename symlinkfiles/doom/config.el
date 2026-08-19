@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
+(setq doom-font (font-spec :family "NotoMono NF" :size 18 :weight 'regular))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-tomorrow-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -73,3 +73,32 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+(after! (flycheck org)
+	(setq-default flycheck-disabled-checkers
+		(delq 'org-lint flycheck-disabled-checkers)))
+(after! eglot
+	(add-to-list 'eglot-server-programs
+		'((nix-mode nix-ts-mode) . ("nixd"))))
+;; Enable tabs globally for all programming modes
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+
+;; Prevent Doom's electric-indent from converting tabs to spaces
+(setq-default evil-shift-round nil)
+(setq-default evil-shift-width tab-width)
+
+;; Ensure major modes respect tab-width
+(add-hook! 'prog-mode-hook
+	(setq indent-tabs-mode t
+		tab-width 4))
+;; Stop whitespace-mode from showing tabs as '>'
+(after! whitespace
+	(setq whitespace-style '(face trailing-whitespace)))
+
+;; Configure VS Code-like vertical bars
+(after! highlight-indent-guides
+	(setq highlight-indent-guides-method 'character
+		highlight-indent-guides-character ?│
+		highlight-indent-guides-responsive 'top))
+(after! org
+	(setq org-agenda-files '("~/sstudy/notes/" "~/org")))
