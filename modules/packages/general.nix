@@ -35,7 +35,11 @@
 		];
 		programs.zoxide = {
 			enable = true;
-			enableFishInegration = true;
+			enableFishIntegration = true;
+			flags = [
+				"--cmd"
+				"cd"
+			];
 		};
 	};
 }
