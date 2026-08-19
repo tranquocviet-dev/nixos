@@ -77,8 +77,16 @@
 	(setq-default flycheck-disabled-checkers
 		(delq 'org-lint flycheck-disabled-checkers)))
 (after! eglot
-	(add-to-list 'eglot-server-programs
-		'((nix-mode nix-ts-mode) . ("nixd"))))
+  (add-to-list 'eglot-server-programs
+	       '((nix-mode nix-ts-mode) . ("nixd")))
+
+  (setq-default eglot-workspace-configuration
+		'((:nixd .
+		   (:nixpkgs (:expr "import <nixpkgs> { }")
+		    :options
+		    (:nixos (:expr "(builtins.getFlake \"/home/dice/.config/nixos\").nixosConfigurations.nixos.options")))))))
+
+(add-hook! '(nix-mode-hook nix-ts-mode-hook) #'eglot-ensure)
 ;; Enable tabs globally for all programming modes
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
@@ -102,3 +110,40 @@
 		highlight-indent-guides-responsive 'top))
 (after! org
 	(setq org-agenda-files '("~/sstudy/notes/" "~/org")))
+(after! org-capture
+	(defun +zettelkasten-slugify (str)
+		"Format a title string for filenames."
+		(replace-regexp-in-string "[/\\:*?\"<>|]" "-" str))
+
+	(setq org-capture-templates
+		'(("z" "Zettelkasten")
+
+			;; Fleeting Note: Auto-named with timestamp, no prompt
+			("zf" "Fleeting Note" plain
+				(file (lambda ()
+					(let ((filename (format-time-string "%d-%m-%Y %H-%M-%S.org")))
+						(expand-file-name filename "~/org/zettelkasten/fleeting"))))
+				"#+title: Fleeting Note %<%d-%m-%Y %H:%M:%S>\n#+date: %U\n#+filetags: :fleeting:\n\n%?"
+				:empty-lines 1)
+
+			;; Literature Note: Summaries/notes from books, papers, articles
+			("zl" "Literature Note" plain
+				(file (lambda ()
+					(let ((date (format-time-string "%d-%m-%Y"))
+							(title (read-string "Note name: ")))
+						(expand-file-name
+							(format "%s %s.org" date (+zettelkasten-slugify title))
+							"~/org/zettelkasten/literature"))))
+				"#+title: %^{Title}\n#+date: %U\n#+filetags: :literature:\n#+author: %^{Author}\n#+source: %^{Source/URL}\n\n* Key Takeaways\n- %?\n\n* Summary\n\n* Quotes / References\n"
+				:empty-lines 1)
+
+			;; Permanent Note: Atomic, refined, self-contained knowledge
+			("zp" "Permanent Note" plain
+				(file (lambda ()
+					(let ((date (format-time-string "%d-%m-%Y"))
+							(title (read-string "Note name: ")))
+						(expand-file-name
+							(format "%s %s.org" date (+zettelkasten-slugify title))
+							"~/org/zettelkasten/permanent"))))
+				"#+title: %^{Title}\n#+date: %U\n#+filetags: :permanent:\n\n* Concept\n%?\n\n* Related Notes\n- \n\n* References\n- "
+				:empty-lines 1))))

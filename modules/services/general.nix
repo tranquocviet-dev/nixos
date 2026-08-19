@@ -20,6 +20,10 @@
 			jq
 		];
 		services.tailscale.enable = true;
+		services.emacs = {
+			enable = true;
+			package = pkgs.emacs-pgtk;
+		};
 		programs.xwayland.enable = true;
 		programs.npm.enable = true;
 		services.displayManager.noctalia-greeter.enable = true;
