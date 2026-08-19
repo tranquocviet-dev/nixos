@@ -5,12 +5,6 @@
 		inputs = import ./.tack {
 			overrides = args.tackOverrides or { };
 		};
-		# npins inputs
-		#sources = import ./npins;
-		#inputs = sources // {
-		#	osu-stable = ./pkgs/osu-stable;
-		#	osu-lazer-bin = ./pkgs/osu-lazer-bin;
-		#};
 		# 2. Instantiate recursiveImport using nixpkgs lib
 		recursiveImport = import ./lib/recursive_import.nix {
 			inherit (inputs.nixpkgs) lib;
