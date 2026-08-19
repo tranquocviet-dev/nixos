@@ -1,0 +1,96 @@
+{
+  "pins": {
+    "flake-parts": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "hercules-ci",
+        "repo": "flake-parts"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "427bf4bd9435fdf21321c8cc628c24efc14c0f7a",
+      "url": "https://github.com/hercules-ci/flake-parts/archive/427bf4bd9435fdf21321c8cc628c24efc14c0f7a.tar.gz",
+      "hash": "sha256-4dtXQk/NMePegK/nWp5NSeuZKLATItOq61lpEvmXqGw="
+    },
+    "home-manager": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nix-community",
+        "repo": "home-manager"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "353742587cbaf079b3caee743115d037bc51fea6",
+      "url": "https://github.com/nix-community/home-manager/archive/353742587cbaf079b3caee743115d037bc51fea6.tar.gz",
+      "hash": "sha256-MTGMFlLDTklsXhCp4r5GXB4VAVadPdalXLvUjd/K7h0="
+    },
+    "nixpkgs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-unstable",
+      "submodules": false,
+      "revision": "0ae2bc1419c3f345984c2629e72e7a631820fa4d",
+      "url": "https://github.com/nixos/nixpkgs/archive/0ae2bc1419c3f345984c2629e72e7a631820fa4d.tar.gz",
+      "hash": "sha256-vXNVDVtvfiQuXthP0NHPFdNvvMTkGpx0UP8oddIWbNk="
+    },
+    "noctalia": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "noctalia-dev",
+        "repo": "noctalia"
+      },
+      "branch": "cachix",
+      "submodules": false,
+      "revision": "b38bf2dde1195e459b4b2a436bde970001d5d5ce",
+      "url": "https://github.com/noctalia-dev/noctalia/archive/b38bf2dde1195e459b4b2a436bde970001d5d5ce.tar.gz",
+      "hash": "sha256-ZLsON94GGmg7cAC/9Oyz0P+mPhemdvQIKwLcFEe785k="
+    },
+    "noctalia-greeter": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-greeter"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "10d2c9074d3a9219e03b55b2c97f1cc743447af5",
+      "url": "https://github.com/noctalia-dev/noctalia-greeter/archive/10d2c9074d3a9219e03b55b2c97f1cc743447af5.tar.gz",
+      "hash": "sha256-NfnY22tYDrXfIuyexYyqB+jkO6IK23AqmhcNixkU7pw="
+    },
+    "nvf": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "notashelf",
+        "repo": "nvf"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "59b0dc327b5ce7a6b510c50456a35891ddd144cc",
+      "url": "https://github.com/notashelf/nvf/archive/59b0dc327b5ce7a6b510c50456a35891ddd144cc.tar.gz",
+      "hash": "sha256-ok6BBZuGDKvJurSpxR93I7wwP7oIpSy5sox6WvDrbPw="
+    },
+    "ollama": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-25.11",
+      "submodules": false,
+      "revision": "b6018f87da91d19d0ab4cf979885689b469cdd41",
+      "url": "https://github.com/nixos/nixpkgs/archive/b6018f87da91d19d0ab4cf979885689b469cdd41.tar.gz",
+      "hash": "sha256-twXPFqFsrrY5r28Zh7Homgcp2gUMBgQ6WDS98Q/3xFI="
+    }
+  },
+  "version": 8
+}
