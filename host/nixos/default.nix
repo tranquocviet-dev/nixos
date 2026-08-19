@@ -34,8 +34,11 @@ in {
 					extraSpecialArgs = {
 						inherit inputs system user;
 					};
-					sharedModules = [ inputs.nvf.homeManagerModules.default ];
-					users.${user} = import ../../home_manager/${user}.nix;
+					sharedModules = [
+						inputs.nvf.homeManagerModules.default
+						self.homeManagerModules.dice
+					];
+					users.${user} = { };
 				};
 			})
 		] ++ (with self.nixosModules; [
