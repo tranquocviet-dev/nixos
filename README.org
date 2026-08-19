@@ -7,10 +7,10 @@ I use:
 - home-manager
 - nvf
 
-** Influenced by:
+** Influenced by
 - stellanova's import system and flake-parts integration: [[https://github.com/iStellanova/Stellyrland][iStellanova/Stellyrland]]
 - eljanfus' tack and flake.nixos: [[https://github.com/eljangus/nixos][eljangus/nixos]]
 - hand7s' flake-parts integration: [[https://github.com/s0me1newithhand7s/reNixos][s0me1newithhand7s/reNixos]]
 
-** Goals:
+** Goals
 - make an install script
