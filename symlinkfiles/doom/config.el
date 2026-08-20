@@ -109,14 +109,19 @@
 		highlight-indent-guides-character ?│
 		highlight-indent-guides-responsive 'top))
 (after! org
-	(setq org-agenda-files '("~/sstudy/notes/" "~/org" "~/org/zettelkasten/")))
+	(setq org-agenda-files '("~/org")))
 (after! org-capture
 	(defun +zettelkasten-slugify (str)
 		"Format a title string for filenames."
 		(replace-regexp-in-string "[/\\:*?\"<>|]" "-" str))
 
 	(setq org-capture-templates
-		'(("z" "Zettelkasten")
+		'(("r" "Reminder / Task" entry
+				(file+headline "~/org/reminder.org" "Reminders")
+				"* TODO %?\nSCHEDULED: %^t\n:PROPERTIES:\n:CREATED: %U\n:END:\n"
+				:empty-lines 1)
+
+			("z" "Zettelkasten")
 
 			;; Fleeting Note: Auto-named with timestamp, no prompt
 			("zf" "Fleeting Note" plain
@@ -147,6 +152,7 @@
 							"~/org/zettelkasten/permanent"))))
 				"#+title: %^{Title}\n#+date: %U\n#+filetags: :permanent:\n\n* Concept\n%?\n\n* Related Notes\n- \n\n* References\n- "
 				:empty-lines 1))))
+
 (after! apheleia
   ;; Nix: nixfmt converted to hard tabs (2-space base)
   (set-formatter! 'nixfmt-tabs
@@ -157,3 +163,5 @@
   (set-formatter! 'ruff-tabs
     '("sh" "-c" "ruff format - | unexpand -t 4 --first-only")
     :modes '(python-mode python-ts-mode)))
+(setq org-startup-with-inline-images t
+      org-image-actual-width '(600)) ; Resize display width
