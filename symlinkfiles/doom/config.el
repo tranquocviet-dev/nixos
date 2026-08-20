@@ -109,7 +109,7 @@
 		highlight-indent-guides-character ?│
 		highlight-indent-guides-responsive 'top))
 (after! org
-	(setq org-agenda-files '("~/sstudy/notes/" "~/org")))
+	(setq org-agenda-files '("~/sstudy/notes/" "~/org" "~/org/zettelkasten/")))
 (after! org-capture
 	(defun +zettelkasten-slugify (str)
 		"Format a title string for filenames."
@@ -147,3 +147,13 @@
 							"~/org/zettelkasten/permanent"))))
 				"#+title: %^{Title}\n#+date: %U\n#+filetags: :permanent:\n\n* Concept\n%?\n\n* Related Notes\n- \n\n* References\n- "
 				:empty-lines 1))))
+(after! apheleia
+  ;; Nix: nixfmt converted to hard tabs (2-space base)
+  (set-formatter! 'nixfmt-tabs
+    '("sh" "-c" "nixfmt | unexpand -t 2 --first-only")
+    :modes '(nix-mode nix-ts-mode))
+
+  ;; Python: ruff formatted then converted to hard tabs (4-space base)
+  (set-formatter! 'ruff-tabs
+    '("sh" "-c" "ruff format - | unexpand -t 4 --first-only")
+    :modes '(python-mode python-ts-mode)))

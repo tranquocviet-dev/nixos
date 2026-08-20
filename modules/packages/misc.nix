@@ -32,8 +32,10 @@
 			unzip
 			ripgrep
 			fd
-			# emacs lsp
+			# emacs stuff
 			nixd
+			nixfmt
+			ruff
 			python3Packages.python-lsp-server
 		];
 	};
