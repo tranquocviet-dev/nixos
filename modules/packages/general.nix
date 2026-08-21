@@ -2,7 +2,6 @@
 	flake.nixosModules.packages-general = { pkgs, ... }: {
 		environment.systemPackages = with pkgs; [
 			spotify
-			rhythmbox
 			upscayl
 			libreoffice
 			losslesscut-bin

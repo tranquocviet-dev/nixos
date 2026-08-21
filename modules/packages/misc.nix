@@ -2,7 +2,6 @@
 	flake.nixosModules.packages-misc = { pkgs, ... }: {
 		environment.systemPackages = with pkgs; [
 			# apps
-			woomer
 			eza
 			slurp
 			grim
@@ -14,8 +13,6 @@
 			wl-clipboard
 			luajit
 			gnumake
-			clang
-			mpvpaper
 			pywalfox-native
 			thokr
 			lutgen
