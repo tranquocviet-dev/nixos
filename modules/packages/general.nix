@@ -26,7 +26,6 @@
 			audacity
 			lollypop
 			opencode
-			ventoy-full-gtk
 		];
 		programs.mango.enable = true;
 		programs.niri.enable = true;
