@@ -13,6 +13,9 @@
 	imports = [
 		# Include the results of the hardware scan.
 		./hardware-configuration.nix
+		./forgejo.nix
+		./copyparty.nix
+		./tailscale.nix
 	];
 
 	# Use the systemd-boot EFI boot loader.
@@ -40,21 +43,7 @@
 	services.openssh.settings.PasswordAuthentication = true;
 	services.openssh.settings.PermitRootLogin = "yes";
 	# Open ports in the firewall.
-	networking.firewall.allowedTCPPorts = [ 3000 ];
 	time.timeZone = "Asia/Ho_Chi_Minh";
-	services.forgejo = {
-		enable = true;
-		settings = {
-			server = {
-				HTTP_PORT = 3000;
-				DOMAIN = "192.168.22.94";
-				ROOT_URL = "http://192.168.22.94:3000/";
-			};
-			service = {
-				DISABLE_REGISTRATION = false;
-			};
-		};
-	};
 	# networking.firewall.allowedUDPPorts = [ ... ];
 	# networking.firewall.enable = false;
 	system.stateVersion = "26.05"; # Did you read the comment?
@@ -66,18 +55,5 @@
 		HandleLidSwitch = "ignore";
 		HandleLidSwitchDocked = "ignore";
 		HandleLidSwitchExternalPower = "ignore";
-	};
-	services.tailscale.enable = true;
-	# Set up routing and firewall
-	services.tailscale.useRoutingFeatures = "server"; # Enables IP forwarding if you want exit node or subnet routing
-
-	networking.firewall = {
-		enable = true;
-		# Always trust traffic coming in from the Tailscale network interface
-		trustedInterfaces = [ "tailscale0" ];
-		# Allow Tailscale UDP handshake port for direct peer-to-peer connections
-		allowedUDPPorts = [ config.services.tailscale.port ];
-		# Fix routing issues when using exit nodes / multi-interface setups
-		checkReversePath = "loose";
 	};
 }
