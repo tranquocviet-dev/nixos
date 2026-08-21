@@ -13,7 +13,7 @@ in {
 			# Host settings
 			({ ... }: {
 				nixpkgs.hostPlatform = "x86_64-linux";
-				networking.hostName = "nixos";
+				networking.hostName = "server";
 			})
 		];
 	};
