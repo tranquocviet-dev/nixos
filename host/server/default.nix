@@ -2,7 +2,7 @@
 	system = "x86_64-linux";
 	user = "dice";
 in {
-	flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+	flake.nixosConfigurations.server = inputs.nixpkgs.lib.nixosSystem {
 		specialArgs = {
 			inherit inputs self system user;
 		};

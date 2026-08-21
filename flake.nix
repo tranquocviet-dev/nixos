@@ -14,6 +14,7 @@
 		imports = [
 			# even though theres only 1 entry i leave this on a new line for easier time adding more hosts later
 			./host/nixos
+			./host/server
 		] ++ recursiveImport [ ./modules ];
 		flake = { };
 		perSystem = { };
