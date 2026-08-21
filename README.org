@@ -19,4 +19,11 @@ This repo contains:
 - hand7s' flake-parts integration: [[https://github.com/s0me1newithhand7s/reNixos][s0me1newithhand7s/reNixos]]
 
 ** Goals
-- make an install script
+- make an install script (no longer needed)
+- debloat all the bullshit i have (impossible)
+- implement secrets properly
+
+*** Even more far-fetched goals (or things i may want to look into)
+- disko
+- impermanence
+- (for home server) implement streaming server
