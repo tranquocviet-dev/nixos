@@ -3,9 +3,15 @@
 I try to make stuff as simple and declared as possible, using the least number of tools possible. I achieve this by doing very hacky and sometimes unexplainable things.
 
 I use:
+- flake-parts
+- half-dendritic
 - tack
 - home-manager
 - nvf
+
+This repo contains:
+- per-host configurations declared in seperate folders
+- flake-parts modules declared in groups (modules/group.nix)
 
 ** Influenced by
 - stellanova's import system and flake-parts integration: [[https://github.com/iStellanova/Stellyrland][iStellanova/Stellyrland]]
