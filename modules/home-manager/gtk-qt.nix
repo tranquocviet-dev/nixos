@@ -41,6 +41,14 @@
 				package = mizuki-cursor;
 				size = 24;
 			};
+			fonts.fontconfig = {
+				enable = true;
+				defaultFonts = {
+					serif = ["IBM Plex Mono" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
+					sansSerif = ["IBM Plex Mono" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
+					monospace = ["IBM Plex Mono" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
+				};
+			};
 			gtk = {
 				enable = true;
 				theme = {
@@ -52,7 +60,7 @@
 					package = pkgs.papirus-icon-theme;
 				};
 				font = {
-					name = "NotoMono NF";
+					name = "Sans-Serif";
 					size = 16;
 				};
 				gtk3.extraConfig = {
@@ -78,8 +86,8 @@
 				};
 				qt6ctSettings = {
 					Fonts = {
-						fixed = "NotoMono NF, 16";
-						general = "NotoMono NF, 16";
+						fixed = "Sans-Serif, 16";
+						general = "Sans-Serif, 16";
 					};
 				};
 			};

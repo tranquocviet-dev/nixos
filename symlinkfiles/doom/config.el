@@ -21,7 +21,7 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "NotoMono NF" :size 18 :weight 'regular))
+;; (setq doom-font (font-spec :family "NotoMono NFP" :size 18 :weight 'regular))
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
@@ -29,10 +29,36 @@
 ;; refresh your font settings. If Emacs still can't find your font, it likely
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
+;; Set primary Latin/code font
+(setq doom-font (font-spec :family "IBM Plex Mono" :size 18))
+
+;; Map CJK characters to Noto Sans CJK SC (adjust to TC, HK, JP, or KR if preferred)
+(defun my/setup-cjk-font ()
+	(dolist (script '(han kana hangul cjk-misc bopomofo))
+		(set-fontset-font t script (font-spec :family "Noto Sans CJK SC"))))
+
+;; Match visual height: Noto Sans CJK often renders slightly taller than IBM Plex Mono
+(setq face-font-rescale-alist '(("Noto Sans CJK SC" . 0.92)))
+
+;; Configure nerd-icons to use the symbols-only font
+(after! nerd-icons
+	(setq nerd-icons-font-family "Symbols Nerd Font Mono"))
+
+;; Route Nerd Font Unicode Private Use Area (PUA) codepoints to fallback font
+(defun my/setup-nerd-font-symbols ()
+	(dolist (range '((#xe000 . #xf8ff)       ; Standard PUA
+	                 (#xf0000 . #xffffd)     ; Supplementary PUA-A
+	                 (#x100000 . #x10fffd))) ; Supplementary PUA-B
+		(set-fontset-font t range (font-spec :family "Symbols Nerd Font Mono"))))
+
+;; Hook setups into Doom after frame initialization
+(add-hook 'doom-after-init-hook #'my/setup-cjk-font)
+(add-hook 'doom-after-init-hook #'my/setup-nerd-font-symbols)
+
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-nord)
+(setq doom-theme 'doom-tomorrow-night)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -165,3 +191,6 @@
     :modes '(python-mode python-ts-mode)))
 (setq org-startup-with-inline-images t
       org-image-actual-width '(600)) ; Resize display width
+
+(after! projectile
+  (setq projectile-enable-caching nil))
