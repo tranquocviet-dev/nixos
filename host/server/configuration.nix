@@ -16,6 +16,7 @@
 		./forgejo.nix
 		./copyparty.nix
 		./tailscale.nix
+		./immich.nix
 	];
 
 	# Use the systemd-boot EFI boot loader.
