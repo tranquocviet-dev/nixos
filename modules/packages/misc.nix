@@ -24,7 +24,6 @@
 			ps_mem
 			pandoc
 			wget
-			gimp
 			unrar
 			unzip
 			ripgrep

@@ -8,10 +8,6 @@
 			browser = "firefox.desktop";
 			editor = "emacsclient.desktop";
 		in {
-			programs.ghostty = {
-				enable = true;
-			};
-			xdg.configFile."systemd/user/graphical-session.target.wants/app-com.mitchellh.ghostty.service".source = "${pkgs.ghostty}/share/systemd/user/app-com.mitchellh.ghostty.service";
 			xdg.mimeApps = {
 				enable = true;
 				defaultApplications = {

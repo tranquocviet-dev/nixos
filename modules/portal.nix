@@ -3,15 +3,13 @@
 		xdg.portal = {
 			enable = true;
 			xdgOpenUsePortal = true;
-			wlr.enable = true;
-			extraPortals = [ 
+			extraPortals = [
 				pkgs.xdg-desktop-portal-gtk
-				pkgs.xdg-desktop-portal-wlr
 				pkgs.xdg-desktop-portal-gnome
 			];
 			config = {
 				common = {
-					default = "*";
+					default = "gtk";
 				};
 				niri = {
 					default = "gnome;gtk";

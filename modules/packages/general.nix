@@ -2,36 +2,34 @@
 	flake.nixosModules.packages-general = { pkgs, ... }: {
 		environment.systemPackages = with pkgs; [
 			spotify
-			upscayl
 			libreoffice
 			losslesscut-bin
 			imv
 			krita
 			protontricks
-			emacs-pgtk
-			gimp
+			(pkgs.emacs.override {
+				withGTK3 = false;
+				withNativeCompilation = true;
+			})
+			kitty
 			localsend
 			equibop
 			proton-vpn
 			mpv
 			feh
 			protonplus
-			gromit-mpx
 			mangohud
 			r2modman
 			direnv
-			ghostty
 			tack
 			audacity
 			lollypop
 			opencode
 		];
-		programs.mango.enable = true;
-		programs.niri.enable = true;
+		programs.niri.enable = false;
 		programs.firefox.enable = true;
 		programs.steam.enable = true;
 		programs.steam.extraCompatPackages = with pkgs; [
-			proton-ge-bin
 		];
 		programs.zoxide = {
 			enable = true;
@@ -41,5 +39,6 @@
 				"cd"
 			];
 		};
+		services.xserver.windowManager.icewm.enable = true;
 	};
 }

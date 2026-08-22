@@ -1,4 +1,7 @@
-{ config, pkgs, user, lib, ... }:
+{
+	user,
+	...
+}:
 
 {
 	time.timeZone = "Asia/Ho_Chi_Minh";
@@ -15,7 +18,16 @@
 		LC_TELEPHONE = "en_US.UTF-8";
 		LC_TIME = "en_US.UTF-8";
 	};
-	services.xserver.enable = true;
+	services.libinput = {
+		enable = true;
+		mouse = {
+			accelProfile = "flat";
+			accelSpeed = "0";
+		};
+	};
+	services.xserver = {
+		enable = true;
+	};
 	# services.displayManager.gdm.enable = true;
 	# services.desktopManager.gnome.enable = true;
 	services.xserver.xkb = {
@@ -40,7 +52,10 @@
 	users.users.${user} = {
 		isNormalUser = true;
 		description = "user";
-		extraGroups = [ "networkmanager" "wheel" ];
+		extraGroups = [
+			"networkmanager"
+			"wheel"
+		];
 		hashedPasswordFile = "/etc/nixos/secrets/super_secret_uwu.txt";
 	};
 	nixpkgs.config.allowUnfree = true;
@@ -51,12 +66,15 @@
 	system.activationScripts.binbash = {
 		deps = [ "binsh" ];
 		text = ''
-			ln -sfn /bin/sh /bin/bash
-		'';
+												ln -sfn /bin/sh /bin/bash
+											'';
 	};
 	services.flatpak.enable = true;
 	# enable flakes
-	nix.settings.experimental-features = [ "nix-command" "flakes" ];
+	nix.settings.experimental-features = [
+		"nix-command"
+		"flakes"
+	];
 	nix.settings.trusted-users = [
 		"@wheel"
 	];

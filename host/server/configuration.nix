@@ -17,6 +17,7 @@
 		./copyparty.nix
 		./tailscale.nix
 		./immich.nix
+		./jellyfin.nix
 	];
 
 	# Use the systemd-boot EFI boot loader.
