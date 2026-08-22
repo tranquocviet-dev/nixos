@@ -3,7 +3,6 @@
 		environment.systemPackages = with pkgs; [
 			spotify
 			libreoffice
-			losslesscut-bin
 			imv
 			krita
 			protontricks
@@ -22,10 +21,8 @@
 			r2modman
 			direnv
 			tack
-			audacity
 			lollypop
 			opencode
-			flameshot
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;
