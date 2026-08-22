@@ -23,8 +23,9 @@
 			tack
 			lollypop
 			opencode
-			alttab
 			skippy-xd
+			dmenu
+			j4-dmenu-desktop
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;

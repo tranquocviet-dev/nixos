@@ -7,3 +7,5 @@ key "Ctrl+Super+Print" sh -c "maim -u | xclip -selection clipboard -t image/png"
 key "Super+q" icesh -f close
 
 key "Alt+Tab" skippy-xd --toggle
+
+key "Super+space" j4-dmenu-desktop --dmenu="dmenu -i -fn 'serif-12' -nb '#c0c0c0' -nf '#000000' -sb '#000000' -sf '#c0c0c0'"

@@ -81,14 +81,8 @@
 				backend = "glx"; # Or "egl" / "xrender"
 				vSync = true;
 				activeOpacity = 1.0;
-				inactiveOpacity = 0.85;
+				inactiveOpacity = 1.0;
 				opacityRules = [
-					"100:class_g = 'IceWM'"
-					"100:name = 'TaskBar'"
-					"100:name *?= 'Firefox'"
-					"90:class_g = 'kitty' && focused"
-					"75:class_g = 'kitty' && !focused"
-					"95:class_g = 'Thunar'"
 				];
 			};
 		};
