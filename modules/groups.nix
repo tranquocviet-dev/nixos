@@ -22,7 +22,7 @@
 			packages-misc
 			packages-fcitx
 			packages-general
-			packages-nautilus
+			packages-file-manager
 		]);
 	};
 	flake.nixosModules.group-services = { ... }: {

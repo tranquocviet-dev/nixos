@@ -1,0 +1,28 @@
+# Disable status graphs / monitors
+TaskBarShowCPUStatus=0
+TaskBarShowMEMStatus=0
+TaskBarShowNetStatus=0
+TaskBarShowMailCheck=0
+
+# Ensure clock stays visible
+TaskBarShowClock=1
+# Fix clock format and font
+TimeFormat="%H:%M"
+DateFormat="%Y-%m-%d %H:%M"
+# General taskbar and window-button font
+TaskBarFontNameXft="sans-serif:size=12"
+
+# Clock font
+ClockFontNameXft="sans-serif:size=12:bold"
+
+# Start menu / taskbar menus font
+MenuFontNameXft="sans-serif:size=12"
+
+# Workspace / virtual desktop buttons font
+WorkspaceFontNameXft="sans-serif:size=12"
+
+# Tooltip / balloon font
+ToolTipFontNameXft="sans-serif:size=12"
+
+DesktopBackgroundImage="/home/dice/Pictures/rin/tomorrow-night/658267.png"
+

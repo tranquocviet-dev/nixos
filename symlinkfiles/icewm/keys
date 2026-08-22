@@ -1,0 +1,5 @@
+# Area selection directly to clipboard
+key "Super+Print" sh -c "maim -s -u | xclip -selection clipboard -t image/png"
+
+# Full screen directly to clipboard
+key "Ctrl+Super+Print" sh -c "maim -u | xclip -selection clipboard -t image/png"

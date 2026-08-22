@@ -1,0 +1,2 @@
+prog "Terminal" "xterm" kitty
+prog "Emacs" "emacs" emacsclient -c -a ""

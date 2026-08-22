@@ -4,7 +4,7 @@
 		let
 			imageViewer = "imv.desktop";
 			videoViewer = "mpv.desktop";
-			fileViewer = "org.gnome.Nautilus.desktop";
+			fileViewer = "thunar.desktop";
 			browser = "firefox.desktop";
 			editor = "emacsclient.desktop";
 		in {

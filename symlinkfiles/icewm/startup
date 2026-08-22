@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+dunst &
+# Set desktop identifier
+export XDG_CURRENT_DESKTOP=ICEWM
+
+# Import display variables into user session
+systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP

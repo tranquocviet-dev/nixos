@@ -1,0 +1,9 @@
+TerminalEmulator="kitty"
+
+TaskBarClockLeds=0
+
+# Set clock text to black
+ColorClock=""
+
+# Match the taskbar background color (light grey)
+ColorClockText="#000000"

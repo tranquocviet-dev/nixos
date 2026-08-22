@@ -29,6 +29,7 @@
 				".config/niri" = symlink "niri";
 				".config/mango" = symlink "mango";
 				".config/helix" = symlink "helix";
+				".config/icewm" = symlink "icewm";
 				".config/starship.toml" = symlink "starship.toml";
 				".config/fastfetch" = symlink "fastfetch";
 			} // (if useDoom then doomEmacsFiles else vanillaEmacsFiles);
