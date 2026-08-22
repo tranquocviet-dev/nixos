@@ -7,3 +7,13 @@ ColorClock=""
 
 # Match the taskbar background color (light grey)
 ColorClockText="#000000"
+
+# 1. Automatically focus newly mapped (opened) windows
+FocusOnMap=1
+FocusOnMapTransient=1
+
+# 2. Focus windows when an application requests focus/raise
+FocusOnAppRaise=1
+
+# 3. Focus mode (0 = Click-to-focus / Sloppy focus behavior)
+FocusMode=0

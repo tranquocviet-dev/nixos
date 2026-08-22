@@ -10,6 +10,25 @@
 			editor = "emacsclient.desktop";
 		in
 		{
+			xdg.mimeApps = {
+				enable = true;
+				defaultApplications = {
+					"image/gif" = imageViewer;
+					"image/png" = imageViewer;
+					"image/jpg" = imageViewer;
+					"image/jpeg" = imageViewer;
+					"video/mp4" = videoViewer;
+					"video/webm" = videoViewer;
+					"inode/directory" = fileViewer;
+					"application/x-gnome-saved-search" = fileViewer;
+					"application/pdf" = browser;
+					"text/plain" = editor;
+					"text/x-python" = editor;
+					"text/x-shellscript" = editor;
+					"text/markdown" = editor;
+					"application/x-zerosize" = editor;
+				};
+			};
 			services.dunst = {
 				enable = true;
 				settings = {
@@ -57,24 +76,20 @@
 					};
 				};
 			};
-			xdg.mimeApps = {
+			services.picom = {
 				enable = true;
-				defaultApplications = {
-					"image/gif" = imageViewer;
-					"image/png" = imageViewer;
-					"image/jpg" = imageViewer;
-					"image/jpeg" = imageViewer;
-					"video/mp4" = videoViewer;
-					"video/webm" = videoViewer;
-					"inode/directory" = fileViewer;
-					"application/x-gnome-saved-search" = fileViewer;
-					"application/pdf" = browser;
-					"text/plain" = editor;
-					"text/x-python" = editor;
-					"text/x-shellscript" = editor;
-					"text/markdown" = editor;
-					"application/x-zerosize" = editor;
-				};
+				backend = "glx"; # Or "egl" / "xrender"
+				vSync = true;
+				activeOpacity = 1.0;
+				inactiveOpacity = 0.85;
+				opacityRules = [
+					"100:class_g = 'IceWM'"
+					"100:name = 'TaskBar'"
+					"100:name *?= 'Firefox'"
+					"90:class_g = 'kitty' && focused"
+					"75:class_g = 'kitty' && !focused"
+					"95:class_g = 'Thunar'"
+				];
 			};
 		};
 }

@@ -26,7 +26,6 @@
 			alttab
 			skippy-xd
 		];
-		services.picom.enable = true;
 		programs.niri.enable = false;
 		programs.firefox.enable = true;
 		programs.steam.enable = true;
