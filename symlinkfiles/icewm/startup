@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-dunst &
+picom -b &
+skippy-xd --start-daemon &
 # Set desktop identifier
 export XDG_CURRENT_DESKTOP=ICEWM
 

@@ -1,7 +1,7 @@
 prog "Terminal" "xterm" kitty
 prog "Emacs" "emacs" emacsclient -c -a ""
 prog "Web Browser" "none" firefox
-prog "equibop" "none" equibop
+prog "Discord" "none" equibop
 prog "File Manager" "none" thunar
 separator
 # Ingest the full XDG category tree (Audio, Video, Graphics, System, etc.) directly into the menu
