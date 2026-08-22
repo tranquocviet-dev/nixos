@@ -8,8 +8,6 @@
 			swappy
 			gamemode
 			openssl
-			wlr-randr
-			nodejs
 			wl-clipboard
 			luajit
 			gnumake

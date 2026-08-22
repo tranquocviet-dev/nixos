@@ -25,6 +25,7 @@
 			audacity
 			lollypop
 			opencode
+			flameshot
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;

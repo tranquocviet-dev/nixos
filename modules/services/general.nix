@@ -18,6 +18,11 @@
 			xxd
 			xwininfo
 			jq
+			dunst
+			xclip
+			libnotify
+			maim
+			slop
 		];
 		services.tailscale.enable = true;
 		services.emacs = {
