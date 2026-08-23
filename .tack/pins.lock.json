@@ -11,41 +11,41 @@
     "type": "github",
     "owner": "nix-community",
     "repo": "home-manager",
-    "rev": "c53d643b3737e2fcd04e6cb3b3580ef50b2087a0",
-    "narHash": "sha256-djoRr6jBpe35q/0JwAvXpFXg1Ktf+X54NU2RLR7wnHw=",
-    "lastModified": 1787176219
+    "rev": "ec1a8fdf74ed3f276148ee106299a2ba0e65d51f",
+    "narHash": "sha256-XL2qfqmocfsvuEGyomZg4nOZfkuSe8vZtrOX99I+b6I=",
+    "lastModified": 1787379775
   },
   "nixpkgs": {
     "type": "github",
     "owner": "NixOS",
     "repo": "nixpkgs",
-    "rev": "ffb3c9b700e759be2ef13237c9d8f953b32a1e46",
-    "narHash": "sha256-RD2kNWCG+Bjo6h+JVjWVNntZs2GtRoeY2xHjts/FNkA=",
-    "lastModified": 1787135253
+    "rev": "2c423e03bbafcff28bfadc6781a4a8257f205cb5",
+    "narHash": "sha256-dt4WdcvsA8/RCe+VZZwqU0X+XMM3wBbGCWA0/sFWzGo=",
+    "lastModified": 1787360063
   },
   "noctalia": {
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia",
-    "rev": "02286bbdcfa81dc3675c9de1d7203a466fcaf0eb",
-    "narHash": "sha256-vlpv5X3qOzoTGtJxejXkIdivgnJ3jI+3Gn1neD6y/mI=",
-    "lastModified": 1787196493
+    "rev": "d8ba5a01cac5ba8617bf262249829b4aa5945369",
+    "narHash": "sha256-tc6SVNlhzN/WPSY5SnZ0D9yHzviiicagpRoqDQJn19w=",
+    "lastModified": 1787444349
   },
   "noctalia-greeter": {
     "type": "github",
     "owner": "noctalia-dev",
     "repo": "noctalia-greeter",
-    "rev": "10d2c9074d3a9219e03b55b2c97f1cc743447af5",
-    "narHash": "sha256-NfnY22tYDrXfIuyexYyqB+jkO6IK23AqmhcNixkU7pw=",
-    "lastModified": 1786882377
+    "rev": "f797b8c670371d978b4c0e5ed51c184a4017a2c6",
+    "narHash": "sha256-iBwI2ZgV+NqZKWRieiIfY0yiBDJbJbSfYjFyknp28lo=",
+    "lastModified": 1787445612
   },
   "nvf": {
     "type": "github",
     "owner": "notashelf",
     "repo": "nvf",
-    "rev": "c5cad7edcdcf683f4ba80c4d0cbf0e0eb7116c08",
-    "narHash": "sha256-3voBPkuncAi4/6fn3EZG7UvG8TO9xkEt6FXUAzeWVdI=",
-    "lastModified": 1787161243
+    "rev": "45ad22485d23bf131e3543eb7de16d0adf274e8b",
+    "narHash": "sha256-IwY4Dfd5xCnNo66Jx2CCyVRkIuZ9ub59v8+E6kVVlIY=",
+    "lastModified": 1787432068
   },
   "ollama": {
     "type": "github",

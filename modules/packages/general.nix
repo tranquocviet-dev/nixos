@@ -2,7 +2,6 @@
 	flake.nixosModules.packages-general = { pkgs, ... }: {
 		environment.systemPackages = with pkgs; [
 			spotify
-			libreoffice
 			imv
 			krita
 			protontricks
