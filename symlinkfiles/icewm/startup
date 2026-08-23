@@ -1,9 +1,18 @@
-#!/usr/bin/env bash
+#!/bin/sh
 picom -b &
-skippy-xd --start-daemon &
 # Set desktop identifier
 export XDG_CURRENT_DESKTOP=ICEWM
+# Export standard X11 input method variables if not globally set
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
+# Start fcitx5 in the background
+fcitx5 -d &
 
 # Import display variables into user session
 systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
 dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
+
+# Restore wallpaper if one was picked, otherwise fall back to solid color
+~/.config/icewm/setwall

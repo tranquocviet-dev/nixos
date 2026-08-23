@@ -22,8 +22,10 @@
 			tack
 			lollypop
 			opencode
-			skippy-xd
 			rofi
+			xwallpaper
+			zenity
+			xsetroot
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;

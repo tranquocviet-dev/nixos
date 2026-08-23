@@ -54,6 +54,9 @@
 						progress_bar = true;
 						progress_bar_height = 6;
 						progress_bar_frame_width = 1;
+						mouse_left_click = "do_action, close_current";
+						mouse_middle_click = "context";
+						mouse_right_click = "close_current";
 					};
 
 					urgency_low = {

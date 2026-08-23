@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/icewm"
+STATE_FILE="$STATE_DIR/wallpaper"
+FALLBACK_COLOR="#008081"
+
+# --- Mode 1: GUI Picker Dialog ---
+if [ "${1:-}" = "--pick" ] || [ "${1:-}" = "-p" ]; then
+	FILE=$(zenity --file-selection \
+		--title="Select Wallpaper" \
+		--file-filter="Images (png, jpg, jpeg, webp) | *.png *.jpg *.jpeg *.webp" \
+		--file-filter="All files | *" 2>/dev/null)
+
+	if [ -n "$FILE" ] && [ -f "$FILE" ]; then
+		mkdir -p "$STATE_DIR"
+		printf '%s\n' "$FILE" > "$STATE_FILE"
+		xwallpaper --zoom "$FILE"
+	fi
+	exit 0
+fi
+
+# --- Mode 2: Restore on Startup ---
+if [ -s "$STATE_FILE" ]; then
+	# Strip carriage returns and read the path
+	IMG_PATH=$(tr -d '\r' < "$STATE_FILE" | head -n 1)
+
+	# Expand tilde if present
+	IMG_PATH="${IMG_PATH/#\~/$HOME}"
+
+	if [ -f "$IMG_PATH" ]; then
+		xwallpaper --zoom "$IMG_PATH"
+		exit 0
+	fi
+fi
+
+# Fallback to solid color if no image is found
+if command -v xsetroot >/dev/null 2>&1; then
+	xsetroot -solid "$FALLBACK_COLOR"
+else
+	# Create a transient 1x1 color tile using xwallpaper
+	xwallpaper --daemon --clear
+fi

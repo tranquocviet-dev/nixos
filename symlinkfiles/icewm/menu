@@ -3,6 +3,7 @@ prog "Emacs" "emacs" emacsclient -c -a ""
 prog "Web Browser" "none" firefox
 prog "Discord" "none" equibop
 prog "File Manager" "none" thunar
+prog "Set Wallpaper" "" ~/.config/icewm/setwall --pick
 separator
 include settings
 include themes

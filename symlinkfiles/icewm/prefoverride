@@ -24,9 +24,16 @@ WorkspaceFontNameXft="sans-serif:size=12"
 # Tooltip / balloon font
 ToolTipFontNameXft="sans-serif:size=12"
 
-DesktopBackgroundImage="/home/dice/Pictures/rin/tomorrow-night/658267.png"
-
+# DesktopBackgroundImage="/home/dice/Pictures/rin/tomorrow-night/658267.png"
+DesktopBackgroundImage=""
+DesktopBackgroundColor=""
 # 1. Enable visual highlight outline on the active selected window
 QuickSwitchOutline=1
 
 QuickSwitch=1
+
+# Focus window when an application requests to be raised/activated
+FocusOnAppRaise=1
+
+# Allow apps to steal focus on urgent/map events
+FocusUrgent=1
