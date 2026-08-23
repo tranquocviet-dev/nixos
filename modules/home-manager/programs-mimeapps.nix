@@ -94,6 +94,7 @@
 
 				opacityRules = [
 					"100:class_g = 'Conky'"
+					"100:class_g = 'Rofi'"
 					"90:class_g = 'kitty' && focused"
 					"80:class_g = 'kitty' && !focused"
 					"100:class_g = 'TaskBar' || name = 'TaskBar'"
