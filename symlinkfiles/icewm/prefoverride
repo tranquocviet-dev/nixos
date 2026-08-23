@@ -29,4 +29,4 @@ DesktopBackgroundImage="/home/dice/Pictures/rin/tomorrow-night/658267.png"
 # 1. Enable visual highlight outline on the active selected window
 QuickSwitchOutline=1
 
-QuickSwitch=0
+QuickSwitch=1

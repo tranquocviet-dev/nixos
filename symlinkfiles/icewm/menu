@@ -4,9 +4,6 @@ prog "Web Browser" "none" firefox
 prog "Discord" "none" equibop
 prog "File Manager" "none" thunar
 separator
-# Ingest the full XDG category tree (Audio, Video, Graphics, System, etc.) directly into the menu
-menuprog "Desktop Apps" folder icewm-menu-fdo
-separator
 include settings
 include themes
 include focus

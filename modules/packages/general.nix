@@ -24,8 +24,7 @@
 			lollypop
 			opencode
 			skippy-xd
-			dmenu
-			j4-dmenu-desktop
+			rofi
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;
