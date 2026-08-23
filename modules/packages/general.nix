@@ -26,6 +26,7 @@
 			xwallpaper
 			zenity
 			xsetroot
+			conky
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;

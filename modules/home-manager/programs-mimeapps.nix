@@ -84,9 +84,38 @@
 				backend = "glx"; # Or "egl" / "xrender"
 				vSync = true;
 				activeOpacity = 1.0;
-				inactiveOpacity = 1.0;
+				inactiveOpacity = 0.8;
+				settings = {
+					corner-radius = 0;
+					blur = {
+						method = "none";
+					};
+				};
+
 				opacityRules = [
+					"100:class_g = 'Conky'"
+					"90:class_g = 'kitty' && focused"
+					"80:class_g = 'kitty' && !focused"
+					"100:class_g = 'TaskBar' || name = 'TaskBar'"
+					"100:class_g = 'IceWM' || class_g = 'icewm' || _NET_WM_WINDOW_TYPE@:a *= 'DOCK'"
 				];
+
+				shadow = true;
+				shadowExclude = [
+					"class_g = 'Conky'"
+					"window_type = 'dock'"
+					"window_type = 'desktop'"
+					"class_g = 'IceWM'"
+					"class_g = 'TaskBar'"
+					"_NET_WM_WINDOW_TYPE@:a *= 'DOCK'"
+				];
+
+				wintypes = {
+					dock = {
+						shadow = false;
+						opacity = 0.95;
+					};
+				};
 			};
 		};
 }

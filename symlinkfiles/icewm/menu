@@ -1,9 +1,10 @@
 prog "Terminal" "xterm" kitty
 prog "Emacs" "emacs" emacsclient -c -a ""
-prog "Web Browser" "none" firefox
+prog "Browser" "none" firefox
 prog "Discord" "none" equibop
 prog "File Manager" "none" thunar
 prog "Set Wallpaper" "" ~/.config/icewm/setwall --pick
+prog "Toggle Wallpaper" "" ~/.config/icewm/togwall
 separator
 include settings
 include themes

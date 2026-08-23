@@ -16,3 +16,4 @@ dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESK
 
 # Restore wallpaper if one was picked, otherwise fall back to solid color
 ~/.config/icewm/setwall
+(sleep 1 && conky) &
