@@ -31,12 +31,12 @@
 			fzf
 			dmenu
 			j4-dmenu-desktop
+			bemenu
+			tigervnc
 		];
-		programs.niri.enable = false;
+		programs.niri.enable = true;
 		programs.firefox.enable = true;
 		programs.steam.enable = true;
-		programs.steam.extraCompatPackages = with pkgs; [
-		];
 		programs.zoxide = {
 			enable = true;
 			enableFishIntegration = true;
@@ -45,8 +45,6 @@
 				"cd"
 			];
 		};
-		services.xserver.windowManager.icewm.enable = true;
-		services.xserver.windowManager.berry.enable = true;
 		services.xserver.windowManager.bspwm.enable = true;
 	};
 }

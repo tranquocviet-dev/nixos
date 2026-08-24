@@ -4,8 +4,8 @@
 		fonts.fontDir.enable = true;
 		fonts.packages = with pkgs; [
 			nerd-fonts.symbols-only
+			lilex
 			noto-fonts-cjk-sans
-			hack-font
 		];
 	};
 }

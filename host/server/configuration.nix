@@ -42,6 +42,7 @@
 	};
 	# Enable the OpenSSH daemon.
 	services.openssh.enable = true;
+	services.openssh.settings.X11Forwarding = true;
 	services.openssh.settings.PasswordAuthentication = true;
 	services.openssh.settings.PermitRootLogin = "yes";
 	# Open ports in the firewall.
@@ -58,4 +59,18 @@
 		HandleLidSwitchDocked = "ignore";
 		HandleLidSwitchExternalPower = "ignore";
 	};
+	services.xrdp = {
+		enable = true;
+		defaultWindowManager = "startxfce4";
+		openFirewall = true;
+	};
+	services.xserver = {
+		enable = true;
+		desktopManager.xfce.enable = true;
+	};
+	environment.systemPackages = [
+		pkgs.tigervnc
+		pkgs.xorg.xinit
+		pkgs.xorg.xauth
+	];
 }

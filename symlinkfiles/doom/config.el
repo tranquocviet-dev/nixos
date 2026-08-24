@@ -30,15 +30,15 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 ;; Set primary Latin/code font
-(setq doom-font (font-spec :family "Hack" :size 18))
+(setq doom-font (font-spec :family "Lilex" :size 18))
 
-;; Map CJK characters to Noto Sans CJK SC (adjust to TC, HK, JP, or KR if preferred)
+;; Map CJK characters to JuliaMono (adjust to TC, HK, JP, or KR if preferred)
 (defun my/setup-cjk-font ()
 	(dolist (script '(han kana hangul cjk-misc bopomofo))
-		(set-fontset-font t script (font-spec :family "Noto Sans CJK SC"))))
+		(set-fontset-font t script (font-spec :family "Noto Sans Mono CJK SC"))))
 
 ;; Match visual height: Noto Sans CJK often renders slightly taller than IBM Plex Mono
-(setq face-font-rescale-alist '(("Noto Sans CJK SC" . 0.92)))
+(setq face-font-rescale-alist '(("Noto Sans Mono CJK SC" . 0.92)))
 
 ;; Configure nerd-icons to use the symbols-only font
 (after! nerd-icons

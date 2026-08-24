@@ -44,9 +44,9 @@
 			fonts.fontconfig = {
 				enable = true;
 				defaultFonts = {
-					serif = ["Hack" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
-					sansSerif = ["Hack" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
-					monospace = ["Hack" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
+					serif = ["Lilex" "Noto Sans Mono CJK SC" "Symbols Nerd Font Mono"];
+					sansSerif = ["Lilex" "Noto Sans Mono CJK SC" "Symbols Nerd Font Mono"];
+					monospace = ["Lilex" "Noto Sans Mono CJK SC" "Symbols Nerd Font Mono"];
 				};
 			};
 			gtk = {

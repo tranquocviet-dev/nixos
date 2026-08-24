@@ -29,7 +29,5 @@ bspc config pointer_modifier mod4
 bspc config pointer_action1 move
 bspc config pointer_action3 resize_corner
 # Float all windows by default, centered, with a consistent initial size
-bspc rule -a '*' state=floating center=true rectangle=1280x720+0+0
-# Wallpaper & Desktop monitoring
 ~/.config/scripts/setwall -c &
 (sleep 1 && conky) &

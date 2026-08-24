@@ -18,7 +18,7 @@ super + ctrl + w
 	~/.config/scripts/togwall
 # Application launcher
 super + space
-	 j4-dmenu-desktop --dmenu="dmenu -i -l 12 -p 'Apps:'"
+	 j4-dmenu-desktop --dmenu="bemenu -i -l 12 -p 'Apps:'"
 
 # Area selection directly to clipboard
 super + Print
@@ -47,3 +47,7 @@ super + f
 # Toggle pseudo-tiled (tiled position, but floating size)
 super + shift + t
 	bspc node -t ~pseudo_tiled
+
+# Terminal emulator
+super + Return
+	kitty
