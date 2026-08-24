@@ -30,7 +30,7 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 ;; Set primary Latin/code font
-(setq doom-font (font-spec :family "IBM Plex Mono" :size 18))
+(setq doom-font (font-spec :family "Hack" :size 18))
 
 ;; Map CJK characters to Noto Sans CJK SC (adjust to TC, HK, JP, or KR if preferred)
 (defun my/setup-cjk-font ()

@@ -27,6 +27,9 @@
 			zenity
 			xsetroot
 			conky
+			sxhkd
+			fzf
+			dmenu
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;
@@ -42,5 +45,7 @@
 			];
 		};
 		services.xserver.windowManager.icewm.enable = true;
+		services.xserver.windowManager.berry.enable = true;
+		services.xserver.windowManager.bspwm.enable = true;
 	};
 }

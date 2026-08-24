@@ -30,6 +30,9 @@
 				".config/mango" = symlink "mango";
 				".config/helix" = symlink "helix";
 				".config/icewm" = symlink "icewm";
+				".config/bspwm" = symlink "bspwm";
+				".config/sxhkd" = symlink "sxhkd";
+				".config/scripts" = symlink "scripts";
 				".config/starship.toml" = symlink "starship.toml";
 				".config/fastfetch" = symlink "fastfetch";
 			} // (if useDoom then doomEmacsFiles else vanillaEmacsFiles);

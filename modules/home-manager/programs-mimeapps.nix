@@ -86,9 +86,11 @@
 				activeOpacity = 1.0;
 				inactiveOpacity = 0.8;
 				settings = {
+					frame-opacity = 0.0;
 					corner-radius = 0;
 					blur = {
 						method = "none";
+						background = false;
 					};
 				};
 
@@ -101,7 +103,7 @@
 					"100:class_g = 'IceWM' || class_g = 'icewm' || _NET_WM_WINDOW_TYPE@:a *= 'DOCK'"
 				];
 
-				shadow = true;
+				shadow = false;
 				shadowExclude = [
 					"class_g = 'Conky'"
 					"window_type = 'dock'"

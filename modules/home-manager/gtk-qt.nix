@@ -44,9 +44,9 @@
 			fonts.fontconfig = {
 				enable = true;
 				defaultFonts = {
-					serif = ["IBM Plex Mono" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
-					sansSerif = ["IBM Plex Mono" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
-					monospace = ["IBM Plex Mono" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
+					serif = ["Hack" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
+					sansSerif = ["Hack" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
+					monospace = ["Hack" "Noto Sans CJK SC" "Symbols Nerd Font Mono"];
 				};
 			};
 			gtk = {
@@ -80,8 +80,8 @@
 				};
 				qt5ctSettings = {
 					Fonts = {
-						fixed = "NotoMono NF, 16";
-						general = "NotoMono NF, 16";
+						fixed = "Sans-Serif, 16";
+						general = "Sans-Serif, 16";
 					};
 				};
 				qt6ctSettings = {

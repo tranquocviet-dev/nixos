@@ -1,0 +1,53 @@
+# Close / Kill active window
+super + q
+	bspc node -c
+
+# Switch to desktop 1-9
+super + {1-9}
+	bspc desktop -f '^{1-9}'
+
+# Send focused window to desktop 1-9
+super + shift + {1-9}
+	bspc node -d '^{1-9}'
+
+# Custom wallpaper script
+super + shift + w
+	~/.config/scripts/setwall
+
+super + ctrl + w
+	~/.config/scripts/togwall
+# Application launcher
+super + space
+    dmenu_run -l 10
+
+# Alt-Tab window switcher
+alt + Tab
+	kitty --class FzfPrompt -e ~/.config/scripts/fzf-switch
+
+# Area selection directly to clipboard
+super + Print
+	maim -s -u | xclip -selection clipboard -t image/png
+
+# Full screen directly to clipboard
+ctrl + super + Print
+	maim -u | xclip -selection clipboard -t image/png
+
+# Quit bspwm / Exit session
+super + shift + Escape
+	bspc quit
+
+# Toggle focused window between floating and tiled
+# super + t
+# 	bspc node -t ~floating
+
+# Toggle all windows on the current desktop between floating and tiled
+super + t
+	~/.config/bspwm/toggle-all
+
+# Toggle fullscreen
+super + f
+	bspc node -t ~fullscreen
+
+# Toggle pseudo-tiled (tiled position, but floating size)
+super + shift + t
+	bspc node -t ~pseudo_tiled

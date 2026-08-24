@@ -13,7 +13,7 @@ fcitx5 -d &
 # Import display variables into user session
 systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
 dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
-
+xrandr --output DP-2 --mode 1920x1080 --rate 144 --dpi 96
 # Restore wallpaper if one was picked, otherwise fall back to solid color
 ~/.config/icewm/setwall
 (sleep 1 && conky) &

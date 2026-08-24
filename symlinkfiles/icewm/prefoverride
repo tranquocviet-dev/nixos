@@ -9,20 +9,6 @@ TaskBarShowClock=1
 # Fix clock format and font
 TimeFormat="%H:%M"
 DateFormat="%Y-%m-%d %H:%M"
-# General taskbar and window-button font
-TaskBarFontNameXft="sans-serif:size=12"
-
-# Clock font
-ClockFontNameXft="sans-serif:size=12:bold"
-
-# Start menu / taskbar menus font
-MenuFontNameXft="sans-serif:size=12"
-
-# Workspace / virtual desktop buttons font
-WorkspaceFontNameXft="sans-serif:size=12"
-
-# Tooltip / balloon font
-ToolTipFontNameXft="sans-serif:size=12"
 
 # DesktopBackgroundImage="/home/dice/Pictures/rin/tomorrow-night/658267.png"
 DesktopBackgroundImage=""
@@ -37,3 +23,11 @@ FocusOnAppRaise=1
 
 # Allow apps to steal focus on urgent/map events
 FocusUrgent=1
+
+TitleFontNameXft="Hack:size=10:bold"
+StatusFontNameXft="Hack:size=9"
+MenuFontNameXft="Hack:size=10"
+ActiveButtonFontNameXft="Hack:size=9:bold"
+NormalButtonFontNameXft="Hack:size=9"
+ToolButtonFontNameXft="Hack:size=9"
+QuickSwitchFontNameXft="Hack:size=10:bold"
