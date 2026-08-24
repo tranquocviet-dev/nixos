@@ -53,6 +53,7 @@
 		isNormalUser = true;
 		description = "user";
 		extraGroups = [
+			"video"
 			"networkmanager"
 			"wheel"
 		];
@@ -65,9 +66,7 @@
 	environment.variables.SUDO_EDITOR = "emacsclient -c";
 	system.activationScripts.binbash = {
 		deps = [ "binsh" ];
-		text = ''
-												ln -sfn /bin/sh /bin/bash
-											'';
+		text = "ln -sfn /bin/sh /bin/bash";
 	};
 	services.flatpak.enable = true;
 	# enable flakes

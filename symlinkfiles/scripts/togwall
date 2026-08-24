@@ -8,20 +8,14 @@ SOLID_IMAGE="$HOME/.config/icewm/wallpapers/solid.png"
 
 mkdir -p "$STATE_DIR"
 
-# 1. Determine the current mode
-MODE="image"
+# 1. Determine the current mode (defaults to "solid" so the first toggle loads the image)
+MODE="solid"
 if [ -s "$TOGGLE_STATE" ]; then
-	MODE=$(tr -d '\r\n ' < "$TOGGLE_STATE")
+	MODE=$(tr -d '\r\n' < "$TOGGLE_STATE")
 fi
 
 # 2. Toggle execution
-if [ "$MODE" = "image" ]; then
-	# Switch to solid color image
-	if [ -f "$SOLID_IMAGE" ]; then
-		xwallpaper --zoom "$SOLID_IMAGE"
-	fi
-	printf '%s' "solid" > "$TOGGLE_STATE"
-else
+if [ "$MODE" = "solid" ]; then
 	# Switch to saved wallpaper
 	if [ -s "$WALLPAPER_FILE" ]; then
 		IMG_PATH=$(tr -d '\r\n' < "$WALLPAPER_FILE")
@@ -33,7 +27,13 @@ else
 		fi
 	fi
 
-	# Fallback if saved wallpaper path does not exist on disk
+	# Fallback to solid image if saved wallpaper path does not exist on disk
+	if [ -f "$SOLID_IMAGE" ]; then
+		xwallpaper --zoom "$SOLID_IMAGE"
+	fi
+	printf '%s' "solid" > "$TOGGLE_STATE"
+else
+	# Switch to solid color image
 	if [ -f "$SOLID_IMAGE" ]; then
 		xwallpaper --zoom "$SOLID_IMAGE"
 	fi

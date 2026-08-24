@@ -12,17 +12,13 @@ super + shift + {1-9}
 
 # Custom wallpaper script
 super + shift + w
-	~/.config/scripts/setwall
+	~/.config/scripts/setwall --pick
 
 super + ctrl + w
 	~/.config/scripts/togwall
 # Application launcher
 super + space
-    dmenu_run -l 10
-
-# Alt-Tab window switcher
-alt + Tab
-	kitty --class FzfPrompt -e ~/.config/scripts/fzf-switch
+	 j4-dmenu-desktop --dmenu="dmenu -i -l 12 -p 'Apps:'"
 
 # Area selection directly to clipboard
 super + Print

@@ -30,6 +30,7 @@
 			sxhkd
 			fzf
 			dmenu
+			j4-dmenu-desktop
 		];
 		programs.niri.enable = false;
 		programs.firefox.enable = true;
