@@ -54,3 +54,6 @@ super + Return
 
 alt + Tab
 	rofi -show window -theme ~/.config/rofi/minimal.rasi
+
+super + shift + z
+	  boomer
