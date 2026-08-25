@@ -12,6 +12,8 @@ I use:
 This repo contains:
 - per-host configurations declared in seperate folders
 - flake-parts modules declared in groups (modules/group.nix)
+- X11 and Wayland both (bspwm for Xorg, Niri for Wayland)
+- Achieved sub-20GB closure size
 
 ** Influenced by
 - stellanova's import system and flake-parts integration: [[https://github.com/iStellanova/Stellyrland][iStellanova/Stellyrland]]
@@ -20,10 +22,15 @@ This repo contains:
 
 ** Goals
 - make an install script (no longer needed)
-- debloat all the bullshit i have (impossible)
 - implement secrets properly
 
 *** Even more far-fetched goals (or things i may want to look into)
-- disko
-- impermanence
-- (for home server) implement streaming server
+- disko (looking into)
+- impermanence (gave up due to conflict of interest)
+- (for home server) implement streaming server (done)
+** People that made this journey fun
+- Stella: The one that drove me to switch to flake-parts, the inspiration for a lot of the structural cornerstones of this repo
+- eljanfus: My guy and the one that stayed with me for hours for debugging tack, inspiration for flake structure.
+- Aria: My fat oguri guy, very reliable when i need to ask questions.
+- Stalkingwolf, onoruuu, Angie, aethi: Members of the gay ass nixos server, ily all <3.
+- Baba: ~uhh why is this guy here he isnt even a NixOS user~ ily too <3.
