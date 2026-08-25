@@ -33,4 +33,4 @@ This repo contains:
 - eljanfus: My guy and the one that stayed with me for hours for debugging tack, inspiration for flake structure.
 - Aria: My fat oguri guy, very reliable when i need to ask questions.
 - Stalkingwolf, onoruuu, Angie, aethi: Members of the gay ass nixos server, ily all <3.
-- Baba: ~uhh why is this guy here he isnt even a NixOS user~ ily too <3.
+- Baba: +uhh why is this guy here he isnt even a NixOS user+ ily too <3.
