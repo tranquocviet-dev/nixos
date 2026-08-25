@@ -30,7 +30,7 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 ;; Set primary Latin/code font
-(setq doom-font (font-spec :family "Lilex" :size 18))
+(setq doom-font (font-spec :family "Source Code Pro" :size 18))
 
 ;; Map CJK characters to JuliaMono (adjust to TC, HK, JP, or KR if preferred)
 (defun my/setup-cjk-font ()

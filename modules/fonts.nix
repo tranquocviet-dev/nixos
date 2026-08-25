@@ -6,6 +6,7 @@
 			nerd-fonts.symbols-only
 			lilex
 			noto-fonts-cjk-sans
+			source-code-pro
 		];
 	};
 }
