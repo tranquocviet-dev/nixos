@@ -33,6 +33,7 @@
 			j4-dmenu-desktop
 			bemenu
 			tigervnc
+			(pkgs.callPackage ../../pkgs/boomer { })
 		];
 		programs.niri.enable = true;
 		programs.firefox.enable = true;

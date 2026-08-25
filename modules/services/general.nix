@@ -22,6 +22,12 @@
 			libnotify
 			maim
 			slop
+			libX11
+			libXrandr
+			libXext
+			libGL
+			libGLU
+			freeglut
 		];
 		services.tailscale.enable = true;
 		services.emacs = {

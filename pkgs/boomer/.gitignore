@@ -1,0 +1,6 @@
+nimcache/
+boomer
+*.ppm
+nimble.develop
+nimble.paths
+nimbledeps

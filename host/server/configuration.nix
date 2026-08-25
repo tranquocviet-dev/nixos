@@ -72,5 +72,6 @@
 		pkgs.tigervnc
 		pkgs.xorg.xinit
 		pkgs.xorg.xauth
+		pkgs.git
 	];
 }
