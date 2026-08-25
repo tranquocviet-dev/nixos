@@ -51,3 +51,6 @@ super + shift + t
 # Terminal emulator
 super + Return
 	kitty
+
+alt + Tab
+	rofi -show window -theme ~/.config/rofi/minimal.rasi

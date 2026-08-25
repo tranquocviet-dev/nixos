@@ -44,7 +44,7 @@
 
 						# Styling & Borders
 						frame_width = 2;
-						frame_color = "#000000";
+						frame_color = "#c5c8c6";
 						corner_radius = 0; # Set > 0 for rounded corners (requires a compositor like picom)
 						padding = 12; # Vertical padding inside notification
 						horizontal_padding = 14; # Horizontal padding inside notification
@@ -60,21 +60,21 @@
 					};
 
 					urgency_low = {
-						background = "#c0c0c0";
-						foreground = "#000000";
+						background = "#1d1f21";
+						foreground = "#c5c8c6";
 						timeout = 4;
 					};
 
 					urgency_normal = {
-						background = "#c0c0c0";
-						foreground = "#000000";
+						background = "#1d1f21";
+						foreground = "#c5c8c6";
 						timeout = 6;
 					};
 
 					urgency_critical = {
-						background = "#c0c0c0";
-						foreground = "#000000";
-						frame_color = "#bf616a";
+						background = "#1d1f21";
+						foreground = "#c5c8c6";
+						frame_color = "#cc6666";
 						timeout = 0; # 0 = sticky until dismissed
 					};
 				};

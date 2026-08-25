@@ -28,6 +28,7 @@ bspc rule -a '*' state=floating
 bspc config pointer_modifier mod4
 bspc config pointer_action1 move
 bspc config pointer_action3 resize_corner
+bspc config ignore_ewmh_focus false
 # Float all windows by default, centered, with a consistent initial size
 ~/.config/scripts/setwall -c &
 (sleep 1 && conky) &
