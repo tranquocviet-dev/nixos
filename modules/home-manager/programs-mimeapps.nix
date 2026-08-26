@@ -84,7 +84,7 @@
 				backend = "glx"; # Or "egl" / "xrender"
 				vSync = true;
 				activeOpacity = 1.0;
-				inactiveOpacity = 0.6;
+				inactiveOpacity = 0.8;
 				settings = {
 					frame-opacity = 0.0;
 					corner-radius = 0;
@@ -97,9 +97,9 @@
 					"100:name = 'Picture-in-Picture'"
 					"100:class_g = 'Conky'"
 					"100:class_g = 'Rofi' || class_g = 'dmenu'"
-					"80:class_g = 'kitty' && focused"
-					"80:class_g = 'Emacs' && focused"
-					"60:class_g = 'kitty' && !focused"
+					"90:class_g = 'kitty' && focused"
+					"90:class_g = 'Emacs' && focused"
+					"80:class_g = 'kitty' && !focused"
 				];
 
 				shadow = false;
