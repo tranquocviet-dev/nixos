@@ -194,3 +194,14 @@
 
 (after! projectile
   (setq projectile-enable-caching nil))
+(setq-default indent-tabs-mode t)
+(setq-default tab-width 4)
+
+(after! cc-mode
+	(setq-default c-basic-offset 4)
+	(c-set-offset 'case-label '+)
+	(add-hook 'c-mode-common-hook
+		(lambda ()
+			(setq indent-tabs-mode t)
+			(setq tab-width 4)
+			(setq c-basic-offset 4))))

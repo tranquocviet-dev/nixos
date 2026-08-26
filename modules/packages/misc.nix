@@ -27,6 +27,7 @@
 			ripgrep
 			fd
 			# emacs stuff
+			clang-tools
 			nixd
 			nixfmt
 			ruff
