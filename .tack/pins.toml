@@ -43,3 +43,6 @@ url = "github:NixOS/nixpkgs/25.11"
 
 [inputs.flake-parts]
 url = "github:hercules-ci/flake-parts"
+
+[inputs.disko]
+url = "github:nix-community/disko"

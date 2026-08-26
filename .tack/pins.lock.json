@@ -1,4 +1,12 @@
 {
+  "disko": {
+    "type": "github",
+    "owner": "nix-community",
+    "repo": "disko",
+    "rev": "ff8702b4de27f72b4c78573dfb89ec74e36abdf1",
+    "narHash": "sha256-RxWs5ND31KzTG7wvMM+PMfUjyNpmIEr999lqNARaM5o=",
+    "lastModified": 1781152676
+  },
   "flake-parts": {
     "type": "github",
     "owner": "hercules-ci",
@@ -15,14 +23,6 @@
     "narHash": "sha256-jT6g5aWwA6TrIUJhqQ9ssm8W5e8vAl2Bv8gddEKKVNU=",
     "lastModified": 1787715947
   },
-  "nix-cachyos-kernel": {
-    "type": "github",
-    "owner": "xddxdd",
-    "repo": "nix-cachyos-kernel",
-    "rev": "28b6c686c97a44fd2021e999cb9e1752a344bd06",
-    "narHash": "sha256-0rP6wb7taotfTZ+ipmhg/Pj1L83Dq4CQPVgFofiPTKM=",
-    "lastModified": 1787680916
-  },
   "nixpkgs": {
     "type": "github",
     "owner": "NixOS",
@@ -30,22 +30,6 @@
     "rev": "56c02bc00adcf003215cc4bd996d6efaf4cff188",
     "narHash": "sha256-9i/VTdusq/+NM/tz+J1Re+ojkMB8MBf0QshnYfzHz30=",
     "lastModified": 1787498568
-  },
-  "noctalia": {
-    "type": "github",
-    "owner": "noctalia-dev",
-    "repo": "noctalia",
-    "rev": "994638f14f2e9406ec1219492eed10430b9f1f45",
-    "narHash": "sha256-dEMIC0E/hGt4TggQaW6Ljv86IM77qnZEhMg4QG4plrw=",
-    "lastModified": 1787707249
-  },
-  "noctalia-greeter": {
-    "type": "github",
-    "owner": "noctalia-dev",
-    "repo": "noctalia-greeter",
-    "rev": "5956c6f40249b2837bb260d25ea3953a2631fbdc",
-    "narHash": "sha256-R32LF+S4NnmJwSnzt5xKjb15RjYemb/ZZRnDnP5lxfs=",
-    "lastModified": 1787482410
   },
   "nvf": {
     "type": "github",
@@ -66,9 +50,5 @@
   "osu-lazer-bin": {
     "type": "path",
     "path": "../pkgs/osu-lazer-bin"
-  },
-  "osu-stable": {
-    "type": "path",
-    "path": "../pkgs/osu-stable"
   }
 }
