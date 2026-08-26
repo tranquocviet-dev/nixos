@@ -11,7 +11,7 @@ in {
 			./boot.nix
 			./configuration.nix
 			./hardware-configuration.nix
-			
+
 			# 2. External modules from flake inputs
 			inputs.home-manager.nixosModules.home-manager
 			inputs.nvf.nixosModules.default

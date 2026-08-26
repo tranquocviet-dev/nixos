@@ -84,7 +84,7 @@
 				backend = "glx"; # Or "egl" / "xrender"
 				vSync = true;
 				activeOpacity = 1.0;
-				inactiveOpacity = 0.8;
+				inactiveOpacity = 0.6;
 				settings = {
 					frame-opacity = 0.0;
 					corner-radius = 0;
@@ -97,11 +97,9 @@
 					"100:name = 'Picture-in-Picture'"
 					"100:class_g = 'Conky'"
 					"100:class_g = 'Rofi' || class_g = 'dmenu'"
-					"90:class_g = 'kitty' && focused"
-					"90:class_g = 'Emacs' && focused"
-					"80:class_g = 'kitty' && !focused"
-					"100:class_g = 'TaskBar' || name = 'TaskBar'"
-					"100:class_g = 'IceWM' || class_g = 'icewm' || _NET_WM_WINDOW_TYPE@:a *= 'DOCK'"
+					"80:class_g = 'kitty' && focused"
+					"80:class_g = 'Emacs' && focused"
+					"60:class_g = 'kitty' && !focused"
 				];
 
 				shadow = false;
