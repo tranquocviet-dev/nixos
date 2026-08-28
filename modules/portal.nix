@@ -11,8 +11,8 @@
 				common = {
 					default = "gtk";
 				};
-				niri = {
-					default = "gnome;gtk";
+				bspwm = {
+					default = "gtk";
 				};
 			};
 		};

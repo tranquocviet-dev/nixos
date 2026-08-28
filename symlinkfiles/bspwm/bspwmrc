@@ -13,6 +13,9 @@ export XMODIFIERS=@im=fcitx
 systemctl --user import-environment DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
 dbus-update-activation-environment --systemd DISPLAY XAUTHORITY XDG_CURRENT_DESKTOP
 
+# Restart portal services so they adopt the newly imported display variables
+systemctl --user restart xdg-desktop-portal xdg-desktop-portal-gtk
+
 # Background daemons
 fcitx5 -d &
 sxhkd &
@@ -32,4 +35,5 @@ bspc config ignore_ewmh_focus false
 xsetroot -cursor_name left_ptr &
 # Float all windows by default, centered, with a consistent initial size
 ~/.config/scripts/setwall -c &
-(sleep 1 && conky) &
+stalonetray &
+conky &
