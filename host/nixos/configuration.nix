@@ -90,4 +90,5 @@
 		DOTNET_SYSTEM_GLOBALIZATION_INVARIANT = "0";
 	};
 	networking.networkmanager.enable = true;
+	services.usbmuxd.enable = true;
 }

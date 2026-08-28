@@ -74,4 +74,6 @@
 		pkgs.xorg.xauth
 		pkgs.git
 	];
+	networking.firewall.allowedTCPPorts = [ 5901 ];
+	programs.firefox.enable = true;
 }

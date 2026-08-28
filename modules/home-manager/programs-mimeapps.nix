@@ -95,6 +95,7 @@
 				};
 				opacityRules = [
 					"100:name = 'Picture-in-Picture'"
+					"100:name = 'Risk of Rain 2'"
 					"100:class_g = 'Conky'"
 					"100:class_g = 'Rofi' || class_g = 'dmenu'"
 					"90:class_g = 'kitty' && focused"
