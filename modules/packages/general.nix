@@ -34,7 +34,7 @@
 			bemenu
 			tigervnc
 			(pkgs.callPackage ../../pkgs/boomer { })
-			stalonetray
+			(pkgs.callPackage ../../pkgs/siclone { })
 		];
 		programs.niri.enable = true;
 		programs.firefox.enable = true;

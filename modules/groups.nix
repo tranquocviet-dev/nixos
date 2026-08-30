@@ -9,6 +9,7 @@
 			nvf
 			polkit
 			portal
+			networking
 		]);
 	};
 	flake.nixosModules.group-inputs = { ... }: {

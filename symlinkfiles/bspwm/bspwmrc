@@ -35,5 +35,4 @@ bspc config ignore_ewmh_focus false
 xsetroot -cursor_name left_ptr &
 # Float all windows by default, centered, with a consistent initial size
 ~/.config/scripts/setwall -c &
-stalonetray &
-conky &
+siclone &
