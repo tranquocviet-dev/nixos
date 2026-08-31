@@ -34,6 +34,8 @@
 				mizuki-cursor
 				adwaita-icon-theme
 				papirus-icon-theme
+				gsettings-desktop-schemas
+				glib # provides gsettings
 			];
 			home.pointerCursor = {
 				enable = true;
@@ -63,10 +65,19 @@
 					];
 				};
 			};
+			services.xsettingsd = {
+				enable = true;
+				settings = {
+					"Net/ThemeName" = "adw-gtk3";
+					"Net/IconThemeName" = "Papirus";
+					"Gtl/ColorScheme" = "prefer-light";
+					"Gtk/ApplicationPreferDarkTheme" = 0;
+				};
+			};
 			gtk = {
 				enable = true;
 				theme = {
-					name = "adw-gtk3-dark";
+					name = "adw-gtk3";
 					package = pkgs.adw-gtk3;
 				};
 				iconTheme = {
@@ -78,18 +89,18 @@
 					size = 16;
 				};
 				gtk3.extraConfig = {
-					gtk-application-prefer-dark-theme = 1;
+					gtk-application-prefer-dark-theme = 0;
 				};
 				gtk4.extraConfig = {
-					gtk-application-prefer-dark-theme = 1;
+					gtk-application-prefer-dark-theme = 0;
 				};
-				colorScheme = "dark";
+				colorScheme = "light";
 			};
 			qt = {
 				enable = true;
 				platformTheme.name = "gtk3";
 				style = {
-					name = "breeze-dark";
+					name = "breeze";
 					package = pkgs.kdePackages.breeze;
 				};
 				qt5ctSettings = {

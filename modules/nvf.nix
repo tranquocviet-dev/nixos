@@ -19,24 +19,8 @@
 				};
 				theme = {
 					enable = true;
-					name = "base16";
-					style = "auto";
-					base16-colors.base00 = "1d1f21";
-					base16-colors.base01 = "282a2e";
-					base16-colors.base02 = "373b41";
-					base16-colors.base03 = "969896";
-					base16-colors.base04 = "b4b7b4";
-					base16-colors.base05 = "c5c8c6";
-					base16-colors.base06 = "e0e0e0";
-					base16-colors.base07 = "ffffff";
-					base16-colors.base08 = "cc6666";
-					base16-colors.base09 = "de935f";
-					base16-colors.base0A = "f0c674";
-					base16-colors.base0B = "b5bd68";
-					base16-colors.base0C = "8abeb7";
-					base16-colors.base0D = "81a2be";
-					base16-colors.base0E = "b294bb";
-					base16-colors.base0F = "a3685a";
+					name = "solarized";
+					style = "light";
 				};
 				languages = {
 					enableTreesitter = true;

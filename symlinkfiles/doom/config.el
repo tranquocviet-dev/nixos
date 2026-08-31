@@ -30,7 +30,7 @@
 ;; wasn't installed correctly. Font issues are rarely Doom issues!
 
 ;; Set primary Latin/code font
-(setq doom-font (font-spec :family "Jetbrains Mono" :size 18))
+(setq doom-font (font-spec :family "JetBrains Mono" :size 18))
 
 ;; Map CJK characters to JuliaMono (adjust to TC, HK, JP, or KR if preferred)
 (defun my/setup-cjk-font ()
@@ -58,11 +58,11 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-tomorrow-night)
+(setq doom-theme 'doom-tomorrow-day)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type `relative')
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -205,3 +205,22 @@
 			(setq indent-tabs-mode t)
 			(setq tab-width 4)
 			(setq c-basic-offset 4))))
+
+(use-package! codeium
+	:defer t
+	:init
+	;; Add codeium to completion-at-point functions in programming buffers
+	(add-hook 'prog-mode-hook
+		(lambda ()
+			(setq-local completion-at-point-functions
+				(cons #'codeium-completion-at-point completion-at-point-functions))))
+	:config
+	;; Point to the NixOS-patched binary rather than ~/.emacs.d/.local/cache/...
+	(setq codeium-command-executable (executable-find "codeium_language_server"))
+
+	;; Optional performance tweak: limit the context buffer sent to Codeium
+	(defun my-codeium/document/text ()
+		(buffer-substring-no-properties
+			(max (- (point) 3000) (point-min))
+			(min (+ (point) 1000) (point-max))))
+	(setq codeium/document/text #'my-codeium/document/text))

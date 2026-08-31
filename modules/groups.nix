@@ -29,7 +29,6 @@
 	flake.nixosModules.group-services = { ... }: {
 		imports = (with self.nixosModules; [
 			services-otd
-			services-sudo
 			services-general
 		]);
 	};

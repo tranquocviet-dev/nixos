@@ -46,6 +46,7 @@ typedef struct {
 	GtkWidget *button;
 	GDBusProxy *proxy;
 	GtkWidget *menu;
+	guint name_watch_id;
 } TrayItem;
 
 typedef struct {
@@ -57,6 +58,7 @@ static GList *tray_items = NULL;
 static GDBusNodeInfo *introspection_data = NULL;
 static void update_x11_window_position(AppState *state);
 static void apply_user_styles(const ConfigSettings *s);
+static void register_existing_tray_items(GDBusConnection *conn);
 
 static void on_tray_icon_clicked(GtkWidget *widget, gpointer user_data) {
 	(void)widget;
@@ -66,6 +68,45 @@ static void on_tray_icon_clicked(GtkWidget *widget, gpointer user_data) {
 
 	g_dbus_proxy_call(item->proxy, "Activate", g_variant_new("(ii)", 0, 0),
 					  G_DBUS_CALL_FLAGS_NONE, -1, NULL, NULL, NULL);
+}
+
+static void remove_tray_item(TrayItem *item) {
+	if (!item)
+		return;
+
+	if (item->button) {
+		gtk_widget_destroy(item->button);
+		item->button = NULL;
+	}
+
+	if (item->proxy) {
+		g_object_unref(item->proxy);
+		item->proxy = NULL;
+	}
+	if (item->name_watch_id > 0) {
+		g_bus_unwatch_name(item->name_watch_id);
+		item->name_watch_id = 0;
+	}
+
+	g_free(item->service);
+	g_free(item->path);
+	g_free(item->menu_path);
+
+	tray_items = g_list_remove(tray_items, item);
+	g_free(item);
+}
+
+static gboolean remove_tray_item_idle(gpointer user_data) {
+	TrayItem *item = (TrayItem *)user_data;
+	remove_tray_item(item);
+	return G_SOURCE_REMOVE;
+}
+
+static void on_tray_service_vanished(GDBusConnection *conn, const gchar *name,
+									 gpointer user_data) {
+	(void)conn;
+	(void)name;
+	g_idle_add(remove_tray_item_idle, user_data);
 }
 
 static void log_sender_info(GDBusConnection *conn, const gchar *sender) {
@@ -362,6 +403,9 @@ static void create_tray_widget(const char *service, const char *path) {
 		G_DBUS_SIGNAL_FLAGS_NONE, on_item_signal, item, NULL);
 
 	tray_items = g_list_append(tray_items, item);
+	item->name_watch_id = g_bus_watch_name_on_connection(
+		conn, service, G_BUS_NAME_WATCHER_FLAGS_NONE, NULL,
+		on_tray_service_vanished, item, NULL);
 }
 
 static gboolean create_tray_widget_idle(gpointer user_data) {
@@ -485,6 +529,7 @@ static void on_bus_acquired(GDBusConnection *connection, const gchar *name,
 	g_dbus_connection_emit_signal(connection, NULL, "/StatusNotifierWatcher",
 								  "org.kde.StatusNotifierWatcher",
 								  "StatusNotifierHostRegistered", NULL, NULL);
+	register_existing_tray_items(connection);
 }
 
 static void init_tray_host(void) {
@@ -505,7 +550,51 @@ static void on_toggle_visibility(GtkMenuItem *item, gpointer user_data) {
 		state->is_visible = TRUE;
 	}
 }
+static void register_existing_tray_items(GDBusConnection *conn) {
+	GError *err = NULL;
+	GVariant *reply = g_dbus_connection_call_sync(
+		conn, "org.freedesktop.DBus", "/org/freedesktop/DBus",
+		"org.freedesktop.DBus", "ListNames",
+		NULL, G_VARIANT_TYPE("(as)"),
+		G_DBUS_CALL_FLAGS_NONE, -1, NULL, &err);
 
+	if (!reply) {
+		if (err)
+			g_error_free(err);
+		return;
+	}
+
+	GVariantIter *iter = NULL;
+	g_variant_get(reply, "(as)", &iter);
+	const gchar *name = NULL;
+
+	while (g_variant_iter_loop(iter, "&s", &name)) {
+		if (g_str_has_prefix(name, "org.kde.StatusNotifierItem-") ||
+			g_str_has_prefix(name, ":")) {
+			/* Check if service exports the SNI interface */
+			GDBusProxy *test_proxy = g_dbus_proxy_new_for_bus_sync(
+				G_BUS_TYPE_SESSION, G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES,
+				NULL, name, "/StatusNotifierItem",
+				"org.kde.StatusNotifierItem", NULL, NULL);
+
+			if (test_proxy) {
+				gchar *test_id = g_dbus_proxy_get_cached_property(test_proxy, "Id")
+					? g_variant_dup_string(g_dbus_proxy_get_cached_property(test_proxy, "Id"), NULL)
+					: NULL;
+
+				/* If it answers or provides an ID, register the widget */
+				if (test_id || g_str_has_prefix(name, "org.kde.StatusNotifierItem-")) {
+					create_tray_widget(name, "/StatusNotifierItem");
+				}
+				g_free(test_id);
+				g_object_unref(test_proxy);
+			}
+		}
+	}
+
+	g_variant_iter_free(iter);
+	g_variant_unref(reply);
+}
 static void setup_siclone_tray_indicator(AppState *state) {
 	if (state->indicator) {
 		return;
@@ -750,9 +839,8 @@ static void update_x11_window_position(AppState *state) {
 int main(int argc, char **argv) {
 	gtk_init(&argc, &argv);
 
-	ConfigSettings settings;
-	read_config_settings("~/.siclonerc", &settings);
-	apply_user_styles(&settings);
+	read_config_settings("~/.siclonerc", &app_state.settings);
+	apply_user_styles(&app_state.settings);
 
 	app_state.window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	app_state.is_visible = TRUE;

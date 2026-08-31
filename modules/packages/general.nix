@@ -33,6 +33,7 @@
 			j4-dmenu-desktop
 			bemenu
 			tigervnc
+			codeium
 			(pkgs.callPackage ../../pkgs/boomer { })
 			(pkgs.callPackage ../../pkgs/siclone { })
 		];
