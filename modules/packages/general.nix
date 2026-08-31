@@ -6,7 +6,7 @@
 			krita
 			protontricks
 			(pkgs.emacs.override {
-				withGTK3 = false;
+				withGTK3 = true;
 				withNativeCompilation = true;
 			})
 			kitty
