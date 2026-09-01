@@ -1,7 +1,7 @@
 { self, ... }:
 {
 	flake.modules.homeManager.dice = { user, ... }: {
-		imports = with self.homeManagerModules; [
+		imports = with self.modules.homeManager; [
 			gtk-qt
 			programs-mimeapps
 			symlinks

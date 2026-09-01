@@ -1,10 +1,17 @@
-{ inputs, self, ... }: let
+{ inputs, self, ... }:
+let
 	system = "x86_64-linux";
 	user = "dice";
-in {
+in
+{
 	flake.nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
 		specialArgs = {
-			inherit inputs self system user;
+			inherit
+				inputs
+				self
+				system
+				user
+				;
 		};
 		modules = [
 			# 1. Host-specific hardware / config
@@ -22,12 +29,12 @@ in {
 					nvidia = true; # or true
 				};
 			}
-				
+
 			# Host settings
 			({ ... }: {
 				nixpkgs.hostPlatform = "x86_64-linux";
 				networking.hostName = "nixos";
-					
+
 				home-manager = {
 					useUserPackages = true;
 					useGlobalPkgs = true;
@@ -41,7 +48,8 @@ in {
 					users.${user} = { };
 				};
 			})
-		] ++ (with self.nixosModules; [
+		]
+		++ (with self.nixosModules; [
 			# groups
 			group-base
 			group-inputs
