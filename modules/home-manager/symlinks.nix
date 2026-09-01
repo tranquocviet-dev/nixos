@@ -1,6 +1,6 @@
 { ... }:
 {
-	flake.homeManagerModules.symlinks = { config, ... }:
+	flake.modules.homeManager.symlinks = { config, ... }:
 		let
 			useDoom = true; # Set to true for Doom Emacs, false for Vanilla
 

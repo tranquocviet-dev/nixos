@@ -1,5 +1,5 @@
 { ... }: {
-	flake.homeManagerModules.umbriel =
+	flake.modules.homeManager.umbriel =
 		{ inputs, lib, ... }:
 		let
 			workspaceBinds = lib.listToAttrs (

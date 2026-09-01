@@ -1,6 +1,6 @@
 { ... }:
 {
-	flake.homeManagerModules.programs-mimeapps =
+	flake.modules.homeManager.programs-mimeapps =
 		{ ... }:
 		let
 			imageViewer = "imv.desktop";

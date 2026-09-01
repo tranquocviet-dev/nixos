@@ -36,7 +36,7 @@ in {
 					};
 					sharedModules = [
 						inputs.nvf.homeManagerModules.default
-						self.homeManagerModules.dice
+						self.modules.homeManager.dice
 					];
 					users.${user} = { };
 				};

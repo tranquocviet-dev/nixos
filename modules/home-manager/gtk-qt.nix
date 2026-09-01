@@ -1,6 +1,6 @@
 { ... }:
 {
-	flake.homeManagerModules.gtk-qt =
+	flake.modules.homeManager.gtk-qt =
 		{ pkgs, ... }:
 		let
 			mizuki-cursor = pkgs.stdenv.mkDerivation {
