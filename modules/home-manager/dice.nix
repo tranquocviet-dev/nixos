@@ -5,6 +5,7 @@
 			gtk-qt
 			programs-mimeapps
 			symlinks
+			umbriel
 		]);
 		home.username = "${user}";
 		home.homeDirectory = "/home/${user}";
