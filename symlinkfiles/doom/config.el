@@ -34,22 +34,22 @@
 
 ;; Map CJK characters to JuliaMono (adjust to TC, HK, JP, or KR if preferred)
 (defun my/setup-cjk-font ()
-	(dolist (script '(han kana hangul cjk-misc bopomofo))
-		(set-fontset-font t script (font-spec :family "Noto Sans Mono CJK SC"))))
+  (dolist (script '(han kana hangul cjk-misc bopomofo))
+    (set-fontset-font t script (font-spec :family "Noto Sans Mono CJK SC"))))
 
 ;; Match visual height: Noto Sans CJK often renders slightly taller than IBM Plex Mono
 (setq face-font-rescale-alist '(("Noto Sans Mono CJK SC" . 0.92)))
 
 ;; Configure nerd-icons to use the symbols-only font
 (after! nerd-icons
-	(setq nerd-icons-font-family "Symbols Nerd Font Mono"))
+  (setq nerd-icons-font-family "Symbols Nerd Font Mono"))
 
 ;; Route Nerd Font Unicode Private Use Area (PUA) codepoints to fallback font
 (defun my/setup-nerd-font-symbols ()
-	(dolist (range '((#xe000 . #xf8ff)       ; Standard PUA
-	                 (#xf0000 . #xffffd)     ; Supplementary PUA-A
-	                 (#x100000 . #x10fffd))) ; Supplementary PUA-B
-		(set-fontset-font t range (font-spec :family "Symbols Nerd Font Mono"))))
+  (dolist (range '((#xe000 . #xf8ff)       ; Standard PUA
+	           (#xf0000 . #xffffd)     ; Supplementary PUA-A
+	           (#x100000 . #x10fffd))) ; Supplementary PUA-B
+    (set-fontset-font t range (font-spec :family "Symbols Nerd Font Mono"))))
 
 ;; Hook setups into Doom after frame initialization
 (add-hook 'doom-after-init-hook #'my/setup-cjk-font)
@@ -58,7 +58,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'noctalia)
+(setq doom-theme 'doom-oksolar-dark)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -100,7 +100,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 (after! (flycheck org)
-	(setq-default flycheck-disabled-checkers
+  (setq-default flycheck-disabled-checkers
 		(delq 'org-lint flycheck-disabled-checkers)))
 (after! eglot
   (add-to-list 'eglot-server-programs
@@ -123,61 +123,61 @@
 
 ;; Ensure major modes respect tab-width
 (add-hook! 'prog-mode-hook
-	(setq indent-tabs-mode t
-		tab-width 4))
+  (setq indent-tabs-mode t
+	tab-width 4))
 ;; Stop whitespace-mode from showing tabs as '>'
 (after! whitespace
-	(setq whitespace-style '(face trailing-whitespace)))
+  (setq whitespace-style '(face trailing-whitespace)))
 
 ;; Configure VS Code-like vertical bars
 (after! highlight-indent-guides
-	(setq highlight-indent-guides-method 'character
-		highlight-indent-guides-character ?│
-		highlight-indent-guides-responsive 'top))
+  (setq highlight-indent-guides-method 'character
+	highlight-indent-guides-character ?│
+	highlight-indent-guides-responsive 'top))
 (after! org
-	(setq org-agenda-files '("~/org")))
+  (setq org-agenda-files '("~/org")))
 (after! org-capture
-	(defun +zettelkasten-slugify (str)
-		"Format a title string for filenames."
-		(replace-regexp-in-string "[/\\:*?\"<>|]" "-" str))
+  (defun +zettelkasten-slugify (str)
+    "Format a title string for filenames."
+    (replace-regexp-in-string "[/\\:*?\"<>|]" "-" str))
 
-	(setq org-capture-templates
-		'(("r" "Reminder / Task" entry
-				(file+headline "~/org/reminder.org" "Reminders")
-				"* TODO %?\nSCHEDULED: %^t\n:PROPERTIES:\n:CREATED: %U\n:END:\n"
-				:empty-lines 1)
+  (setq org-capture-templates
+	'(("r" "Reminder / Task" entry
+	   (file+headline "~/org/reminder.org" "Reminders")
+	   "* TODO %?\nSCHEDULED: %^t\n:PROPERTIES:\n:CREATED: %U\n:END:\n"
+	   :empty-lines 1)
 
-			("z" "Zettelkasten")
+	  ("z" "Zettelkasten")
 
-			;; Fleeting Note: Auto-named with timestamp, no prompt
-			("zf" "Fleeting Note" plain
-				(file (lambda ()
-					(let ((filename (format-time-string "%d-%m-%Y %H-%M-%S.org")))
-						(expand-file-name filename "~/org/zettelkasten/fleeting"))))
-				"#+title: Fleeting Note %<%d-%m-%Y %H:%M:%S>\n#+date: %U\n#+filetags: :fleeting:\n\n%?"
-				:empty-lines 1)
+	  ;; Fleeting Note: Auto-named with timestamp, no prompt
+	  ("zf" "Fleeting Note" plain
+	   (file (lambda ()
+		   (let ((filename (format-time-string "%d-%m-%Y %H-%M-%S.org")))
+		     (expand-file-name filename "~/org/zettelkasten/fleeting"))))
+	   "#+title: Fleeting Note %<%d-%m-%Y %H:%M:%S>\n#+date: %U\n#+filetags: :fleeting:\n\n%?"
+	   :empty-lines 1)
 
-			;; Literature Note: Summaries/notes from books, papers, articles
-			("zl" "Literature Note" plain
-				(file (lambda ()
-					(let ((date (format-time-string "%d-%m-%Y"))
-							(title (read-string "Note name: ")))
-						(expand-file-name
-							(format "%s %s.org" date (+zettelkasten-slugify title))
-							"~/org/zettelkasten/literature"))))
-				"#+title: %^{Title}\n#+date: %U\n#+filetags: :literature:\n#+author: %^{Author}\n#+source: %^{Source/URL}\n\n* Key Takeaways\n- %?\n\n* Summary\n\n* Quotes / References\n"
-				:empty-lines 1)
+	  ;; Literature Note: Summaries/notes from books, papers, articles
+	  ("zl" "Literature Note" plain
+	   (file (lambda ()
+		   (let ((date (format-time-string "%d-%m-%Y"))
+			 (title (read-string "Note name: ")))
+		     (expand-file-name
+		      (format "%s %s.org" date (+zettelkasten-slugify title))
+		      "~/org/zettelkasten/literature"))))
+	   "#+title: %^{Title}\n#+date: %U\n#+filetags: :literature:\n#+author: %^{Author}\n#+source: %^{Source/URL}\n\n* Key Takeaways\n- %?\n\n* Summary\n\n* Quotes / References\n"
+	   :empty-lines 1)
 
-			;; Permanent Note: Atomic, refined, self-contained knowledge
-			("zp" "Permanent Note" plain
-				(file (lambda ()
-					(let ((date (format-time-string "%d-%m-%Y"))
-							(title (read-string "Note name: ")))
-						(expand-file-name
-							(format "%s %s.org" date (+zettelkasten-slugify title))
-							"~/org/zettelkasten/permanent"))))
-				"#+title: %^{Title}\n#+date: %U\n#+filetags: :permanent:\n\n* Concept\n%?\n\n* Related Notes\n- \n\n* References\n- "
-				:empty-lines 1))))
+	  ;; Permanent Note: Atomic, refined, self-contained knowledge
+	  ("zp" "Permanent Note" plain
+	   (file (lambda ()
+		   (let ((date (format-time-string "%d-%m-%Y"))
+			 (title (read-string "Note name: ")))
+		     (expand-file-name
+		      (format "%s %s.org" date (+zettelkasten-slugify title))
+		      "~/org/zettelkasten/permanent"))))
+	   "#+title: %^{Title}\n#+date: %U\n#+filetags: :permanent:\n\n* Concept\n%?\n\n* Related Notes\n- \n\n* References\n- "
+	   :empty-lines 1))))
 
 (after! apheleia
   ;; Nix: nixfmt converted to hard tabs (2-space base)
@@ -198,29 +198,10 @@
 (setq-default tab-width 4)
 
 (after! cc-mode
-	(setq-default c-basic-offset 4)
-	(c-set-offset 'case-label '+)
-	(add-hook 'c-mode-common-hook
-		(lambda ()
-			(setq indent-tabs-mode t)
-			(setq tab-width 4)
-			(setq c-basic-offset 4))))
-
-(use-package! codeium
-	:defer t
-	:init
-	;; Add codeium to completion-at-point functions in programming buffers
-	(add-hook 'prog-mode-hook
-		(lambda ()
-			(setq-local completion-at-point-functions
-				(cons #'codeium-completion-at-point completion-at-point-functions))))
-	:config
-	;; Point to the NixOS-patched binary rather than ~/.emacs.d/.local/cache/...
-	(setq codeium-command-executable (executable-find "codeium_language_server"))
-
-	;; Optional performance tweak: limit the context buffer sent to Codeium
-	(defun my-codeium/document/text ()
-		(buffer-substring-no-properties
-			(max (- (point) 3000) (point-min))
-			(min (+ (point) 1000) (point-max))))
-	(setq codeium/document/text #'my-codeium/document/text))
+  (setq-default c-basic-offset 4)
+  (c-set-offset 'case-label '+)
+  (add-hook 'c-mode-common-hook
+	    (lambda ()
+	      (setq indent-tabs-mode t)
+	      (setq tab-width 4)
+	      (setq c-basic-offset 4))))

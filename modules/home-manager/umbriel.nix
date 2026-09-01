@@ -33,6 +33,49 @@
 							0.5
 							1.0
 						];
+						scrolling = {
+							default_width_fraction = 0.5;
+							expand_single_column = true;
+						};
+					};
+					animation = {
+						windows_in = {
+							enabled = true;
+							duration_ms = 250;
+							curve = "easeout";
+							style = "popin";
+							scale = 0.6;
+						};
+
+						windows_out = {
+							enabled = true;
+							duration_ms = 250;
+							curve = "easeout";
+							style = "fade";
+						};
+
+						windows_move = {
+							curve = "snappy";
+						};
+
+						workspaces = {
+							enabled = true;
+							duration_ms = 250;
+							curve = "snappy";
+						};
+
+						scratchpad = {
+							enabled = true;
+							duration_ms = 250;
+							curve = "easeout";
+							dim = 0.2;
+						};
+
+						border = {
+							enabled = true;
+							duration_ms = 250;
+							curve = "easeout";
+						};
 					};
 					input = {
 						mouse = {
@@ -95,7 +138,6 @@
 							action = "spawn:noctalia msg brightness-down";
 							allow_when_locked = true;
 						};
-
 						"Mod+Return" = "spawn:kitty";
 						"Mod+Q" = "window-close";
 						"Mod+Ctrl+Left" = "window-focus-left";
@@ -105,6 +147,7 @@
 						"Mod+Shift+S" = "window-move-to-scratchpad";
 						"Mod+Shift+Space" = "scratchpad-toggle";
 						"Mod+Shift+W" = "window-restore-from-scratchpad";
+						"Mod+V" = "window-toggle-floating";
 						"Mod+O" = "overview-toggle";
 						"Mod+F" = "window-cycle-width";
 						"Mod+Shift+F" = "window-toggle-fullscreen";
